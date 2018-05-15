@@ -1,0 +1,70 @@
+@import '../App/variables'
+
+.container
+    background: url('../../assets/scheme-bg.jpg') no-repeat 50% 50%
+    background-size: cover
+    background-attachment: fixed
+    padding: 30px $container-padding-ultra-large 55px
+    @media (max-width: $breakpoint-extra-large-max)
+        padding-left: $container-padding-extra-large
+        padding-right: $container-padding-extra-large
+    @media (max-width: $breakpoint-large-max)
+        padding-left: $container-padding-large
+        padding-right: $container-padding-large
+    @media (max-width: $breakpoint-medium-max)
+        padding: 16px $container-padding-medium 52px
+        background: #6d4a25
+        position: relative
+        &::before
+            content: ''
+            position: absolute
+            right: 0
+            top: -79px
+            width: 155px
+            height: 192px
+            background: url(../../assets/twig-right.png) no-repeat 50% 50%
+            background-size: cover
+    @media (max-width: $breakpoint-extra-small-max)
+        padding-top: 31px
+        padding-bottom: 35px
+        &::before
+            display: none
+
+.title
+    text-align: center
+    margin-bottom: 36px
+    @media (max-width: $breakpoint-medium-max)
+        margin-bottom: 22px
+    @media (max-width: $breakpoint-extra-small-max)
+        margin-bottom: 44px
+    span
+        display: inline-block
+        color: #ffffff
+        font-size: 34px
+        letter-spacing: 0.34px
+        background-color: rgba(#4b3625, 0.9)
+        line-height: 1
+        padding: 20px 42px
+        @media (max-width: $breakpoint-medium-max)
+            font-size: 27px
+            letter-spacing: 0.28px
+            background: #6d4a25
+        @media (max-width: $breakpoint-extra-small-max)
+            font-size: 26px
+            letter-spacing: 0
+
+.grid
+    margin-left: -19px
+    margin-right: -6px
+    > *
+        padding-left: 30px
+    @media (max-width: $breakpoint-medium-max)
+        margin-left: -14px
+        margin-right: -11px
+        > *
+            padding-left: 10px
+    @media (max-width: $breakpoint-extra-small-max)
+        margin-left: -50px
+        > *
+            padding-left: 60px
+            padding-bottom: 28px

@@ -1,0 +1,138 @@
+// 1. Your custom variables and variable overwrites.
+$breakpoint-xlarge: $breakpoint-extra-large
+$breakpoint-xsmall-max: $breakpoint-extra-small-max
+$breakpoint-large-max: $breakpoint-large-max
+
+$form-radio-size: 18px
+$form-radio-background: #fff
+$form-height: 43px
+$form-padding-horizontal: 15px
+$form-color: #666666
+$form-background: #fff
+$form-focus-background: #fff
+$global-border: #d4d4d4
+$form-danger-color: #fc3b5a
+$form-success-color: #000000
+
+// 2. Import default variables and available mixins.
+@import "../../../node_modules/uikit/src/scss/variables.scss"
+@import "../../../node_modules/uikit/src/scss/mixins.scss"
+
+// 3. Your custom mixin overwrites.
+=hook-form()
+    font-size: 14px
+    border-radius: 2px
+    border: 1px solid $global-border
+    transition: 0.2s ease-in-out
+    transition-property: color, background-color, border, box-shadow
+    &:invalid
+        box-shadow: none
+
+=hook-form-focus()
+    border-color: #bbb2b2
+    box-shadow: 0 0 0 1px #bbb2b2
+    color: #000000
+    &.uk-form-success
+        border-color: #bbb2b2
+
+=hook-form-disabled()
+    border-color: $global-border
+
+=hook-form-danger()
+    &.uk-input,
+    &.uk-select,
+    &.uk-textarea,
+    &.uk-radio,
+    &.uk-checkbox
+        background-color: #fed8de
+        border-color: #fc3b5a
+        box-shadow: 0 0 0 1px #fc3b5a
+
+=hook-form-success()
+    border-color: #727070
+
+=hook-form-blank()
+    border-color: transparent
+
+=hook-form-blank-focus()
+    border-color: $global-border
+    border-style: dashed
+
+=hook-form-radio()
+    border-radius: 2px
+    border: $global-border-width solid darken($global-border, 10%)
+    transition: 0.2s ease-in-out
+    transition-property: background-color, border
+    position: relative
+    overflow: visible
+    &::before
+        content: ''
+        opacity: 0
+        transition: opacity 0.2s ease-in-out
+        display: block
+        position: absolute
+        right: -4px
+        top: -4px
+        width: 21px
+        height: 19px
+        background: url('../../assets/check.svg') no-repeat 50% 50%
+
+=hook-form-radio-focus()
+    border-color: $global-primary-background
+
+=hook-form-radio-checked()
+    background-color: $form-radio-background
+    background-image: none
+    &::before
+        opacity: 1
+
+=hook-form-radio-checked-focus()
+    background-color: $form-radio-background
+    background-image: none
+
+=hook-form-radio-disabled()
+    border-color: $global-border
+
+=hook-form-label()
+    color: $global-emphasis-color
+    font-size: $global-small-font-size
+
+// 4. Import UIkit
+@import "../../../node_modules/uikit/src/scss/components/base.scss"
+
+// Layout
+@import "../../../node_modules/uikit/src/scss/components/grid.scss"
+
+// Additional
+@import "../../../node_modules/uikit/src/scss/components/tooltip.scss"
+@import "../../../node_modules/uikit/src/scss/components/notification.scss"
+
+// Utilities
+@import "../../../node_modules/uikit/src/scss/components/animation.scss"
+@import "../../../node_modules/uikit/src/scss/components/width.scss"
+@import "../../../node_modules/uikit/src/scss/components/text.scss"
+@import "../../../node_modules/uikit/src/scss/components/column.scss"
+@import "../../../node_modules/uikit/src/scss/components/cover.scss"
+@import "../../../node_modules/uikit/src/scss/components/background.scss"
+@import "../../../node_modules/uikit/src/scss/components/align.scss"
+@import "../../../node_modules/uikit/src/scss/components/utility.scss"
+@import "../../../node_modules/uikit/src/scss/components/flex.scss" // After: Utility
+@import "../../../node_modules/uikit/src/scss/components/margin.scss"
+@import "../../../node_modules/uikit/src/scss/components/padding.scss"
+@import "../../../node_modules/uikit/src/scss/components/position.scss"
+@import "../../../node_modules/uikit/src/scss/components/transition.scss"
+@import "../../../node_modules/uikit/src/scss/components/visibility.scss"
+@import "../../../node_modules/uikit/src/scss/components/inverse.scss"
+
+// Components
+@import "../../../node_modules/uikit/src/scss/components/icon.scss"
+@import "../../../node_modules/uikit/src/scss/components/form-range.scss"
+@import "../../../node_modules/uikit/src/scss/components/form.scss" // After: Icon, Form Range
+@import "../../../node_modules/uikit/src/scss/components/close.scss" // After: Icon
+@import "../../../node_modules/uikit/src/scss/components/modal.scss" // After: Close
+@import "../../../node_modules/uikit/src/scss/components/lightbox.scss" // After: Close
+@import "../../../node_modules/uikit/src/scss/components/slideshow.scss"
+@import "../../../node_modules/uikit/src/scss/components/slider.scss"
+
+// Need to be loaded last
+@import "../../../node_modules/uikit/src/scss/components/print.scss"

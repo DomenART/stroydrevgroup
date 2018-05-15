@@ -1,0 +1,238 @@
+@import '../App/variables'
+
+.container
+    padding-top: 80px
+    @media (max-width: $breakpoint-medium-max)
+        padding-top: 38px
+    @media (max-width: $breakpoint-extra-small-max)
+        padding-top: 28px
+
+.title
+    color: #000000
+    font-size: 34px
+    line-height: 1
+    letter-spacing: 0.34px
+    text-align: center
+    margin-bottom: 42px
+    @media (max-width: $breakpoint-medium-max)
+        font-size: 28px
+        letter-spacing: 0.28px
+        margin-bottom: 34px
+    @media (max-width: $breakpoint-extra-small-max)
+        font-size: 26px
+        margin-bottom: 25px
+
+.filter
+    background-color: #f1f2f4
+    padding: 17px $container-padding-ultra-large - $container-padding-small
+    display: flex
+    align-items: center
+    margin-bottom: 23px
+    // grid-template-columns: auto auto 1fr
+    // grid-gap: 35px
+    @media (max-width: $breakpoint-extra-large-max)
+        padding-left: $container-padding-extra-large - $container-padding-small
+        padding-right: $container-padding-extra-large - $container-padding-small
+    @media (max-width: $breakpoint-large-max)
+        padding-left: $container-padding-large - $container-padding-small
+        padding-right: $container-padding-large - $container-padding-small
+        justify-content: space-between
+    @media (max-width: $breakpoint-medium-max)
+        padding: 13px $container-padding-medium - $container-padding-extra-small
+        margin-bottom: 16px
+    @media (max-width: $breakpoint-extra-small-max)
+        flex-wrap: wrap
+        padding-top: 19px
+        padding-bottom: 16px
+        margin-bottom: 4px
+
+.label
+    color: #333333
+    font-size: 16px
+    font-weight: 600
+    line-height: 1
+    letter-spacing: .1px
+    margin-right: 35px
+    @media (max-width: $breakpoint-medium-max)
+        font-size: 14px
+        letter-spacing: 0.35px
+        margin-right: 17px
+    @media (max-width: $breakpoint-extra-small-max)
+        width: 100%
+        margin-bottom: 9px
+
+.inputs
+    display: flex
+    margin-right: 95px
+    @media (max-width: $breakpoint-extra-large-max)
+        margin-right: 35px
+    @media (max-width: $breakpoint-medium-max)
+        margin-right: 77px
+        flex-grow: 1
+    @media (max-width: $breakpoint-extra-small-max)
+        margin-right: 17px
+
+@media (min-width: $breakpoint-large)
+    .input
+        margin-left: 40px
+        &:first-child
+            margin-left: 0
+        input
+            display: none
+            &:checked
+                & + div
+                    span
+                        svg
+                            display: block
+        > div
+            display: inline-block
+            color: #010101
+            font-size: 16px
+            font-weight: 700
+            cursor: pointer
+            div
+                display: inline-block
+            span
+                display: inline-block
+                width: 24px
+                height: 24px
+                border: 2px solid #dfdada
+                background-color: #ffffff
+                position: relative
+                color: #006699
+                font-size: 20px
+                border-radius: 3px
+                box-sizing: border-box
+                cursor: pointer
+                vertical-align: middle
+                top: -2px
+                margin-right: 6px
+                svg
+                    display: none
+                    width: 19px
+                    height: 19px
+                    position: absolute
+                    left: 50%
+                    top: 50%
+                    transform: translate(-50%, -50%)
+
+@media (max-width: $breakpoint-medium-max)
+    .input
+        margin-left: 7px
+        &:first-child
+            margin-left: 0
+        input
+            display: none
+            &:checked
+                & + div
+                    border: 2px solid #f9d384
+                    background-color: #fff297
+        > div
+            display: inline-block
+            border: 2px solid #dfdada
+            background-color: #ffffff
+            border-radius: 5px
+            padding: 0 7px
+            font-size: 14px
+            line-height: 28px
+            color: #010101
+            font-weight: 700
+            height: 32px
+            white-space: nowrap
+            cursor: pointer
+            box-sizing: border-box
+            div
+                display: inline-block
+            span
+                display: none
+
+.reset
+
+.resetButton
+    line-height: 28px
+    border: 1px solid #cccccc
+    background-color: #f5f5f5
+    padding: 0 12px
+    color: #333333
+    font-size: 10px
+    font-weight: 700
+    text-transform: uppercase
+    letter-spacing: 0.25px
+    border-radius: 15px
+    @media (max-width: $breakpoint-large-max)
+        margin-left: 0
+    @media (max-width: $breakpoint-extra-small-max)
+        padding: 0 6px
+        vertical-align: middle
+        top: -2px
+        position: relative
+        line-height: 25px
+    span
+        @media (max-width: $breakpoint-extra-small-max)
+            display: none
+    svg
+        width: 13px
+        height: 13px
+        fill: #999999
+        margin-right: 5px
+        vertical-align: middle
+        position: relative
+        top: -1px
+        @media (max-width: $breakpoint-extra-small-max)
+            margin-right: 0
+    &:hover
+        cursor: pointer
+        color: #ffffff
+        border-color: #d5c5a5
+        background-color: #c5b593
+        svg
+            fill: #fff
+
+.projects
+    padding-left: $container-padding-ultra-large - $container-padding-small - 22px
+    padding-right: $container-padding-ultra-large - $container-padding-small - 22px
+    display: grid
+    grid-template-columns: repeat(auto-fill, minmax(340px, 1fr))
+    grid-gap: 10px
+    @media (max-width: $breakpoint-extra-large-max)
+        padding-left: $container-padding-extra-large - $container-padding-small - 22px
+        padding-right: $container-padding-extra-large - $container-padding-small - 22px
+    @media (max-width: $breakpoint-large-max)
+        padding-left: $container-padding-large - $container-padding-small - 22px
+        padding-right: $container-padding-large - $container-padding-small - 22px
+    @media (max-width: $breakpoint-medium-max)
+        padding-left: $container-padding-medium - $container-padding-extra-small - 12px
+        padding-right: $container-padding-medium - $container-padding-extra-small - 12px
+    @media (max-width: $breakpoint-extra-small-max)
+        margin-left: -$container-padding-extra-small
+        margin-right: -$container-padding-extra-small
+        grid-gap: 0
+        grid-template-columns: 100%
+
+.allWrap
+    padding: 45px 0
+    text-align: center
+    @media (max-width: $breakpoint-medium-max)
+        padding: 65px 0 40px
+    @media (max-width: $breakpoint-extra-small-max)
+        padding: 24px 0
+
+.allBtn
+    display: inline-block
+    text-decoration: none
+    line-height: 50px
+    border: 3px solid #eaeaea
+    background-color: #ffffff
+    border-radius: 30px
+    padding: 0 35px
+    color: #666666
+    font-size: 16px
+    font-weight: 700
+    transition: all ease .3s
+    @media (max-width: $breakpoint-extra-small-max)
+        line-height: 42px
+        padding: 0 18px
+    &:hover
+        text-decoration: none
+        color: #333333
+        border-color: #cccccc

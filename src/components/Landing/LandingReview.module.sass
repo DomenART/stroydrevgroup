@@ -1,0 +1,72 @@
+@import '../App/variables'
+
+.item
+
+.media
+    margin-bottom: 27px
+    padding-bottom: 62%
+    position: relative
+    overflow: hidden
+    @media (max-width: $breakpoint-extra-small-max)
+        margin-bottom: 8px
+
+.info
+    position: relative
+    padding-left: 67px
+    padding-right: 20px
+    @media (max-width: $breakpoint-extra-small-max)
+        padding-left: 44px
+
+.quote
+    position: absolute
+    left: 12px
+    top: 0
+    width: 35px
+    height: 35px
+    fill: #ffd251
+    @media (max-width: $breakpoint-extra-small-max)
+        left: -2px
+
+.name
+    color: #b76a42
+    font-size: 18px
+    font-weight: 700
+    line-height: 1
+    margin-bottom: 4px
+
+.address
+    color: #999999
+    font-size: 14px
+    line-height: 1
+    margin-bottom: 18px
+    @media (max-width: $breakpoint-extra-small-max)
+        margin-bottom: 20px
+
+.content
+    color: #666666
+    font-size: 14px
+    line-height: 18px
+    margin-bottom: 24px
+    @media (max-width: $breakpoint-extra-small-max)
+        margin-left: -44px
+        line-height: 20px
+        margin-bottom: 22px
+
+.more
+    margin: 0 -5px
+    padding: 0 16px
+    @media (max-width: $breakpoint-extra-small-max)
+        margin-left: -44px
+        padding: 0 7px 0 12px
+        span
+            display: none
+    svg
+        width: 15px
+        height: 15px
+        fill: #999999
+        vertical-align: middle
+        position: relative
+        top: -1px
+    &:hover
+        svg
+            fill: #ffffff

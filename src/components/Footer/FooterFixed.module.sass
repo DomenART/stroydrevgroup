@@ -1,0 +1,129 @@
+@import '../App/variables'
+
+.placeholder
+    position: relative
+
+@media (min-width: $breakpoint-small)
+    .footer
+        position: absolute
+        background-color: rgba(51, 51, 51, 0.8)
+        padding: 8px 0
+        z-index: 150
+        left: 0
+        right: 0
+        bottom: 0
+        transition: transform ease .3s
+        box-sizing: border-box
+        @media (max-width: $breakpoint-medium-max)
+            display: flex
+            justify-content: space-between
+        &_fixed
+            position: fixed
+            left: 0
+            bottom: 0
+            right: 0
+            padding-left: $sidebar-width
+            @media (max-width: $breakpoint-large-max)
+                padding-left: $bar-width
+        &_shift
+            @media (max-width: $breakpoint-medium-max)
+                transform: translateX($drawer-width)
+
+@media (max-width: $breakpoint-extra-small-max)
+    .footer
+        position: relative
+        background-color: #333c
+        display: flex
+        flex-direction: column
+        align-items: center
+        box-sizing: border-box
+
+.menu
+    padding: 0
+    margin: 0
+    display: flex
+    justify-content: center
+    @media (max-width: $breakpoint-extra-small-max)
+        flex-direction: column
+        align-items: center
+        margin-bottom: 7px
+        margin-top: 10px
+    li
+        list-style: none
+        display: block
+        margin: 0 10px
+        @media (max-width: $breakpoint-extra-small-max)
+            margin: 8px 0
+        a
+            border: 1px solid transparent
+            border-radius: 15px
+            display: block
+            text-decoration: none
+            color: #cccccc
+            font-size: 14px
+            line-height: 24px
+            letter-spacing: 0.07px
+            padding: 0 15px
+            &:hover,
+            &.active
+                text-decoration: none
+                border-color: rgba(204, 204, 204, 0.5)
+                color: #e4e4e4
+
+.email
+    position: absolute
+    color: #cccccc
+    font-size: 14px
+    line-height: 26px
+    white-space: nowrap
+    text-decoration: none
+    letter-spacing: -.1px
+    right: $container-padding-ultra-large
+    top: 50%
+    transform: translateY(-50%)
+    @media (max-width: $breakpoint-extra-large-max)
+        right: $container-padding-extra-large
+    @media (max-width: $breakpoint-large-max)
+        right: $container-padding-large
+    @media (max-width: $breakpoint-medium-max)
+        position: relative
+        top: auto
+        right: 18px
+        transform: none
+    @media (max-width: $breakpoint-extra-small-max)
+        right: auto
+        background: #383838
+        text-align: center
+        width: 100%
+        padding: 8px 0
+    &:hover
+        color: #ffffff
+        text-decoration: none
+        .emailIcon
+            background-color: #fff
+
+.emailIcon
+    width: 16px
+    height: 16px
+    position: relative
+    background: #d1d1d1
+    border-radius: 50%
+    display: inline-block
+    vertical-align: middle
+    margin-right: 6px
+    @media (max-width: $breakpoint-medium-max)
+        margin-right: 0
+    @media (max-width: $breakpoint-extra-small-max)
+        margin-right: 10px
+    svg
+        fill: #000
+        position: absolute
+        left: 50%
+        top: 50%
+        transform: translate(-50%, -50%)
+        width: 10px
+        height: 10px
+
+.emailText
+    @media (min-width: $breakpoint-small) and (max-width: $breakpoint-medium-max)
+        display: none

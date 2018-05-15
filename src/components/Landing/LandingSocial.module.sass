@@ -1,0 +1,30 @@
+@import '../App/variables'
+
+.container
+    padding: 56px $container-padding-ultra-large
+    box-sizing: border-box
+    @media (max-width: $breakpoint-extra-large-max)
+        padding-left: $container-padding-extra-large
+        padding-right: $container-padding-extra-large
+    @media (max-width: $breakpoint-large-max)
+        padding-left: $container-padding-large
+        padding-right: $container-padding-large
+    @media (max-width: $breakpoint-medium-max)
+        padding: 56px $container-padding-medium
+    @media (min-width: $breakpoint-small) and (max-width: $breakpoint-medium-max)
+        display: none
+    @media (max-width: $breakpoint-extra-small-max)
+        height: 497px
+        background: #f7f8fb url(../../assets/geography-bg.png) no-repeat 100% 100%
+
+.title
+    color: #000000
+    font-size: 34px
+    font-weight: 400
+    line-height: 1
+    margin-bottom: 20px
+    margin: 0 0 30px
+    @media (max-width: $breakpoint-extra-small-max)
+        font-size: 26px
+        padding-bottom: 22px
+        border-bottom: 1px solid #d2d2d2

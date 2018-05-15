@@ -1,0 +1,244 @@
+@import '../App/variables'
+
+@media (min-width: $breakpoint-extra-large)
+    .main,
+    .second
+        margin: 0 0 5px
+        padding: 10px 0
+        border-bottom: 1px dotted #eae9e9
+        &:last-child
+            margin-bottom: 0
+            border-bottom: 0
+        > li
+            list-style: none
+            padding: 0 10px
+            > a
+                font-size: 16px
+                font-weight: 600
+                letter-spacing: 0.4px
+                display: block
+                border: 3px solid transparent
+                background-color: transparent
+                border-radius: 25px
+                text-decoration: none
+                position: relative
+                padding-right: 25px
+                transition: all ease .3s
+                &.active,
+                &:hover
+                    text-decoration: none
+                    border-color: #ffd251
+                    background-color: #ffffff
+                    .arrow
+                        background-color: #ffd251
+                        color: #000000
+            &:hover
+                > a
+                    text-decoration: none
+                    border-color: #ffd251
+                    background-color: #ffffff
+                    .arrow
+                        background-color: #ffd251
+                        color: #000000
+
+    .main
+        padding-bottom: 14px
+        > li
+            margin: 1px 0
+            &:first-child
+                margin-top: 0
+            &:last-child
+                margin-top: 0
+            > a
+                color: #000000
+                line-height: 1.45
+                text-transform: uppercase
+                padding: 8px 14px
+
+    .second
+        padding-bottom: 23px
+        > li
+            > a
+                color: #666666
+                line-height: 1.125
+                padding: 6px 14px
+
+    .inner
+        padding: 0
+        margin: 0
+        > li
+            list-style: none
+            border-bottom: 1px dotted #eae9e9
+            &:last-child
+                border-bottom: 0
+            > a
+                color: #000000
+                line-height: 1.45
+                text-transform: uppercase
+                padding: 12px
+                font-size: 16px
+                font-weight: 600
+                letter-spacing: 0.4px
+                display: block
+                background-color: transparent
+                text-decoration: none
+                transition: all ease .3s
+                &:hover
+                    background-color: #fcf4d7
+                    text-decoration: none
+
+    .expand
+        .children
+            opacity: 1
+            visibility: visible
+            transform: rotateY(0)
+
+    .arrow
+        position: absolute
+        width: 22px
+        height: 22px
+        box-sizing: border-box
+        background-color: transparent
+        top: 50%
+        right: 4px
+        transform: translateY(-50%)
+        border-radius: 100%
+        transition: all ease .3s
+        svg
+            fill: #4f4629
+            width: 12px
+            height: 12px
+            position: absolute
+            top: 50%
+            left: 50%
+            transform: translate(-50%, -50%)
+            margin-left: 1px
+
+    .children
+        opacity: 0
+        visibility: hidden
+        background: #eeeff0
+        position: absolute
+        left: 100%
+        top: 0
+        bottom: 0
+        width: 210px
+        transition: transform ease .3s, visibility ease .3s, opacity ease .3s
+        perspective: 500px
+        transform: rotateY(50deg)
+        transform-origin: 0 0
+
+@media (max-width: #{$breakpoint-large-max})
+    .main,
+    .inner,
+    .second
+        padding: 0
+        margin: 0 0 15px
+        > li
+            list-style: none
+            > a
+                display: block
+                font-size: 14px
+                font-weight: 700
+                line-height: 1.5
+                text-decoration: none
+                position: relative
+                &:hover
+                    text-decoration: none
+
+    .main
+        > li
+            &:nth-child(2n-1)
+                > a
+                    background-color: #fefcf4
+            > a
+                padding: 15px 60px 15px 40px
+                color: #1b1b1b
+                text-transform: uppercase
+                letter-spacing: 0.35px
+                border-bottom: 1px solid #f4efde
+                @media (max-width: $breakpoint-extra-small-max)
+                    padding-left: 23px
+                .arrow
+                    background-color: #faefd6
+                &:hover
+                    background-color: #fefcf4
+                    color: #1b1b1b
+                    .arrow
+                        background-color: #fde789
+            &.expand
+                > a
+                    background-color: #ffe892
+                    .arrow
+                        background-color: #fef5d0
+                        &::after
+                            display: none
+                    &:hover
+                        .arrow
+                            background-color: #fef5d0
+
+    .second
+        > li
+            > a
+                padding: 10px 60px 10px 50px
+                color: #4a4a4a
+                letter-spacing: 0.14px
+                @media (max-width: $breakpoint-extra-small-max)
+                    padding-left: 34px
+                &:hover
+                    background-color: #fefcf4
+                    color: #4a4a4a
+            &.expand
+                > a
+                    background-color: #ffe892
+                    span
+                        background-color: #fef5d0
+                        &::after
+                            display: none
+
+    .inner
+        margin: 0
+        border-bottom: 5px solid #ffe892
+        > li
+            > a
+                padding: 15px 60px 15px 50px
+                color: #2f2f2f
+                border-bottom: 1px dotted #e0e0e0
+                line-height: 18px
+                @media (max-width: $breakpoint-extra-small-max)
+                    padding-left: 39px
+                &:hover
+                    background-color: #fffbef
+                    color: #000000
+
+    .arrow
+        position: absolute
+        width: 35px
+        height: 35px
+        background-color: #f0f1f3
+        top: 50%
+        right: 15px
+        transform: translateY(-50%)
+        border-radius: 100%
+        transition: all ease .3s
+        &::before,
+        &::after
+            content: ''
+            background-color: #000
+            position: absolute
+            left: 50%
+            top: 50%
+            transform: translate(-50%, -50%)
+        &::before
+            width: 12px
+            height: 2px
+        &::after
+            width: 2px
+            height: 12px
+        svg
+            display: none
+
+    .children
+        display: none
+        .expand &
+            display: block

@@ -1,0 +1,89 @@
+@import '../App/variables'
+
+.container
+    background: url('../../assets/choice.jpg') no-repeat 50% 50%
+    background-size: cover
+    display: flex
+    align-items: center
+    padding: 160px $container-padding-ultra-large 100px
+    min-height: 100vh
+    box-sizing: border-box
+    min-height: initial
+    @media (max-width: $breakpoint-extra-large-max)
+        padding-left: $container-padding-extra-large
+        padding-right: $container-padding-extra-large
+    @media (max-width: $breakpoint-large-max)
+        padding-left: $container-padding-large
+        padding-right: $container-padding-large
+    @media (max-width: $breakpoint-medium-max)
+        padding: 96px $container-padding-medium 68px
+    @media (max-width: $breakpoint-small-max)
+        background-position: calc(100% + 58px) calc(50% - 70px)
+        background-size: auto 813px
+    @media (max-width: $breakpoint-extra-small-max)
+        display: none
+
+.left
+    text-align: center
+
+.title
+    text-shadow: 0 0 10px rgba(60, 47, 0, 0.49)
+    color: #ffffff
+    font-size: 48px
+    font-weight: 700
+    line-height: 1
+    text-transform: uppercase
+    margin-bottom: 82px
+    @media (max-width: $breakpoint-medium-max)
+        text-shadow: 0 0 10px rgba(60, 47, 0, 0.49)
+        color: #ffffff
+        font-weight: 800
+        font-size: 24px
+        line-height: 1
+        text-transform: uppercase
+        letter-spacing: 0.24px
+        margin-bottom: 56px
+
+.order
+    text-shadow: -1px -1px 0 rgba(0, 91, 95, 0.28)
+    cursor: pointer
+    transition: all ease .3s
+    color: #ffffff
+    font-size: 22px
+    font-weight: 700
+    line-height: 68px
+    margin-bottom: 20px !important
+    box-shadow: 0 6px 9px rgba(13, 11, 8, 0.27)
+    padding: 0 50px
+    border-radius: 35px
+    box-shadow: 0 6px 9px rgba(13, 11, 8, 0.27)
+    border: 1px solid #7bc8ed
+    background-image: linear-gradient(to top, #43ade5 0%, #beebf9 100%)
+    @media (max-width: $breakpoint-medium-max)
+        font-size: 16px
+        line-height: 48px
+        padding: 0 30px
+        border-radius: 25px
+        margin-bottom: 80px !important
+    &:hover
+        border-color: #4eb1e6
+        background-image: linear-gradient(to top, #1da5ee 0%, #ace7fa 100%)
+
+.text
+    background-color: rgba(242, 241, 223, .95)
+    padding: 75px 48px 95px
+    color: #000000
+    font-size: 18px
+    line-height: 30px
+    @media (max-width: $breakpoint-medium-max)
+        font-size: 14px
+        line-height: 22px
+        padding: 34px 25px 63px
+    p
+        margin-bottom: 60px
+        @media (max-width: $breakpoint-medium-max)
+            margin-bottom: 44px
+        &:first-child
+            margin-top: 0
+        &:last-child
+            margin-bottom: 0

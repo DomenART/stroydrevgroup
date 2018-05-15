@@ -1,0 +1,188 @@
+@import '../App/variables'
+
+.project
+    padding: 22px 22px 10px
+    background-color: #ffffff
+    transition: all ease .3s
+    box-sizing: border-box
+    @media (max-width: $breakpoint-medium-max)
+        padding: 12px
+    @media (max-width: $breakpoint-extra-small-max)
+        padding: $container-padding-medium
+        border-bottom: 1px solid #e1e3e8
+    &:hover
+        box-shadow: 0 0 4px rgba(0, 0, 0, 0.15)
+
+.image
+    margin-bottom: 12px
+    display: block
+    width: 100%
+    @media (max-width: $breakpoint-medium-max)
+        margin-bottom: 8px
+
+.name
+    font-size: 14px
+    font-weight: 700
+    text-transform: uppercase
+    line-height: 1.25
+    margin-top: 1px
+    a
+        color: #666666
+        text-decoration: none
+        &:hover
+            color: #010101
+            text-decoration: none
+
+.first
+    display: flex
+    justify-content: space-between
+    margin-bottom: 45px
+    @media (max-width: $breakpoint-medium-max)
+        margin-bottom: 19px
+
+.second
+    display: flex
+    justify-content: space-between
+    align-items: center
+
+.info
+    text-align: right
+    position: relative
+    margin-left: 10px
+    padding-left: 10px
+    min-width: 44.5%
+    box-sizing: border-box
+    &::before
+        content: ''
+        position: absolute
+        top: 7px
+        bottom: 0
+        left: 0
+        width: 1px
+        background: repeating-linear-gradient(#c6c6c6, #c6c6c6 1px, transparent 1px, transparent 4px)
+
+.area
+    color: #666
+    font-size: 12px
+    text-transform: uppercase
+    line-height: 1
+    letter-spacing: .2px
+    margin-bottom: 14px
+    @media (max-width: $breakpoint-medium-max)
+        color: #a8a8a8
+        margin-bottom: 11px
+    > span
+        margin-left: 10px
+        font-size: 18px
+        font-weight: 700
+        > span
+            font-size: 14px
+            text-transform: none
+            margin-left: 4px
+
+.params
+    color: #a8a8a8
+    font-size: 15px
+    font-weight: 700
+    letter-spacing: -0.14px
+    line-height: 1
+    span
+        font-size: 13px
+        font-weight: 600
+        letter-spacing: -0.12px
+
+.prices
+    position: relative
+    margin-top: 4px
+    @media (max-width: $breakpoint-medium-max)
+        margin-top: 9px
+
+.old_price
+    position: absolute
+    bottom: calc(100% + 3px)
+    left: 50%
+    transform: translateX(-50%)
+    color: #666666
+    font-size: 12px
+    text-decoration: line-through
+    font-weight: 600
+    @media (max-width: $breakpoint-medium-max)
+        color: #9c9b9b
+        left: 0
+        transform: none
+        line-height: 1
+
+.price
+    color: #ada395
+    font-size: 30px
+    font-weight: 700
+    letter-spacing: 0.75px
+    line-height: 1
+    @media (max-width: $breakpoint-medium-max)
+        font-size: 20px
+        letter-spacing: 0.24px
+    svg
+        fill: #000
+        width: 12px
+        height: 14px
+        margin-left: 4px
+
+@media (min-width: $breakpoint-large)
+    .more
+        line-height: 38px
+        box-shadow: 0 3px 7px rgba(255, 189, 0, 0.2)
+        border: 1px solid #f7c73e
+        background-color: #ffd251
+        padding: 0 25px
+        border-radius: 20px
+        color: #4e4528
+        font-size: 15px
+        font-weight: 700
+        text-transform: uppercase
+        letter-spacing: 1.51px
+        cursor: pointer
+        margin-right: -3px
+        svg
+            display: none
+        &:hover
+            color: #000000
+            box-shadow: 0 3px 7px rgba(255, 189, 0, 0.2)
+            border-color: #fdc834
+            background-color: #fed30c
+
+@media (max-width: $breakpoint-medium-max)
+    .more
+        box-shadow: 0 1px 2px rgba(13, 11, 8, 0.38)
+        border: 1px solid #6fc2ea
+        background-color: #14abf4
+        background-image: linear-gradient(to top, #43ade5 0%, #beebf9 100%)
+        line-height: 32px
+        border-radius: 17px
+        padding: 0 15px
+        padding-left: 37px
+        cursor: pointer
+        margin-right: -8px
+        color: #ffffff
+        font-size: 15px
+        font-weight: 600
+        text-transform: uppercase
+        letter-spacing: 0.7px
+        position: relative
+        svg
+            width: 29px
+            height: 29px
+            border: 1px solid rgba(175, 226, 248, 0.37)
+            background-color: #088ccb
+            position: absolute
+            left: 1px
+            top: 50%
+            transform: translateY(-50%)
+            border-radius: 50%
+            fill: #fff
+            padding: 2%
+            box-sizing: border-box
+        &:hover
+            color: #ffffff
+            box-shadow: 0 1px 0 rgba(13, 11, 8, 0.38)
+            border: 1px solid #4eb1e6
+            background-image: linear-gradient(to top, #1da5ee 0%, #ace7fa 100%)

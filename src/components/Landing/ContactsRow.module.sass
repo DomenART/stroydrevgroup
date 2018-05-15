@@ -1,0 +1,92 @@
+@import '../App/variables'
+
+.row
+    position: relative
+    border-top: 1px solid #cccccc
+    padding-left: 48px
+    padding-bottom: 1px
+    padding-top: 27px
+    margin-bottom: 34px
+    @media (max-width: $breakpoint-medium-max)
+        margin-bottom: 25px
+    @media (max-width: $breakpoint-extra-small-max)
+        padding-left: 41px
+        padding-top: 19px
+    @media (max-width: $breakpoint-extra-small-max)
+        margin-bottom: 7px
+    &:last-child
+        border-bottom: 1px solid #cccccc
+
+.icon
+    position: absolute
+    left: 2px
+    top: 25px
+    width: 27px
+    height: 27px
+    border-radius: 50%
+    background-color: #ffd251
+    padding: 1.2%
+    fill: #000
+    box-sizing: border-box
+
+.head
+    margin-bottom: 25px
+    display: grid
+    grid-gap: 13px
+    grid-template-columns: auto auto
+    align-items: center
+    @media (max-width: $breakpoint-medium-max)
+        grid-gap: 9px
+        grid-row-gap: 0
+        align-items: flex-start
+        margin-bottom: 14px
+    @media (max-width: $breakpoint-extra-small-max)
+        grid-template-columns: 100%
+        margin-bottom: 12px
+
+.name
+    color: #000000
+    font-size: 16px
+    font-weight: 700
+    letter-spacing: 0.16px
+    @media (max-width: $breakpoint-medium-max)
+        font-size: 14px
+        letter-spacing: 0.14px
+    span
+        display: inline-block
+        @media (max-width: $breakpoint-extra-small-max)
+            font-size: 20px
+            line-height: 1.4
+
+.comment
+    color: #666666
+    font-size: 16px
+    line-height: 1.2
+    color: #999999
+    font-weight: bold
+    @media (max-width: $breakpoint-medium-max)
+        font-size: 14px
+        margin-top: 3px
+    @media (max-width: $breakpoint-extra-small-max)
+        margin-top: 6px
+
+.add
+    color: #999999
+    font-size: 16px
+    line-height: 1
+    @media (max-width: $breakpoint-medium-max)
+        font-size: 14px
+        grid-column: 1 / 2
+    @media (max-width: $breakpoint-extra-small-max)
+        margin-top: 5px
+
+.text
+    color: #333333
+    font-size: 16px
+    line-height: 1.5
+    letter-spacing: 0.16px
+    @media (max-width: $breakpoint-medium-max)
+        font-size: 14px
+        letter-spacing: 0.14px
+    @media (max-width: $breakpoint-extra-small-max)
+        line-height: 1.3

@@ -1,0 +1,101 @@
+@import '../App/variables'
+
+.carousel
+    position: relative
+
+.container
+    background-color: #fff
+    padding: 45px 106px 42px
+    @media (max-width: $breakpoint-extra-large-max)
+        padding-left: 70px
+        padding-right: 70px
+    @media (max-width: $breakpoint-large-max)
+        padding-left: 60px
+        padding-right: 60px
+    @media (max-width: $breakpoint-medium-max)
+        padding-left: 90px
+        padding-right: 90px
+    @media (max-width: $breakpoint-extra-small-max)
+        margin-left: -$container-padding-medium
+        margin-right: -$container-padding-medium
+        padding: 50px $container-padding-medium 24px
+        border-top: 1px solid #ebebeb
+        border-bottom: 1px solid #ebebeb
+
+.title
+    color: #000000
+    font-size: 34px
+    font-weight: 400
+    line-height: 1
+    letter-spacing: .6px
+    margin-bottom: 47px
+    text-align: center
+    @media (max-width: $breakpoint-medium-max)
+        font-size: 28px
+        letter-spacing: 0.28px
+        margin-bottom: 43px
+    @media (max-width: $breakpoint-extra-small-max)
+        font-size: 26px
+        margin-bottom: 37px
+
+.all
+    text-align: center
+    margin-top: 50px
+    @media (max-width: $breakpoint-extra-small-max)
+        margin-top: 23px
+        padding-top: 24px
+        border-top: 1px solid #ebebeb
+        margin-left: -$container-padding-medium
+        margin-right: -$container-padding-medium
+
+.prev,
+.next
+    position: absolute
+    top: 0
+    margin-top: 26%
+    width: 50px
+    height: 50px
+    background-color: rgba(#999999, 0.2)
+    color: #999999
+    font-size: 22px
+    text-align: center
+    line-height: 50px
+    border: 0
+    z-index: 100
+    transition: all ease .3s
+    cursor: pointer
+    @media (max-width: $breakpoint-extra-small-max)
+        width: 32px
+        height: 32px
+        border: 1px solid rgba(120, 120, 120, 0.6)
+    svg
+        width: 30px
+        height: 30px
+        position: absolute
+        top: 50%
+        left: 50%
+        transform: translate(-50%, -50%)
+        @media (max-width: $breakpoint-extra-small-max)
+            width: 18px
+            height: 18px
+    &:hover
+        color: #fff
+        background-color: rgba(#999999, 0.6)
+
+.prev
+    left: -90px
+    @media (max-width: $breakpoint-extra-large-max)
+        left: -60px
+    @media (max-width: $breakpoint-medium-max)
+        left: -90px
+    @media (max-width: $breakpoint-extra-small-max)
+        left: -12px
+
+.next
+    right: -90px
+    @media (max-width: $breakpoint-extra-large-max)
+        right: -60px
+    @media (max-width: $breakpoint-medium-max)
+        right: -90px
+    @media (max-width: $breakpoint-extra-small-max)
+        right: -12px

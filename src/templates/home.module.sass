@@ -1,0 +1,40 @@
+@import '../components/App/variables.sass'
+
+.title
+    color: #000000
+    font-size: 84px
+    font-weight: 300
+    line-height: 1
+    margin-bottom: 100px
+    @media (max-width: $breakpoint-medium-max)
+        color: #000000
+        font-size: 60px
+        margin-bottom: 30px
+    @media (max-width: $breakpoint-extra-small-max)
+        font-size: 38px
+        letter-spacing: -0.19px
+        margin-bottom: 40px
+
+.sectionWarm
+    background-color: #fffcf8
+    padding: 57px $container-padding-ultra-large 39px
+    @media (max-width: $breakpoint-extra-large-max)
+        padding-left: $container-padding-extra-large
+        padding-right: $container-padding-extra-large
+    @media (max-width: $breakpoint-large-max)
+        padding-left: $container-padding-large
+        padding-right: $container-padding-large
+    @media (max-width: $breakpoint-medium-max)
+        padding: 50px $container-padding-medium 62px
+    @media (max-width: $breakpoint-extra-small-max)
+        border-top: 1px solid #f1f2f4
+        border-bottom: 1px solid #f1f2f4
+        padding-top: 65px
+
+.aboutAdvantages
+    @media (min-width: $breakpoint-small) and (max-width: $breakpoint-medium-max)
+        margin-bottom: 33px
+    @media (max-width: $breakpoint-extra-small-max)
+        order: 1
+
+.aboutReviews

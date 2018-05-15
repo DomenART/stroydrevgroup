@@ -1,0 +1,131 @@
+@import '../App/variables'
+
+.bar
+    position: relative
+    width: $bar-width
+    height: 100%
+    border-right: 1px solid #eae9e9
+    box-sizing: border-box
+    @media (max-width: $breakpoint-large-max)
+        order: 1
+    @media (max-width: $breakpoint-extra-small-max)
+        display: none
+
+.toggle
+    position: absolute
+    top: 0
+    width: 100%
+    left: 0
+    cursor: pointer
+    border: none
+    background: transparent
+    padding: 0 0 100%
+    transition: all ease .3s
+    @media (min-width: $breakpoint-extra-large)
+        display: none
+    &:active,
+    &:focus
+        outline: none
+    &::-moz-focus-inner
+        border: 0
+    span
+        width: 27px
+        height: 3px
+        background: #5d4a35
+        position: absolute
+        left: 50%
+        top: 50%
+        transform: translate(-50%, -50%)
+        transition: all ease .5s
+        &::before,
+        &::after
+            content: ''
+            width: 27px
+            height: 3px
+            background: #5d4a35
+            position: absolute
+            left: 50%
+            top: -8px
+            transform: translateX(-50%)
+            transition: all ease .5s
+        &::before
+            top: -8px
+        &::after
+            top: 8px
+    &_close
+        background-color: #f7f8fb
+        span
+            background: transparent
+            &::before
+                top: 50%
+                transform: translate(-50%, -50%) rotate(225deg)
+            &::after
+                top: 50%
+                transform: translate(-50%, -50%) rotate(-225deg)
+
+.copyright
+    color: #666666
+    font-size: 12px
+    line-height: 1
+    letter-spacing: 0.12px
+    white-space: nowrap
+    position: absolute
+    left: 50%
+    bottom: 14px
+    transform-origin: 0 50%
+    transform: rotate(-90deg)
+
+.callback
+    color: #574c2a
+    width: 48px
+    height: 48px
+    position: absolute
+    left: 50%
+    top: 85px
+    transform: translateX(-50%)
+    cursor: pointer
+    border: none
+    background: transparent
+    padding: 0
+    svg
+        width: 18px
+        height: 18px
+        position: absolute
+        top: 50%
+        left: 50%
+        transform: translate(-50%, -50%)
+    @media (min-width: #{$breakpoint-extra-large})
+        display: none
+
+.calc
+    color: #574c2a
+    width: 48px
+    height: 48px
+    position: absolute
+    left: 50%
+    top: 130px
+    transform: translateX(-50%)
+    cursor: pointer
+    border: none
+    background: transparent
+    padding: 0
+    svg
+        width: 18px
+        height: 18px
+        position: absolute
+        top: 50%
+        left: 50%
+        transform: translate(-50%, -50%)
+    @media (min-width: $breakpoint-extra-large)
+        display: none
+
+.dashes
+    width: 16px
+    height: 184px
+    position: absolute
+    left: 50%
+    top: 241px
+    transform: translateX(-50%)
+    background: linear-gradient(to bottom, #9b9b9b 0,#9b9b9b 2px,transparent 2px,transparent 46px, #9b9b9b 46px, #9b9b9b 48px,transparent 48px, transparent 91px, #9b9b9b 91px, #9b9b9b 93px, transparent 93px, transparent 137px, #9b9b9b 137px, #9b9b9b 139px, transparent 139px, transparent 182px, #9b9b9b 182px, #9b9b9b 184px)
+    @media (min-width: $breakpoint-extra-large)
+        display: none

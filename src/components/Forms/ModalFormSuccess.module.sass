@@ -1,0 +1,93 @@
+@import '../App/variables'
+
+.box
+    padding: 78px 44px 20px
+    position: relative
+    @media (max-width: $breakpoint-extra-small-max)
+        padding: 15px
+
+.head
+    position: relative
+    padding-left: 63px
+    margin-bottom: 41px
+    @media (max-width: $breakpoint-extra-small-max)
+        padding: 0
+
+.body
+    padding-left: 63px
+    padding-right: 44px
+    margin-bottom: 35px
+    color: #000000
+    font-size: 16px
+    letter-spacing: 0.4px
+    line-height: 22px
+    @media (max-width: $breakpoint-extra-small-max)
+        padding: 0
+    p
+        margin: 10px 0
+    hr
+        border-top: 2px solid #d4d4d4
+        margin: 32px 0
+
+.icon
+    position: absolute
+    left: 0
+    top: -5px
+    width: 49px
+    height: 49px
+    border-radius: 50%
+    background-color: #ffd251
+    @media (max-width: $breakpoint-extra-small-max)
+        display: none
+    svg
+        width: 30px
+        height: 30px
+        fill: #605447
+        position: absolute
+        left: 50%
+        top: 50%
+        transform: translate(-50%, -50%)
+
+.title
+    color: #a47e44
+    font-size: 22px
+    font-weight: 700
+    letter-spacing: -0.55px
+    line-height: 30px
+
+.phone
+    color: #605447
+    font-size: 24px
+    font-weight: 700
+    line-height: 22px
+    text-transform: uppercase
+    letter-spacing: 0.6px
+    text-align: center
+    margin-bottom: 8px
+
+.phoneDesc
+    color: #333333
+    font-size: 12px
+    font-weight: 400
+    line-height: 22px
+    text-align: center
+
+.footer
+    position: relative
+    background: url('../../assets/form-footer-bg.jpg') no-repeat 50% 50%
+    background-size: cover
+    border-top: 3px solid #ffd251
+    height: 195px
+    padding: 34px
+    box-sizing: border-box
+    text-align: center
+    &::before
+        content: ''
+        background: url('../../assets/twig-form.png') no-repeat 50% 50%
+        background-size: cover
+        width: 148px
+        height: 225px
+        position: absolute
+        left: 0
+        top: -33px
+        z-index: 10

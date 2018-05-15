@@ -1,0 +1,236 @@
+@import '../App/variables'
+
+.side
+    width: $side-width
+    height: 100%
+    display: grid
+    grid-template-rows: auto auto 1fr auto
+    padding-top: 36px
+    box-sizing: border-box
+    transition: box-shadow ease .3s
+    &_shadow
+        @media (max-width: $breakpoint-medium-max)
+            box-shadow: 0px 0 30px 30px rgba(0,0,0,.3)
+    @media (max-width: $breakpoint-large-max)
+        background-color: #ffd251
+        padding: 8px
+        box-sizing: border-box
+        width: $drawer-width
+        grid-template-rows: auto 1fr auto
+        overflow: auto
+    @media (max-width: $breakpoint-extra-small-max)
+        width: $drawer-width-small
+
+.logo
+    text-align: center
+    @media (max-width: $breakpoint-large-max)
+        display: none
+    @media (max-width: $breakpoint-extra-small-max)
+        display: block
+        width: 112px
+        padding: 6px 23px 14px
+        grid-column: 1 / 2
+        // IE11:
+        -ms-grid-column: 1
+        -ms-grid-column-span: 2
+
+.phone
+    color: #000000
+    font-size: 18px
+    font-weight: 700
+    line-height: 1.33
+    letter-spacing: 0.18px
+    text-align: center
+    margin-bottom: 7px
+    a
+        color: inherit
+        text-decoration: none
+        &:hover
+            text-decoration: none
+            color: inherit
+    @media (max-width: #{$breakpoint-large-max})
+        margin-bottom: 18px
+
+.calc
+    text-align: center
+    padding: 0 10px
+
+.calcWrap
+    position: relative
+    display: inline-block
+
+.calcButton
+    box-shadow: 0 3px 3px rgba(243, 180, 0, 0.4)
+    border: 1px solid #ffc41a
+    background-color: #ffd304
+    font-size: 14px
+    font-weight: 700
+    text-transform: uppercase
+    color: #473d1c
+    border-radius: 25px
+    display: inline-block
+    line-height: 46px
+    cursor: pointer
+    transition: all ease .5s
+    padding: 0 16px
+    padding-right: 19px
+    white-space: nowrap
+    transform: translateZ(0)
+    &:active,
+    &:focus
+        outline: none
+    &::-moz-focus-inner
+        border: 0
+    svg
+        width: 18px
+        height: 18px
+        position: relative
+        vertical-align: middle
+        display: inline-block
+        margin-right: 5px
+        top: -1px
+        margin-left: -2px
+    &:hover
+        box-shadow: 0 1px 1px rgba(191, 142, 0, 0.61)
+        transform: scale(.95,.95) translateZ(0)
+        border-color: #f3c134
+        background-color: #fed30c
+
+.calcTooltip
+    color: #fff
+    color: #fefefe
+    font-family: "Open Sans"
+    font-size: 14px
+    font-weight: 700
+    padding: 0
+    line-height: 14px
+    text-align: center
+    cursor: pointer
+    width: 18px
+    height: 18px
+    border: 1px solid #ffffff
+    border-radius: 50%
+    position: absolute
+    right: 3px
+    bottom: 0px
+    background-color: #00e091
+    background-image: radial-gradient(circle 8px at center, rgba(255, 255, 255, 0.12) 0%, rgba(0, 21, 148, 0.12) 100%)
+
+.groups
+    text-align: center
+    margin-bottom: 8px
+    margin-top: 8px
+    @media (max-width: #{$breakpoint-large-max})
+        display: none
+
+.menus
+    overflow: auto
+    @media (max-width: #{$breakpoint-large-max})
+        background-color: #ffffff
+        order: 10
+        overflow: initial
+    @media (max-width: $breakpoint-extra-small-max)
+        grid-column: 1 / 3
+        // IE11:
+        -ms-grid-column: 1
+        -ms-grid-column-span: 3
+
+.contact
+    padding: 30px 0 34px
+    @media (max-width: #{$breakpoint-large-max})
+        background-color: #f8f9fc
+        order: 20
+    @media (max-width: #{$breakpoint-large-max})
+        padding: 36px 0 54px
+    @media (max-width: $breakpoint-extra-small-max)
+        grid-column: 1 / 3
+        // IE11:
+        -ms-grid-column: 1
+        -ms-grid-column-span: 3
+
+@media (min-width: $breakpoint-small)
+    .search
+        position: relative
+        margin-bottom: 14px
+        @media (min-width: #{$breakpoint-extra-large})
+            display: none
+
+    .searchInput
+        min-height: 40px
+        border: 3px solid #ffefab
+        background-color: #f8f9fc
+        padding: 0 15px
+        color: #999999
+        font-size: 14px
+        width: 100%
+        box-sizing: border-box
+        &::-webkit-input-placeholder
+            color: #666666
+        &:-ms-input-placeholder
+            color: #666666
+        &::-moz-placeholder
+            color: #666666
+            opacity: 1
+        &:-moz-placeholder
+            color: #666666
+            opacity: 1
+        &:focus
+            &::-webkit-input-placeholder
+                color: #ffffff
+            &:-ms-input-placeholder
+                color: #ffffff
+            &::-moz-placeholder
+                color: #ffffff
+                opacity: 1
+            &:-moz-placeholder
+                color: #ffffff
+                opacity: 1
+
+    .searchButton
+        position: absolute
+        padding: 0
+        border: 0
+        top: 50%
+        right: 20px
+        transform: translateY(-50%)
+        background: transparent
+        cursor: pointer
+        svg
+            width: 22px
+            height: 22px
+            fill: #4e4528
+        &:hover
+            svg
+                fill: #000000
+
+@media (max-width: $breakpoint-extra-small-max)
+    .search
+        text-align: center
+        padding: 1px 4px 0 0
+        grid-column: 2 / 3
+        // IE11:
+        -ms-grid-column: 2
+        -ms-grid-column-span: 3
+
+    .searchInput
+        display: none
+
+    .searchButton
+        padding: 0
+        border: 0
+        background: transparent
+        cursor: pointer
+        width: 48px
+        height: 48px
+        position: relative
+        svg
+            position: absolute
+            left: 50%
+            top: 50%
+            transform: translate(-50%, -50%)
+            width: 22px
+            height: 22px
+            fill: #4e4528
+        &:hover
+            svg
+                fill: #000000

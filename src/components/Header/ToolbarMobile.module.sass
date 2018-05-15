@@ -1,0 +1,37 @@
+@import '../App/variables'
+
+.toolbar
+    position: fixed
+    right: 0
+    top: 115px
+    z-index: 200
+    transition: all ease .3s
+    @media (min-width: $breakpoint-small)
+        display: none
+    &_shift
+        transform: translateX($drawer-width-small)
+
+.button
+    display: block
+    width: 50px
+    height: 40px
+    box-shadow: 0 2px 4px rgba(5, 37, 58, 0.44), inset 0 2px 0 rgba(255, 255, 255, 0.2)
+    border: 1px solid #f7c73e
+    background-color: #ffcd55
+    border-radius: 20px 0 0 20px
+    margin-bottom: 16px
+    position: relative
+    cursor: pointer
+    padding: 0
+    transition: all ease .3s
+    left: 8px
+    &:hover
+        left: 0
+    svg
+        position: absolute
+        top: 50%
+        left: 50%
+        width: 18px
+        height: 18px
+        transform: translate(-50%, -50%)
+        fill: #574c2a

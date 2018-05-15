@@ -1,0 +1,64 @@
+@import '../App/variables'
+
+.container
+    background-color: #81b100
+    display: flex
+    justify-content: space-around
+    padding: 48px $container-padding-ultra-large
+    @media (max-width: $breakpoint-extra-large-max)
+        padding-left: $container-padding-extra-large
+        padding-right: $container-padding-extra-large
+    @media (max-width: $breakpoint-large-max)
+        padding-left: $container-padding-large
+        padding-right: $container-padding-large
+    @media (max-width: $breakpoint-medium-max)
+        padding: 38px $container-padding-medium 24px
+        display: grid
+        grid-template-columns: 1fr 1fr 1fr
+        grid-gap: 30px
+        align-items: flex-start
+    @media (max-width: $breakpoint-extra-small-max)
+        grid-template-columns: 100%
+        grid-gap: 21px
+        padding-top: 37px
+        padding-bottom: 33px
+
+.task
+    display: flex
+    align-items: center
+    @media (max-width: $breakpoint-medium-max)
+        align-items: flex-start
+
+.icon
+    width: 49px
+    height: 49px
+    min-width: 49px
+    min-height: 49px
+    border-radius: 50%
+    margin-right: 17px
+    background-color: #ffd160
+    @media (max-width: $breakpoint-medium-max)
+        width: 32px
+        height: 32px
+        min-width: 32px
+        min-height: 32px
+        margin-right: 10px
+        margin-top: 2px
+    @media (max-width: $breakpoint-extra-small-max)
+        width: 24px
+        height: 24px
+        min-width: 24px
+        min-height: 24px
+        margin-right: 12px
+
+.text
+    color: #ffffff
+    font-size: 21px
+    font-weight: 700
+    line-height: 24px
+    @media (max-width: $breakpoint-medium-max)
+        font-size: 15px
+        line-height: 16.3px
+    @media (max-width: $breakpoint-extra-small-max)
+        font-size: 18px
+        line-height: 22px

@@ -1,0 +1,205 @@
+@import '../App/variables'
+
+.slideshow
+    font-family: inherit
+    margin-bottom: 10px
+    position: relative
+    @media (max-width: $breakpoint-medium-max)
+        margin-left: -$container-padding-extra-small
+        margin-right: -$container-padding-extra-small
+        margin-bottom: 13px
+    @media (max-width: $breakpoint-extra-small-max)
+        margin-bottom: 0
+
+.items
+    height: 650px
+    @media (max-width: $breakpoint-medium-max)
+        height: 500px
+    @media (max-width: $breakpoint-extra-small-max)
+        height: 550px
+
+.phone
+    position: absolute
+    top: 14px
+    left: 50%
+    transform: translateX(-50%)
+    color: #fffffe
+    font-size: 18px
+    font-weight: 700
+    line-height: 1
+    letter-spacing: 0.18px
+
+.slide
+    display: flex
+    flex-direction: column
+
+.info
+    background-color: #f7f8fb
+    padding: 28px 38px
+    display: flex
+    flex-wrap: wrap
+    align-items: center
+    @media (max-width: $breakpoint-medium-max)
+        padding: 19px 16px
+    @media (max-width: $breakpoint-extra-small-max)
+        grid-template-columns: 100%
+    @media (max-width: $breakpoint-extra-small-max)
+        padding: 10px 18px 18px
+    span
+        margin-left: 8px
+
+.image
+    position: relative
+    overflow: hidden
+    flex-grow: 100
+    @media (max-width: $breakpoint-extra-small-max)
+        margin-bottom: 40px
+
+.price
+    color: #000000
+    font-size: 30px
+    font-weight: 600
+    line-height: 1
+    @media (max-width: $breakpoint-medium-max)
+        font-size: 21px
+        padding-top: 4px
+    @media (max-width: $breakpoint-extra-small-max)
+        font-size: 23px
+        padding-top: 9px
+        letter-spacing: 0.8px
+        width: 100%
+        order: 3
+    svg
+        width: 12px
+        height: 14px
+        margin-left: 6px
+        @media (max-width: $breakpoint-medium-max)
+            width: 8px
+            height: 8px
+
+.title
+    color: #7e5c44
+    font-size: 35px
+    font-weight: 300
+    line-height: 1
+    letter-spacing: .5px
+    margin-bottom: 4px
+    margin-right: 58px
+    @media (max-width: $breakpoint-medium-max)
+        color: #000000
+        font-size: 26px
+        letter-spacing: -0.18px
+        margin-bottom: 0
+        margin-right: 31px
+    @media (max-width: $breakpoint-extra-small-max)
+        font-size: 28px
+
+.desc
+    color: #999999
+    font-size: 14px
+    font-weight: 400
+    line-height: 1.5
+    margin-left: 4px
+    width: 100%
+    @media (max-width: $breakpoint-medium-max)
+        font-size: 12px
+    @media (max-width: $breakpoint-extra-small-max)
+        font-size: 14px
+        margin-top: 1px
+        margin-left: 1px
+
+.prev,
+.next
+    position: absolute
+    top: calc(50% - 109px)
+    width: 72px
+    height: 72px
+    background-color: rgba(0,0,0,.5)
+    color: #ffffff
+    border: 0
+    z-index: 100
+    transition: all ease .3s
+    cursor: pointer
+    @media (max-width: $breakpoint-medium-max)
+        top: calc(50% - 82px)
+        width: 64px
+        height: 64px
+    @media (max-width: $breakpoint-extra-small-max)
+        width: 48px
+        height: 48px
+    svg
+        width: 30px
+        height: 30px
+        position: absolute
+        top: 50%
+        left: 50%
+        transform: translate(-50%, -50%)
+        @media (max-width: $breakpoint-medium-max)
+            width: 26px
+            height: 26px
+        @media (max-width: $breakpoint-extra-small-max)
+            width: 20px
+            height: 20px
+    &:hover
+        background-color: rgba(0,0,0,.7)
+
+.prev
+    left: 0
+
+.next
+    right: 0
+
+.dots
+    position: absolute
+    right: 14px
+    bottom: 55px
+    display: flex !important
+    list-style: none
+    padding: 0
+    margin: 0
+    @media (max-width: $breakpoint-medium-max)
+        right: 0px
+        bottom: 31px
+    @media (max-width: $breakpoint-extra-small-max)
+        left: 0
+        right: 0
+        background-color: #f7f8fc
+        bottom: 110px
+        padding: 17px 0
+        justify-content: center
+        &::before
+            content: ''
+            position: absolute
+            bottom: 0
+            left: 20px
+            right: 20px
+            height: 1px
+            height: 1px
+            background-color: #ebebeb
+    li
+        margin: 0 18px
+        @media (max-width: $breakpoint-medium-max)
+            margin: 0 17px
+    & :global .uk-active a
+        border-color: #ffd251
+        background-color: #ffd251
+        box-shadow: 0 0 0 2px #ff9900
+    a
+        border: 2px solid #cccccc
+        background-color: #ffffff
+        border-radius: 50%
+        width: 8px
+        height: 8px
+        display: block
+        padding: 0
+        cursor: pointer
+        @media (max-width: $breakpoint-medium-max)
+            width: 7px
+            height: 7px
+        &:active,
+        &:focus
+            outline: none
+        &::-moz-focus-inner
+            border: 0
+        &:hover
+            border-color: #ffd251

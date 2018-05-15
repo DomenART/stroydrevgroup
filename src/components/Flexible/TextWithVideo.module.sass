@@ -1,0 +1,66 @@
+@import '../App/variables'
+
+.section
+    align-items: center
+    margin-bottom: 60px
+    @media (max-width: $breakpoint-medium-max)
+        grid-template-columns: 1fr
+        grid-gap: 46px
+    @media (max-width: $breakpoint-extra-small-max)
+        grid-gap: 56px
+        margin-bottom: 42px
+
+.text
+    color: #000000
+    font-size: 18px
+    line-height: 1.66
+    margin-bottom: 22px
+    padding-right: 65px
+    @media (max-width: $breakpoint-medium-max)
+        font-size: 16px
+        order: 1
+        margin-bottom: 0
+        padding-right: 48px
+        padding-top: 18px
+    @media (max-width: $breakpoint-extra-small-max)
+        order: 0
+        padding-right: 0
+        padding-top: 0
+        margin-bottom: 26px
+
+.figure
+    @media (max-width: $breakpoint-extra-small-max)
+        margin: 0 -12px
+    video
+        margin-bottom: 11px
+        max-width: 100%
+        @media (max-width: $breakpoint-medium-max)
+            margin-bottom: 9px
+        @media (max-width: $breakpoint-extra-small-max)
+            margin-bottom: 22px
+    figcaption
+        color: #000000
+        font-size: 20px
+        font-weight: 300
+        line-height: 1.5
+        letter-spacing: 0.2px
+        text-align: center
+        @media (max-width: $breakpoint-medium-max)
+            text-align: right
+        @media (max-width: $breakpoint-extra-small-max)
+            text-align: center
+            font-style: italic
+            line-height: 1.125
+            letter-spacing: 0
+
+.more
+    margin-top: 15px
+    padding: 0 6px 0 15px
+    svg
+        width: 12px
+        height: 12px
+        display: inline-block
+        vertical-align: middle
+        position: relative
+        top: -1px
+        margin-left: 2px

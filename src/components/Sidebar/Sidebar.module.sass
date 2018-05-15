@@ -1,0 +1,23 @@
+@import '../App/variables'
+
+.box
+    background-color: #f7f8fb
+    position: fixed
+    display: flex
+    box-sizing: border-box
+    height: 100%
+    z-index: 200
+    top: 0
+    left: 0
+    transition: transform ease .3s
+    // left: calc(50% - calc(#{$container-width} / 2))
+    // transition: all ease .3s
+    // @media (max-width: $container-width)
+    //     left: 0
+    @media (max-width: $breakpoint-large-max)
+        transform: translateX(-$drawer-width)
+    @media (max-width: $breakpoint-extra-small-max)
+        transform: translateX(-$drawer-width-small)
+    &_shift
+        transition: transform ease .3s, box-shadow ease .8s
+        transform: translateX(0)

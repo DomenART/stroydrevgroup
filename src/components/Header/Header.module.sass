@@ -1,0 +1,144 @@
+@import '../App/variables'
+
+.header
+    display: flex
+    justify-content: space-between
+    padding: 28px $container-padding-small
+    align-items: center
+    box-sizing: border-box
+    @media (max-width: $breakpoint-medium-max)
+        padding: 12px 8px 12px 19px
+        grid-gap: 35px
+        grid-template-columns: auto auto 1fr auto
+    @media (max-width: $breakpoint-extra-small-max)
+        display: none
+
+.slogan
+    color: #666666
+    font-size: 14px
+    font-weight: 400
+    line-height: 16px
+    letter-spacing: 0.14px
+    @media (max-width: $breakpoint-large-max)
+        display: none
+
+.nav
+    display: flex
+    align-items: center
+    width: 46.4%
+    justify-content: space-between
+    @media (max-width: $breakpoint-small-max)
+        width: 50%
+
+.search
+    width: 100%
+    max-width: 400px
+    margin-left: 15px
+    @media (max-width: $breakpoint-small-max)
+        display: none
+
+.logo
+    width: 137px
+    height: 48px
+    @media (min-width: $breakpoint-extra-large)
+        display: none
+    @media (max-width: $breakpoint-medium-max)
+        width: 106px
+        height: 37px
+
+.catalog
+    color: #4e4528
+    font-size: 14px
+    font-weight: 700
+    line-height: 40px
+    text-transform: uppercase
+    letter-spacing: .35px
+    display: inline-block
+    padding: 0 35px
+    box-sizing: border-box
+    text-align: center
+    background-color: #ffd251
+    text-decoration: none
+    white-space: nowrap
+    // min-width: 272px
+    margin-right: 15px
+    @media (max-width: $breakpoint-medium-max)
+        padding: 0 20px
+    &:hover
+        text-decoration: none
+        color: #000000
+        background-color: #fed30c
+
+.callback
+    display: flex
+    align-items: center
+    margin-left: 3.6%
+    @media (max-width: $breakpoint-large-max)
+        display: none
+
+.callbackTime
+    color: #666666
+    font-size: 14px
+    font-weight: 400
+    line-height: 1.14
+    letter-spacing: 0.14px
+    text-align: right
+    @media (max-width: $breakpoint-large-max)
+        display: none
+
+.callbackButton
+    width: 63px
+    height: 63px
+    box-shadow: 0 0 0 rgba(254, 201, 49, 0.75), inset 0 0 0 6px #fff
+    border: 1px solid #ffd45a
+    background-color: #ffd45a
+    border-radius: 50%
+    transition: ease .3s
+    transition-property: box-shadow, border-color, background-color
+    font-size: 26px
+    margin-right: 4px
+    margin-left: 26px
+    color: #ffffff
+    position: relative
+    cursor: pointer
+    svg
+        position: absolute
+        left: 50%
+        top: 50%
+        transform: translate(-50%, -50%)
+        width: 1em
+        height: 1em
+    &:hover
+        box-shadow: 0 0 9px rgba(254, 201, 49, 0.75), inset 0 0 0 6px #fff
+        border-color: #ffc624
+        background-color: #fecb39
+
+.phone
+    color: #000000
+    font-size: 18px
+    font-weight: 700
+    letter-spacing: 0.18px
+    @media (min-width: $breakpoint-extra-large)
+        display: none
+    @media (min-width: $breakpoint-medium) and (max-width: $breakpoint-large-max)
+        order: 1
+
+.searchBtn
+    width: 43px
+    height: 43px
+    display: inline-block
+    color: #4e4528
+    position: relative
+    transition: all ease .3s
+    @media (min-width: $breakpoint-medium)
+        display: none
+    svg
+        width: 20px
+        height: 20px
+        position: absolute
+        left: 50%
+        top: 50%
+        transform: translate(-50%, -50%)
+    &:hover
+        background-color: #fed30c
+        color: #4e4528

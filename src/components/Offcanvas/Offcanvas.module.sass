@@ -1,0 +1,32 @@
+@import '../App/variables'
+
+.offcanvas
+    max-width: $container-width
+    margin: 0 auto
+    padding-left: $sidebar-width
+    background-color: #ffffff
+    box-sizing: border-box
+    transition: all ease .3s
+    position: relative
+    left: 0
+    @media (max-width: $breakpoint-large-max)
+        padding-left: $bar-width
+    @media (max-width: $breakpoint-extra-small-max)
+        padding-left: 0
+    &_shift
+        @media (max-width: $breakpoint-medium-max)
+            left: $drawer-width
+        @media (max-width: $breakpoint-extra-small-max)
+            left: $drawer-width-small
+
+.overlay
+    position: fixed
+    left: $bar-width + $drawer-width
+    top: 0
+    right: 0
+    bottom: 0
+    z-index: 300
+    @media (min-width: $breakpoint-large)
+        display: none
+    @media (max-width: $breakpoint-extra-small-max)
+        left: $drawer-width-small

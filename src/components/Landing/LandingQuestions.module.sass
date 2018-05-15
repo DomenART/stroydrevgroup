@@ -1,0 +1,80 @@
+@import '../App/variables'
+
+.container
+    background: url('../../assets/questions-bg.jpg') no-repeat 50% 50%
+    background-size: cover
+    background-attachment: fixed
+    position: relative
+    align-items: center
+    padding: 0 #{$container-padding-ultra-large - 25px}
+    @media (max-width: $breakpoint-extra-large-max)
+        padding-left: $container-padding-extra-large - 25px
+        padding-right: $container-padding-extra-large - 25px
+    @media (max-width: $breakpoint-large-max)
+        padding-left: $container-padding-large - 25px
+        padding-right: $container-padding-large - 25px
+    @media (min-width: $breakpoint-small) and (max-width: $breakpoint-medium-max)
+        display: none
+    @media (max-width: $breakpoint-extra-small-max)
+        grid-template-coumns: 100%
+        padding-left: 0
+        padding-right: 0
+    &::before
+        content: ''
+        position: absolute
+        left: -51px
+        bottom: -98px
+        width: 204px
+        height: 207px
+        background: url('../../assets/twig-left.png') no-repeat 50% 50%
+        @media (max-width: $breakpoint-extra-small-max)
+            display: none
+    &::after
+        content: ''
+        position: absolute
+        right: 0
+        top: -112px
+        width: 289px
+        height: 352px
+        background: url('../../assets/twig-right.png') no-repeat 50% 50%
+        @media (max-width: $breakpoint-extra-small-max)
+            display: none
+
+.text
+    background-color: rgba(#7a5232, 0.8)
+    color: #ffffff
+    font-size: 18px
+    font-weight: 400
+    line-height: 30px
+    letter-spacing: 0.18px
+    padding: 32px 25px 34px
+    @media (max-width: $breakpoint-extra-small-max)
+        font-size: 16px
+        line-height: 17px
+        letter-spacing: 0
+        padding: 45px $container-padding-medium 25px
+        br
+            display: block
+            margin-bottom: 17px
+        p
+            margin-bottom: 34px
+    p:last-child
+        margin-bottom: 0
+    span
+        color: #ffffff
+        font-size: 30px
+        font-weight: 700
+        letter-spacing: 1.5px
+        line-height: 1
+        display: inline-block
+        margin-left: 15px
+        @media (max-width: $breakpoint-extra-small-max)
+            margin-left: 0
+            margin-top: 22px
+
+.logo
+    display: flex
+    justify-content: center
+    align-items: center
+    @media (max-width: $breakpoint-extra-small-max)
+        padding: 15px $container-padding-medium

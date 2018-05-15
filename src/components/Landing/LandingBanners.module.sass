@@ -1,0 +1,206 @@
+@import '../App/variables'
+
+.banners
+    // display: grid
+    // grid-template-columns: repeat(4, 1fr)
+    // grid-gap: #{20px/$font-size}em
+    @media (max-width: $breakpoint-extra-large-max)
+        font-size: 82%
+        // grid-gap: #{10px/$font-size}em
+    @media (max-width: $breakpoint-large-max)
+        font-size: 79%
+    @media (max-width: $breakpoint-medium-max)
+        font-size: 90%
+        background: #f5da8d
+        // grid-template-columns: repeat(2, 1fr)
+        // grid-gap: #{15px/$font-size}em
+        // grid-row-gap: #{9px/$font-size}em
+        padding: 9px
+        margin-left: -$container-padding-extra-small
+        margin-right: -$container-padding-extra-small
+    @media (max-width: $breakpoint-extra-small-max)
+        // grid-template-columns: 100%
+
+.banner
+    box-shadow: 0 0 #{4px/$font-size}em rgba(0, 0, 0, 0.37)
+    border: #{2px/$font-size}em solid transparent
+    background-color: #ffffff
+    display: flex
+    align-items: center
+    transition: all ease .3s
+    @media (max-width: $breakpoint-medium-max)
+        box-shadow: none
+    &:hover
+        box-shadow: 0 0 #{4px/$font-size}em rgba(0, 0, 0, 0.37)
+    &_orange
+        border-color: #f8d998
+        .left
+            background-color: #fca83b
+        &:hover
+            border-color: #ff9626
+            .left
+                background-color: #ff9626
+    &_red
+        border-color: #f8d998
+        .left
+            background-color: #fc3b5a
+        &:hover
+            border-color: #fc92a3
+            .left
+                background-color: #ff2652
+    &_green
+        border-color: #f8d998
+        .left
+            background-color: #41d99e
+        &:hover
+            border-color: #41d99e
+            .left
+                background-color: #00e192
+    &_pink
+        border-color: #f8d998
+        .left
+            background-color: #e8a7b8
+        &:hover
+            border-color: #cfa4ab
+            .left
+                background-color: #e8a7cc
+
+.left
+    min-height: #{118px/$font-size}em
+    max-height: 100%
+    min-width: #{118px/$font-size}em
+    max-width: #{118px/$font-size}em
+    position: relative
+    @media (max-width: $breakpoint-large-max)
+        font-size: 90%
+    @media (max-width: $breakpoint-medium-max)
+        font-size: 97%
+
+.right
+    width: 100%
+    text-align: center
+    padding: #{10px/$font-size}em
+
+.icon
+    width: #{87px/$font-size}em
+    height: #{87px/$font-size}em
+    box-shadow: 0 0 #{5px/$font-size}em rgba(0, 0, 0, 0.22), inset 0 0 0 #{8px/$font-size}em #ffc859
+    border: #{1px/$font-size}em solid #ffe8b9
+    background-color: #ffef7e
+    border-radius: 50%
+    position: absolute
+    left: 50%
+    top: 50%
+    transform: translate(-50%, -50%)
+    svg
+        width: 1em
+        height: 1em
+        position: absolute
+        left: 50%
+        top: 50%
+        transform: translate(-50%, -50%)
+
+.category
+    color: #000000
+    font-size: #{14px/$font-size}em
+    font-weight: 300
+    line-height: 1
+    text-transform: uppercase
+    letter-spacing: #{0.7px/14px}em
+    margin-bottom: #{6px/14px}em
+    margin-top: #{7px/14px}em
+    // @media (max-width: $breakpoint-medium-max)
+    //     font-size: #{12px/$font-size}em
+
+.title
+    color: #000000
+    font-size: #{32px/$font-size}em
+    font-weight: 700
+    line-height: 1
+    text-transform: uppercase
+    letter-spacing: #{1.6px/32px}em
+    margin-bottom: #{17px/32px}em
+    // @media (max-width: $breakpoint-medium-max)
+    //     font-size: #{28px/$font-size}em
+
+.info
+    color: #999999
+    font-size: #{12px/$font-size}em
+    font-weight: 400
+    line-height: 1
+    // @media (max-width: $breakpoint-medium-max)
+    //     font-size: #{10px/$font-size}em
+
+.indLink
+    display: block
+    color: #614f3c
+    font-size: #{14px/$font-size}em
+    font-weight: 700
+    line-height: #{31px/14px}
+    text-transform: uppercase
+    letter-spacing: #{.8px/14px}em
+    padding: 0 #{4px/14px}em
+    background-color: #e1e3e8
+
+.indDesc
+    color: #000000
+    font-size: #{14px/$font-size}em
+    font-weight: 300
+    line-height: #{20px/14px}
+    text-transform: uppercase
+    letter-spacing: #{0.56px/14px}em
+    margin-bottom: #{12px/14px}em
+    display: flex
+    justify-content: space-between
+    margin-top: #{4px/14px}em
+    svg
+        width: #{94px/18px}em
+        height: #{16px/18px}em
+        fill: #614f3c
+        @media (max-width: $breakpoint-medium-max)
+            font-size: 140%
+
+.indLoad
+    color: #666666
+    font-size: #{12px/$font-size}em
+    font-weight: 400
+    line-height: 1
+    letter-spacing: #{-0.3px/12px}em
+    position: relative
+    @media (max-width: $breakpoint-medium-max)
+        font-size: #{11px/$font-size}em
+    &:before
+        content: ''
+        width: #{39px/12px}em
+        height: #{22px/12px}em
+        position: absolute
+        background: url('../../assets/banner-arrow.png') no-repeat 50% 50%
+        background-size: cover
+        left: #{-42px/12px}em
+        top: #{-1px/12px}em
+
+.addTitle
+    color: #000000
+    font-size: #{14px/$font-size}em
+    font-weight: 300
+    line-height: #{20px/14px}
+    text-transform: uppercase
+    letter-spacing: #{0.26px/14px}em
+    // letter-spacing: #{0.56px/14px}em
+    margin-bottom: #{7px/14px}em
+    margin-top: #{7px/14px}em
+    @media (max-width: $breakpoint-medium-max)
+        margin-top: 0
+
+.addLink
+    display: block
+    color: #614f3c
+    font-size: #{14px/$font-size}em
+    font-weight: 700
+    line-height: #{31px/14px}
+    text-transform: uppercase
+    letter-spacing: #{.8px/14px}em
+    padding: 0 #{5px/14px}em
+    background-color: #e1e3e8
+    // @media (max-width: $breakpoint-medium-max)
+    //     font-size: #{12px/$font-size}em

@@ -1,0 +1,196 @@
+@import '../App/variables'
+
+.dialog
+    width: 484px !important
+    box-shadow: 0 6px 9px rgba(13, 11, 8, 0.27)
+    border: 2px solid #c7a165
+
+.close
+    position: absolute
+    right: 18px
+    top: 18px
+    width: 25px
+    height: 25px
+    opacity: 0.6
+    transition: all ease .3s
+    background: transparent
+    border: none
+    padding: 0
+    cursor: pointer
+    z-index: 20
+    @media (max-width: $breakpoint-extra-small-max)
+        right: 5px
+        top: 5px
+    &:hover
+        opacity: 1
+    &::before,
+    &::after
+        content: ''
+        position: absolute
+        top: 50%
+        left: 50%
+        height: 3px
+        width: 100%
+        background-color: #000000
+        border-radius: 1px
+    &::before
+        transform: translate(-50%, -50%) rotate(45deg)
+    &::after
+        transform: translate(-50%, -50%) rotate(-45deg)
+
+.form
+
+.body
+    padding: 40px 47px 13px
+    @media (max-width: $breakpoint-extra-small-max)
+        padding: 15px
+
+.header
+    color: #a47e44
+    font-size: 22px
+    font-weight: 700
+    line-height: 1
+    letter-spacing: -0.22px
+    padding-left: 62px
+    position: relative
+    padding-top: 2px
+    margin-bottom: 29px
+    @media (max-width: $breakpoint-extra-small-max)
+        padding-left: 0
+        margin-bottom: 20px
+        font-size: 18px
+    span
+        display: block
+        color: #000000
+        font-size: 16px
+        font-weight: 300
+        letter-spacing: 0.8px
+        margin-top: 5px
+
+.headerIcon
+    position: absolute
+    left: 0
+    top: 0
+    background: #ffd251
+    width: 46px
+    height: 46px
+    @media (max-width: $breakpoint-extra-small-max)
+        display: none
+    svg
+        fill: #394856
+        width: 26px
+        height: 26px
+        position: absolute
+        left: 50%
+        top: 50%
+        transform: translate(-50%, -50%)
+
+
+.fields
+    margin: 0 62px 20px
+    @media (max-width: $breakpoint-extra-small-max)
+        margin-left: 0
+        margin-right: 0
+
+.hr
+    border-top: 2px solid #d4d4d4
+    margin: 10px 0
+
+.rights
+    display: inline-block
+    color: #666666
+    font-size: 11px
+    cursor: pointer
+    line-height: 1.4
+    font-weight: 600
+    input
+        margin-right: 8px
+    a
+        color: #666666
+        text-decoration: underline
+        &:hover
+            text-decoration: underline
+            color: #000000
+
+.footer
+    position: relative
+    background: url('../../assets/form-footer-bg.jpg') no-repeat 50% 50%
+    background-size: cover
+    border-top: 3px solid #ffd251
+    height: 195px
+    padding: 34px
+    box-sizing: border-box
+    text-align: center
+    @media (max-width: $breakpoint-extra-small-max)
+        border: 0
+        background: none
+        padding: 0 0 15px
+        height: auto
+    &::before
+        content: ''
+        background: url('../../assets/twig-form.png') no-repeat 50% 50%
+        background-size: cover
+        width: 148px
+        height: 225px
+        position: absolute
+        left: 0
+        top: -33px
+        z-index: 10
+        @media (max-width: $breakpoint-extra-small-max)
+            display: none
+
+.submit
+    padding: 0 70px !important
+    position: relative
+    z-index: 20
+
+.file
+    display: flex !important
+    max-width: initial !important
+    align-items: center
+    margin: 19px -5px 14px
+    &:hover
+        .fileIcon
+            background-color: #1488f4
+        .fileInput
+            color: #1488f4
+
+.fileIcon
+    max-width: 26px
+    max-height: 26px
+    min-width: 26px
+    min-height: 26px
+    display: inline-block
+    vertical-align: middle
+    border-radius: 50%
+    margin-right: 4px
+    position: relative
+    background-color: #14abf4
+    transition: background-color ease .3s
+    svg
+        position: absolute
+        left: 50%
+        top: 50%
+        transform: translate(-50%, -50%)
+        width: 14px
+        height: 14px
+        color: #ffffff
+
+.fileInput
+    color: #14abf4
+    font-size: 14px
+    font-weight: 600
+    padding: 0
+    border: none
+    background: transparent
+    transition: color ease .3s
+
+.fileNote
+    color: #010101
+    font-size: 12px
+    font-weight: 600
+    position: absolute
+    background: #ffffff
+    right: 0
+    top: 50%
+    transform: translateY(-50%)

@@ -1,0 +1,156 @@
+@import variables
+@import uikit
+
+/* Common */
+html.modal-page
+    overflow: hidden
+    body
+        overflow-y: scroll
+
+body
+    font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", Helvetica, Arial, sans-serif
+    font-size: $font-size
+    line-height: 1.666
+    background-color: #f7f8fb
+    @media (max-width: $breakpoint-extra-small-max)
+        font-size: 16px
+
+.wf-active
+    body,
+    h1, .uk-h1,
+    h2, .uk-h2,
+    h3, .uk-h3,
+    h4, .uk-h4,
+    h5, .uk-h5,
+    h6, .uk-h6
+        font-family: $font-family
+
+a
+    color: #0099cc
+    text-decoration: underline
+    &:visited
+        color: #7e7e7e
+        text-decoration: underline
+    &:hover
+        color: #ff0000
+        text-decoration: underline
+
+h1
+    color: #000000
+    font-size: 84px
+    font-weight: 300
+    line-height: 1
+    margin: 0 auto 100px
+
+h2
+    color: #000000
+    font-size: 48px
+    font-weight: 300
+    line-height: 1.2
+    margin-bottom: 82px
+    @media (max-width: $breakpoint-medium-max)
+        font-size: 36px
+        margin-bottom: 30px
+    @media (max-width: $breakpoint-extra-small-max)
+        font-size: 30px
+        line-height: 1
+        margin-bottom: 38px
+
+figure
+    margin: 0
+
+input
+    box-sizing: border-box
+
+svg
+    fill: currentColor
+
+.wrapper
+    overflow: hidden
+
+.padding-small
+    padding-left: $container-padding-small
+    padding-right: $container-padding-small
+    @media (max-width: $breakpoint-medium-max)
+        padding-left: $container-padding-extra-small
+        padding-right: $container-padding-extra-small
+
+.button-secondary
+    display: inline-block
+    color: #666666
+    font-size: 16px
+    font-weight: 700
+    line-height: 52px
+    text-decoration: none
+    border: 3px solid #eaeaea
+    background-color: #ffffff
+    border-radius: 30px
+    padding: 0 40px
+    &:active,
+    &:focus
+        outline: none
+    &::-moz-focus-inner
+        border: 0
+    @media (max-width: $breakpoint-extra-small-max)
+        padding: 0 20px
+        line-height: 42px
+    &:hover
+        text-decoration: none
+        color: #333
+        border-color: #cccccc
+
+.button-jitney
+    padding: 0 10px
+    text-decoration: none
+    border: 1px solid #cccccc
+    background-color: #f5f5f5
+    border-radius: 14px
+    display: inline-block
+    color: #333333
+    font-size: 10px
+    font-weight: 700
+    line-height: 28px
+    text-transform: uppercase
+    letter-spacing: 0.25px
+    cursor: pointer
+    transition: all ease .3s
+    &:active,
+    &:focus
+        outline: none
+    &::-moz-focus-inner
+        border: 0
+    &:hover
+        color: #ffffff
+        text-decoration: none
+        background-color: #c5b593
+        border-color: #d5c5a5
+        svg
+            fill: #ffffff
+
+.button-trust
+    cursor: pointer
+    box-shadow: 0 6px 9px rgba(13, 11, 8, 0.27)
+    border: 1px solid #7bc8ed
+    background-color: #14abf4
+    background-image: linear-gradient(to top, #43ade5 0%, #beebf9 100%)
+    color: #ffffff
+    font-size: 18px
+    font-weight: 700
+    line-height: 50px
+    letter-spacing: 0.9px
+    text-align: center
+    border-radius: 28px
+    padding: 0 25px
+    text-decoration: none
+    transition: background-image ease .3s
+    &:active,
+    &:focus
+        outline: none
+    &::-moz-focus-inner
+        border: 0
+    &:hover
+        text-decoration: none
+        box-shadow: 0 6px 9px rgba(13, 11, 8, 0.27)
+        border-color: #4eb1e6
+        background-color: #14abf4
+        background-image: linear-gradient(to top, #1da5ee 0%, #ace7fa 100%)
