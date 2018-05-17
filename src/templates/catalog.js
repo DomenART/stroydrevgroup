@@ -29,7 +29,7 @@ class Page extends Component {
 export default Page
 
 export const query = graphql`
-    query currentPageQuery($id: String!) {
+    query catalogPageQuery($id: String!) {
         page: wordpressPage(id: { eq: $id }) {
             title
             content

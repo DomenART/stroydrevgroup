@@ -16,9 +16,9 @@ exports.replaceRouterComponent = ({ history }) => {
 }
 
 exports.onClientEntry = () => {
-    // if (typeof(window.fetch) == 'undefined') {
-    //     window.fetch = require('whatwg-fetch')
-    // }
+    if (typeof(window.fetch) == 'undefined') {
+        window.fetch = require('whatwg-fetch')
+    }
     window.UIkit = require('uikit')
 
     store.dispatch({

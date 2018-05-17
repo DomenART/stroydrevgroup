@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import Link from 'gatsby-link'
 import SvgIcon from '../UI/SvgIcon'
 import Project from '../Project/Project'
 import isEqual from 'lodash/isEqual'
@@ -85,13 +86,13 @@ class LandingProjects extends Component {
             `filter[meta_query][relation]=OR`,
             this.filterString()
         ]
-        // fetch(`${config.API_URL}wp/v2/project?${params.join('&')}`)
-        // .then(response => response.json())
-        // .then(response => {
-        //     this.setState({
-        //         projects: response
-        //     })
-        // })
+        fetch(`${config.API_URL}wp/v2/project?${params.join('&')}`)
+        .then(response => response.json())
+        .then(response => {
+            this.setState({
+                projects: response
+            })
+        })
     }
 
     filterString() {
@@ -158,7 +159,10 @@ class LandingProjects extends Component {
                     ))}
                 </div>
                 <div className={styles.allWrap}>
-                    <a href="#" className={styles.allBtn}>Показать все проекты</a>
+                    <Link
+                        to="katalog"
+                        className={styles.allBtn}
+                    >Показать все проекты</Link>
                 </div>
             </section>
         )

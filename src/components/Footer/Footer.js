@@ -9,16 +9,13 @@ import SvgIcon from '../UI/SvgIcon'
 class Footer extends Component {
     render() {
         const { counters, copyright } = this.props
-        const { isExtraSmall } = this.props.resolution
 
         return (
             <footer>
                 <FooterFixed />
-                {isExtraSmall && (
-                    <FooterMobile
-                        copyright={copyright}
-                    />
-                )}
+                <FooterMobile
+                    copyright={copyright}
+                />
                 <FooterStatic
                     counters={counters}
                 />
@@ -29,7 +26,6 @@ class Footer extends Component {
 
 export default connect(
     state => ({
-        resolution: state.resolution,
         copyright: state.app.options.copyright,
         counters: state.app.options.counters
     })

@@ -19,11 +19,20 @@ exports.createPages = ({ graphql, boundActionCreators }) => {
                 edges {
                     node {
                         id
+                        parent_element {
+                          id
+                        }
+                        title
                         status
                         template
                         link
                     }
                 }
+            }
+            home: wordpressPage(slug: { eq: "index" }) {
+                id
+                link
+                title
             }
         }`)
         .then(result => {
@@ -33,16 +42,47 @@ exports.createPages = ({ graphql, boundActionCreators }) => {
             }
 
             // Create Page pages.
+            const edges = result.data.allWordpressPage.edges
             const defaultTemplate = 'page'
-            _.each(result.data.allWordpressPage.edges, edge => {
-                let template = edge.node.template ?
+            _.each(edges, edge => {
+                const template = edge.node.template ?
                     path.parse(edge.node.template).name :
                     defaultTemplate
+                const pathname = urlParse(edge.node.link).pathname
+                const breadcrumbs = [{
+                    id: result.data.home.id,
+                    uri: urlParse(result.data.home.link).pathname,
+                    title: result.data.home.title,
+                    current: false
+                }]
+                const addParent = id => {
+                    const item = edges.find(child => child.node.id == id)
+                    if (item.node.parent_element) {
+                        addParent(item.node.parent_element.id)
+                    }
+                    breadcrumbs.push({
+                        id: id,
+                        uri: urlParse(item.node.link).pathname,
+                        title: item.node.title,
+                        current: false
+                    })
+                }
+                if (edge.node.parent_element) {
+                    addParent(edge.node.parent_element.id)
+                }
+                breadcrumbs.push({
+                    id: edge.node.id,
+                    uri: pathname,
+                    title: edge.node.title,
+                    current: true
+                })
+
                 createPage({
                     path: urlParse(edge.node.link).pathname,
                     component: slash(path.resolve(`./src/templates/${template}.js`)),
                     context: {
-                        id: edge.node.id
+                        id: edge.node.id,
+                        breadcrumbs: breadcrumbs
                     }
                 })
             })

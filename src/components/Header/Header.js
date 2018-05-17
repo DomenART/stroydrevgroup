@@ -29,7 +29,7 @@ class Header extends Component {
                     и бань под ключ по России и СНГ
                 </div>
                 <div className={styles.nav}>
-                    <Link to="/catalog" className={styles.catalog}>
+                    <Link to="/katalog" className={styles.catalog}>
                         Каталог проектов
                     </Link>
                     <div className={styles.search}>
