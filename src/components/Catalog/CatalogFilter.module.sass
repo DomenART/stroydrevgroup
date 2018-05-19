@@ -1,0 +1,23 @@
+@import '../App/variables'
+
+.projects
+    margin-left: -#{$container-padding-ultra-large}
+    margin-right: -#{$container-padding-ultra-large}
+    padding-left: $container-padding-ultra-large - 22px
+    padding-right: $container-padding-ultra-large - 22px
+    display: grid
+    @media (max-width: $breakpoint-extra-large-max)
+        margin-left: -#{$container-padding-extra-large}
+        margin-right: -#{$container-padding-extra-large}
+        padding-left: $container-padding-extra-large - 22px
+        padding-right: $container-padding-extra-large - 22px
+    @media (max-width: $breakpoint-large-max)
+        margin-left: -#{$container-padding-large}
+        margin-right: -#{$container-padding-large}
+        padding-left: $container-padding-large - 22px
+        padding-right: $container-padding-large - 22px
+    @media (max-width: $breakpoint-medium-max)
+        margin-left: -#{$container-padding-medium}
+        margin-right: -#{$container-padding-medium}
+        padding-left: $container-padding-medium - 12px
+        padding-right: $container-padding-medium - 12px

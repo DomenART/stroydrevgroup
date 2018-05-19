@@ -1,6 +1,5 @@
 import React from 'react'
 import Link from 'gatsby-link'
-import SvgIcon from '../UI/SvgIcon'
 import styles from './Breadcrumbs.module.sass'
 
 const Breadcrumbs = ({ items }) =>
@@ -19,6 +18,7 @@ const Breadcrumbs = ({ items }) =>
                         dangerouslySetInnerHTML={{__html: row.title}}
                     />
                 )}
+                {!row.current && <span className={styles.forward} />}
             </li>
         ))}
     </ul>

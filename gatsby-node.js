@@ -12,6 +12,21 @@ exports.modifyBabelrc = ({ babelrc }) =>
 exports.createPages = ({ graphql, boundActionCreators }) => {
     const { createPage } = boundActionCreators
     return new Promise((resolve, reject) => {
+        // if (template == 'catalog') {
+        //     const options = {
+        //         material: [],
+        //         type: [],
+        //         floors: []
+        //     }
+        //     projects.map(row => {
+        //         Object.keys(options).map(key => {
+        //             if (row.node.acf[key] && options[key].indexOf(row.node.acf[key]) === -1) {
+        //                 options[key].push(row.node.acf[key])
+        //             }
+        //         })
+        //     })
+        //     context.options = options
+        // }
 
         // ==== PAGES (WORDPRESS NATIVE) ====
         graphql(`{

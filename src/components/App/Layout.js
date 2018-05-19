@@ -1,7 +1,6 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import SvgSprite from '../UI/SvgSprite'
-import Header from '../Header/Header.js'
 import HeaderMobile from '../Header/HeaderMobile.js'
 import ToolbarMobile from '../Header/ToolbarMobile.js'
 import Sidebar from '../Sidebar/Sidebar'
@@ -21,7 +20,6 @@ class Layout extends Component {
                 <HeaderMobile />
                 <ToolbarMobile />
                 <Offcanvas>
-                    <Header />
                     {children}
                     <Footer />
                 </Offcanvas>

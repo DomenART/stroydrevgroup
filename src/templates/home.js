@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import Link from 'gatsby-link'
 import Layout from '../components/App/Layout'
 import Head from '../components/App/Head'
+import Header from '../components/Header/Header.js'
 import LandingSlideshow from '../components/Landing/LandingSlideshow'
 import LandingBanners from '../components/Landing/LandingBanners'
 import LandingProjects from '../components/Landing/LandingProjects'
@@ -26,6 +27,7 @@ class Page extends Component {
             <Layout>
                 <Head title={page.title} />
                 <div className="padding-small">
+                    <Header />
                     <LandingSlideshow items={page.acf.slideshow_items} />
                     <LandingBanners />
                     <LandingProjects />

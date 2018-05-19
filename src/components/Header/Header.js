@@ -28,7 +28,10 @@ class Header extends Component {
                     Строительство деревянных домов <br />
                     и бань под ключ по России и СНГ
                 </div>
-                <div className={styles.nav}>
+                <div className={styles.search}>
+                    <HeaderSearch />
+                </div>
+                {/* <div className={styles.nav}>
                     <Link to="/katalog" className={styles.catalog}>
                         Каталог проектов
                     </Link>
@@ -38,7 +41,7 @@ class Header extends Component {
                     <Link to="/search" className={styles.searchBtn}>
                         <SvgIcon name="search" />
                     </Link>
-                </div>
+                </div> */}
                 <div className={styles.callback}>
                     <div className={styles.callbackTime}>
                         Кроме воскресенья<br />

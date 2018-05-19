@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import Link from 'gatsby-link'
 import SvgIcon from '../UI/SvgIcon'
-import Project from '../Project/Project'
+import ProjectsRow from '../Projects/ProjectsRow'
 import isEqual from 'lodash/isEqual'
 import styles from './LandingProjects.module.sass'
 import config from '../../config.json'
@@ -148,15 +148,19 @@ class LandingProjects extends Component {
                     </div>
                 </div>
                 <div className={styles.projects}>
-                    {this.state.projects.map(row => (
-                        <Project
-                            title={row.title.rendered}
-                            slug={row.slug}
-                            image={row.thumbnail}
-                            key={row.id}
-                            {...row.acf}
-                        />
-                    ))}
+                    <div className="uk-grid uk-grid-small" data-uk-grid>
+                        {this.state.projects.map(row => (
+                            <div className="uk-width-1-2@s uk-width-1-3@m uk-width-1-4@xl">
+                                <ProjectsRow
+                                    title={row.title.rendered}
+                                    slug={row.slug}
+                                    image={row.thumbnail}
+                                    key={row.id}
+                                    {...row.acf}
+                                />
+                            </div>
+                        ))}
+                    </div>
                 </div>
                 <div className={styles.allWrap}>
                     <Link

@@ -1,0 +1,49 @@
+@import '../App/variables'
+
+.breadcrumbs
+    font-size: 13px
+    line-height: 1.4
+    letter-spacing: 0.33px
+    color: #999999
+    margin: 0
+    padding: 8px 0
+
+.forward
+    position: relative
+    display: inline-block
+    vertical-align: middle
+    width: 9px
+    height: 10px
+    margin: 0 16px
+    &::before
+        content: ''
+        position: absolute
+        width: 5px
+        height: 4px
+        left: 0
+        top: 50%
+        transform: translateY(-50%)
+        background-color: #b5b5b5
+    &::after
+        content: ''
+        position: absolute
+        right: 0
+        top: 50%
+        transform: translateY(-50%)
+        width: 0
+        height: 0
+        border-width: 5px 0 5px 5px
+        border-style: solid
+        border-color: transparent transparent transparent #b5b5b5
+
+.item
+    list-style: none
+    display: inline-block
+
+.link
+    color: #7f7f7f
+    text-decoration: underline
+    &:hover
+        color: #000000
+
+.anchor

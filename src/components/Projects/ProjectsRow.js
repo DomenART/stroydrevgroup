@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import Link from 'gatsby-link'
-import styles from './Project.module.sass'
+import styles from './ProjectsRow.module.sass'
 import SvgIcon from '../UI/SvgIcon'
 import config from '../../config.json'
 
