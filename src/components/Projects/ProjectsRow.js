@@ -12,6 +12,11 @@ class Project extends Component {
         } = this.props
         const link = `project/${slug}`
 
+        const priceClassName = [styles.price]
+        if (price.length > 6) {
+            priceClassName.push(styles.price_small)
+        }
+
         return (
             <div className={styles.project}>
                 <Link to={link}>
@@ -50,7 +55,7 @@ class Project extends Component {
                                 {new Intl.NumberFormat('ru-RU').format(old_price)}&nbsp;руб.
                             </div>
                         )}
-                        <div className={styles.price}>
+                        <div className={priceClassName.join(' ')}>
                             {new Intl.NumberFormat('ru-RU').format(price)}
                             <SvgIcon name="ruble" />
                         </div>

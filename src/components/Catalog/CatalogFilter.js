@@ -1,5 +1,8 @@
 import React, { Component, Fragment } from 'react'
 import { Context, filters } from './FilterContext'
+import Paginate from '../UI/Paginate'
+import queryString from 'jquery-param'
+import FilterHeadline from './FilterHeadline'
 import FilterOuter from './FilterOuter'
 import ProjectsRow from '../Projects/ProjectsRow'
 import styles from './CatalogFilter.module.sass'
@@ -8,37 +11,88 @@ import config from '../../config.json'
 class CatalogFilter extends Component {
     constructor(props) {
         super(props)
-        this.setGroupValues = this.setGroupValues.bind(this)
-        this.setGroupValue = this.setGroupValue.bind(this)
+        this.updateMetaQuery = this.updateMetaQuery.bind(this)
+        this.loadProjects = this.loadProjects.bind(this)
+        this.pageChange = this.pageChange.bind(this)
+        this.changeOrder = this.changeOrder.bind(this)
+        this.changeLimit = this.changeLimit.bind(this)
+        this.changeView = this.changeView.bind(this)
         this.state = {
+            total: 0,
+            totalPages: 0,
+            view: 'tile',
             projects: [],
             filters: filters,
+            query: {
+                page: 1,
+                per_page: 1,
+                orderby: 'menu_order',
+                filter: {
+                    meta_query: {}
+                }
+            },
             actions: {
-                setGroupValues: this.setGroupValues,
-                setGroupValue: this.setGroupValue,
+                updateMetaQuery: this.updateMetaQuery,
+                loadProjects: this.loadProjects,
+                changeOrder: this.changeOrder,
+                changeLimit: this.changeLimit,
+                changeView: this.changeView,
             }
         }
     }
 
-    setGroupValues(group, values) {
-        const filters = this.state.filters
-        filters[group] = values
-        this.setState({ filters }, this.updateFilter)
+    changeOrder(order) {
+        this.setState({
+            query: {
+                ...this.state.query,
+                orderby: order
+            }
+        }, this.loadProjects)
     }
 
-    setGroupValue(group, index, value) {
-        const filters = this.state.filters
-        filters[group][index] = value
-        this.setState({ filters }, this.updateFilter)
+    changeLimit(limit) {
+        this.setState({
+            query: {
+                ...this.state.query,
+                per_page: limit
+            }
+        }, this.loadProjects)
+    }
+
+    changeView(view) {
+        this.setState({
+            view: view
+        })
+    }
+
+    updateMetaQuery(obj) {
+        this.setState({
+            query: {
+                ...this.state.query,
+                page: 1,
+                filter: {
+                    ...this.state.query.filter,
+                    meta_query: {
+                        ...this.state.query.filter.meta_query,
+                        ...obj
+                    }
+                }
+            }
+        }, () => {
+            this.disableEmptyFilters()
+            this.loadProjects()
+        })
     }
 
     loadProjects() {
-        let params = [
-            `per_page=8`,
-            this.filterString()
-        ]
-        fetch(`${config.API_URL}wp/v2/project?${params.join('&')}`)
-        .then(response => response.json())
+        fetch(`${config.API_URL}wp/v2/project?${queryString(this.state.query)}`)
+        .then(response => {
+            this.setState({
+                total: Number(response.headers.get('x-wp-total')),
+                totalPages: Number(response.headers.get('x-wp-totalpages'))
+            })
+            return response.json()
+        })
         .then(response => {
             this.setState({
                 projects: response
@@ -46,81 +100,54 @@ class CatalogFilter extends Component {
         })
     }
 
-    filterString(exclude) {
-        const params = []
-        params.push(`filter[meta_query][relation]=AND`)
-        Object.keys(this.state.filters).forEach((group, gIndex) => {
-            if (this.state.filters[group].length && group != exclude) {
-                params.push(`filter[meta_query][${gIndex}][relation]=OR`)
-                this.state.filters[group].forEach((filter, fIndex) => {
-                    if (filter.active) {
-                        params.push(`filter[meta_query][${gIndex}][${fIndex}][key]=${filter.name}`)
-                        params.push(`filter[meta_query][${gIndex}][${fIndex}][value]=${filter.value}`)
-                        params.push(`filter[meta_query][${gIndex}][${fIndex}][compare]=${filter.compare}`)
-                        params.push(`filter[meta_query][${gIndex}][${fIndex}][type]=${filter.type}`)
-                    }
-                })
-            }
-        })
-        return params.join('&')
-    }
-
     disableEmptyFilters() {
-        Object.keys(this.state.filters).forEach((group, gIndex) => {
-            this.state.filters[group].forEach((filter, fIndex) => {
-                const params = [
-                    `per_page=1`,
-                    this.filterString(group)
-                ]
-                params.push(`filter[meta_query][${gIndex}][${fIndex}][key]=${filter.name}`)
-                params.push(`filter[meta_query][${gIndex}][${fIndex}][value]=${filter.value}`)
-                params.push(`filter[meta_query][${gIndex}][${fIndex}][compare]=${filter.compare}`)
-                params.push(`filter[meta_query][${gIndex}][${fIndex}][type]=${filter.type}`)
-
-                fetch(`${config.API_URL}wp/v2/project?${params.join('&')}`)
-                .then(response => response.json())
-                .then(response => {
-                    const filters = this.state.filters
-                    if (!filters[group][fIndex].active) {
-                        filters[group][fIndex].disabled = response.length === 0
+        this.state.filters.forEach((filter, index) => {
+            const query = {
+                ...this.state.query,
+                per_page: 1,
+                filter: {
+                    ...this.state.query.filter,
+                    meta_query: {
+                        ...this.state.query.filter.meta_query,
+                        [filter.group]: {
+                            key: filter.name,
+                            value: filter.value,
+                            compare: filter.compare,
+                            type: filter.type
+                        }
                     }
-                    this.setState({ filters })
-                })
+                }
+            }
+            fetch(`${config.API_URL}wp/v2/project?${queryString(query)}`)
+            .then(response => response.json())
+            .then(response => {
+                const filters = this.state.filters
+                if (!filters[index].active) {
+                    filters[index].disabled = response.length === 0
+                }
+                this.setState({ filters })
             })
         })
-    //     const params = []
-    //     const groups = Object.keys(this.state.filters)
-    //     params.push(`filter[meta_query][relation]=AND`)
-    //     groups.forEach(currentGroup => {
-    //         groups.forEach((group, gIndex) => {
-    //             if (group != currentGroup && this.state.filters[group].length) {
-    //                 params.push(`filter[meta_query][${gIndex}][relation]=OR`)
-    //                 this.state.filters[group].forEach((filter, fIndex) => {
-    //                     if (filter.active) {
-    //                         params.push(`filter[meta_query][${gIndex}][${fIndex}][key]=${filter.name}`)
-    //                         params.push(`filter[meta_query][${gIndex}][${fIndex}][value]=${filter.value}`)
-    //                         params.push(`filter[meta_query][${gIndex}][${fIndex}][compare]=${filter.compare}`)
-    //                         params.push(`filter[meta_query][${gIndex}][${fIndex}][type]=${filter.type}`)
-    //                     }
-    //                 })
-    //             }
-    //         })
-    //     })
-    //     return params.join('&')
-    }
-
-    updateFilter() {
-        this.disableEmptyFilters()
-        this.loadProjects()
     }
 
     componentDidMount() {
-        this.updateFilter()
+        // this.initialLoad()
+        // this.loadProjects()
+    }
+
+    pageChange({ selected }) {
+        this.setState({
+            query: {
+                ...this.state.query,
+                page: ++selected
+            }
+        }, this.loadProjects)
     }
 
     render() {
         return (
             <Context.Provider value={this.state}>
+                <FilterHeadline />
                 <FilterOuter />
                 <div className={styles.projects}>
                     <div className="uk-grid uk-grid-small" data-uk-grid>
@@ -138,6 +165,12 @@ class CatalogFilter extends Component {
                             </div>
                         ))}
                     </div>
+                    {this.state.totalPages > 1 ? (
+                        <Paginate
+                            onChange={this.pageChange}
+                            total={this.state.totalPages}
+                        />
+                    ) : <Fragment />}
                 </div>
             </Context.Provider>
         )

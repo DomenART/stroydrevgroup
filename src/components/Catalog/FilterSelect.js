@@ -8,17 +8,32 @@ class FilterSelect extends Component {
         this.handleSelect = this.handleSelect.bind(this)
     }
 
-    handleSelect(e, setGroupValues) {
-        const values = this.values.map((row, index) => {
-            row.active = e.target.value === String(index)
-            return row
+    handleSelect(e) {
+        const { group } = this.props
+
+        this.meta_query[group] = {}
+        this.values.forEach((filter, index) => {
+            filter.active = e.target.value === String(index)
+            if (filter.active) {
+                this.meta_query[group][index] = {
+                    key: filter.name,
+                    value: filter.value,
+                    compare: filter.compare,
+                    type: filter.type
+                }
+            }
         })
-        setGroupValues(this.props.group, values)
+
+        if (Object.keys(this.meta_query[group]).length) {
+            this.meta_query[group]['relation'] = 'OR'
+        }
+
+        this.actions.updateMetaQuery(this.meta_query)
     }
 
     getValue() {
         let value = ''
-        const active = this.values.map((row, index) => {
+        this.values.forEach((row, index) => {
             if (row.active) value = index
         })
         return value
@@ -29,14 +44,16 @@ class FilterSelect extends Component {
 
         return (
             <Context.Consumer>
-                {({ filters, actions }) => {
-                    this.values = filters[group]
+                {({ filters, query, actions }) => {
+                    this.values = filters.filter(row => row.group == group)
+                    this.meta_query = query.filter.meta_query
+                    this.actions = actions
 
                     return (
                         <select
                             className={styles.select}
                             value={this.getValue()}
-                            onChange={e => this.handleSelect(e, actions.setGroupValues)}
+                            onChange={this.handleSelect}
                         >
                             <option
                                 value=""

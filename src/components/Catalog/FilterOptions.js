@@ -9,12 +9,29 @@ class FilterOptions extends Component {
         this.handleChange = this.handleChange.bind(this)
     }
 
-    handleChange(e, setGroupValue) {
-        const values = this.values
+    handleChange(e) {
+        const { group } = this.props
         const index = e.target.value
-        const value = values[index]
+        const value = this.values[index]
         value.active = !value.active
-        setGroupValue(this.props.group, index, value)
+
+        this.meta_query[group] = {}
+        this.values.forEach((filter, index) => {
+            if (filter.active) {
+                this.meta_query[group][index] = {
+                    key: filter.name,
+                    value: filter.value,
+                    compare: filter.compare,
+                    type: filter.type
+                }
+            }
+        })
+
+        if (Object.keys(this.meta_query[group]).length) {
+            this.meta_query[group]['relation'] = 'OR'
+        }
+
+        this.actions.updateMetaQuery(this.meta_query)
     }
 
     render() {
@@ -22,8 +39,10 @@ class FilterOptions extends Component {
 
         return (
             <Context.Consumer>
-                {({ filters, actions }) => {
-                    this.values = filters[group]
+                {({ filters, query, actions }) => {
+                    this.values = filters.filter(row => row.group == group)
+                    this.meta_query = query.filter.meta_query
+                    this.actions = actions
 
                     return (
                         <div className={styles.options}>
@@ -32,9 +51,9 @@ class FilterOptions extends Component {
                                     <input
                                         type="checkbox"
                                         className={styles.input}
-                                        name={group}
+                                        name={row.name}
                                         value={index}
-                                        onChange={e => this.handleChange(e, actions.setGroupValue)}
+                                        onChange={this.handleChange}
                                         checked={row.active}
                                         disabled={row.disabled}
                                     />

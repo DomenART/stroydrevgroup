@@ -1,9 +1,10 @@
 import React, { createContext } from 'react'
 
-export const filters = {
-    type: [{
+export const filters = [
+    {
         active: false,
         disabled: false,
+        group: "type",
         name: "type",
         value: "Дома",
         compare: "=",
@@ -12,6 +13,7 @@ export const filters = {
     }, {
         active: false,
         disabled: false,
+        group: "type",
         name: "type",
         value: "Дачные дома",
         compare: "=",
@@ -20,6 +22,7 @@ export const filters = {
     }, {
         active: false,
         disabled: false,
+        group: "type",
         name: "type",
         value: "Бытовки/беседки",
         compare: "=",
@@ -28,15 +31,16 @@ export const filters = {
     }, {
         active: false,
         disabled: false,
+        group: "type",
         name: "type",
         value: "Часовни",
         compare: "=",
         type: "BINARY",
         title: "Часовни"
-    }],
-    material: [{
+    }, {
         active: false,
         disabled: false,
+        group: "material",
         name: "material",
         value: "металлические",
         compare: "=",
@@ -45,15 +49,16 @@ export const filters = {
     }, {
         active: false,
         disabled: false,
+        group: "material",
         name: "material",
         value: "деревянные",
         compare: "=",
         type: "BINARY",
         title: "деревянные"
-    }],
-    area: [{
-        active: false,
+    }, {
+        active: true,
         disabled: false,
+        group: "area",
         name: "area",
         value: "100",
         compare: "<",
@@ -62,15 +67,16 @@ export const filters = {
     }, {
         active: false,
         disabled: false,
+        group: "area",
         name: "area",
         value: "100",
         compare: ">",
         type: "numeric",
         title: "больше 100 м<sup>2</sup>"
-    }],
-    floors: [{
+    }, {
         active: false,
         disabled: false,
+        group: "floors",
         name: "floors",
         value: "1",
         compare: "=",
@@ -79,6 +85,7 @@ export const filters = {
     }, {
         active: false,
         disabled: false,
+        group: "floors",
         name: "floors",
         value: "1.5",
         compare: "=",
@@ -87,6 +94,7 @@ export const filters = {
     }, {
         active: false,
         disabled: false,
+        group: "floors",
         name: "floors",
         value: "2",
         compare: "=",
@@ -95,16 +103,22 @@ export const filters = {
     }, {
         active: false,
         disabled: false,
+        group: "floors",
         name: "floors",
         value: "2.5",
         compare: "=",
         type: "CHAR",
         title: "2,5 эт."
-    }]
-}
+    }
+]
 
 export const Context = createContext({
     projects: [],
     filters: filters,
+    query: {
+        filter: {
+            meta_query: {}
+        }
+    },
     actions: {}
 })

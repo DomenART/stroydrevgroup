@@ -46,6 +46,17 @@ export const query = graphql`
                 seo_title
                 seo_keywords
                 seo_description
+                filters {
+                    name
+                    values {
+                        active
+                        disabled
+                        type
+                        title
+                        compare
+                        value
+                    }
+                }
             }
         }
     }
