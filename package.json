@@ -47,6 +47,7 @@
     "react-share": "^2.1.1",
     "react-svg-sprite": "^1.0.8",
     "react-touch-carousel": "^0.8.2",
+    "redux-thunk": "^2.2.0",
     "svg-react-loader": "^0.4.5",
     "uikit": "^3.0.0-beta.42",
     "url-parse": "^1.2.0",

@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import Link from 'gatsby-link'
 import SvgIcon from '../UI/SvgIcon'
-import ProjectsRow from '../Projects/ProjectsRow'
+import ProjectsTile from '../Projects/ProjectsTile'
 import isEqual from 'lodash/isEqual'
 import styles from './LandingProjects.module.sass'
 import config from '../../config.json'
@@ -150,12 +150,11 @@ class LandingProjects extends Component {
                 <div className={styles.projects}>
                     <div className="uk-grid uk-grid-small" data-uk-grid>
                         {this.state.projects.map(row => (
-                            <div className="uk-width-1-2@s uk-width-1-3@m uk-width-1-4@xl">
-                                <ProjectsRow
+                            <div className="uk-width-1-2@s uk-width-1-3@m uk-width-1-4@xl" key={row.id}>
+                                <ProjectsTile
                                     title={row.title.rendered}
                                     slug={row.slug}
                                     image={row.thumbnail}
-                                    key={row.id}
                                     {...row.acf}
                                 />
                             </div>

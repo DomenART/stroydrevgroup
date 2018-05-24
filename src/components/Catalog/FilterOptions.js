@@ -1,5 +1,4 @@
-import React, { Component } from 'react'
-import { Context } from './FilterContext'
+import React, { Component, Fragment } from 'react'
 import styles from './FilterOptions.module.sass'
 import config from '../../config.json'
 
@@ -10,63 +9,40 @@ class FilterOptions extends Component {
     }
 
     handleChange(e) {
-        const { group } = this.props
-        const index = e.target.value
-        const value = this.values[index]
-        value.active = !value.active
+        const {
+            values, name, updateFilters
+        } = this.props
 
-        this.meta_query[group] = {}
-        this.values.forEach((filter, index) => {
-            if (filter.active) {
-                this.meta_query[group][index] = {
-                    key: filter.name,
-                    value: filter.value,
-                    compare: filter.compare,
-                    type: filter.type
-                }
+        updateFilters(name, {
+            [e.target.value]: {
+                active: !values[e.target.value].active
             }
         })
-
-        if (Object.keys(this.meta_query[group]).length) {
-            this.meta_query[group]['relation'] = 'OR'
-        }
-
-        this.actions.updateMetaQuery(this.meta_query)
     }
 
     render() {
-        const { group } = this.props
+        const { name, values } = this.props
 
         return (
-            <Context.Consumer>
-                {({ filters, query, actions }) => {
-                    this.values = filters.filter(row => row.group == group)
-                    this.meta_query = query.filter.meta_query
-                    this.actions = actions
-
-                    return (
-                        <div className={styles.options}>
-                            {this.values.map((row, index) => (
-                                <label className={styles.option} key={index}>
-                                    <input
-                                        type="checkbox"
-                                        className={styles.input}
-                                        name={row.name}
-                                        value={index}
-                                        onChange={this.handleChange}
-                                        checked={row.active}
-                                        disabled={row.disabled}
-                                    />
-                                    <div
-                                        className={styles.title}
-                                        dangerouslySetInnerHTML={{__html: row.title}}
-                                    />
-                                </label>
-                            ))}
-                        </div>
-                    )
-                }}
-            </Context.Consumer>
+            <Fragment>
+                {Object.keys(values).map(key => (
+                    <label className={`${styles.option} option`} key={key}>
+                        <input
+                            type="checkbox"
+                            className={styles.input}
+                            name={values[key].name}
+                            value={key}
+                            onChange={this.handleChange}
+                            checked={values[key].active}
+                            disabled={values[key].disabled}
+                        />
+                        <div
+                            className={styles.title}
+                            dangerouslySetInnerHTML={{__html: values[key].title}}
+                        />
+                    </label>
+                ))}
+            </Fragment>
         )
     }
 }

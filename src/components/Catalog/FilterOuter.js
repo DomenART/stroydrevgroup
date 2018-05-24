@@ -1,9 +1,10 @@
 import React from 'react'
 import FilterSelect from './FilterSelect'
 import FilterOptions from './FilterOptions'
+import SvgIcon from '../UI/SvgIcon'
 import styles from './FilterOuter.module.sass'
 
-const FilterOuter = () =>
+const FilterOuter = ({ filters, updateFilters, activateFilter, deactivateFilter }) =>
     <div className={styles.container}>
         <div className={styles.title}>
             Выберите<br />
@@ -16,7 +17,11 @@ const FilterOuter = () =>
                 </div>
                 <FilterSelect
                     placeholder="Все типы"
-                    group="type"
+                    name="type"
+                    values={filters['type']}
+                    updateFilters={updateFilters}
+                    activateFilter={activateFilter}
+                    deactivateFilter={deactivateFilter}
                 />
             </div>
             <div className={styles.group}>
@@ -25,25 +30,46 @@ const FilterOuter = () =>
                 </div>
                 <FilterSelect
                     placeholder="Все материалы"
-                    group="material"
+                    name="material"
+                    values={filters['material']}
+                    updateFilters={updateFilters}
+                    activateFilter={activateFilter}
+                    deactivateFilter={deactivateFilter}
                 />
             </div>
             <div className={styles.group}>
                 <div className={styles.label}>
                     Площадь:
                 </div>
-                <FilterOptions
-                    group="area"
-                />
+                <div className={styles.options}>
+                    <FilterOptions
+                        name="area"
+                        values={filters['area']}
+                        updateFilters={updateFilters}
+                    />
+                </div>
             </div>
             <div className={styles.group}>
                 <div className={styles.label}>
                     Этажность:
                 </div>
-                <FilterOptions
-                    group="floors"
-                />
+                <div className={styles.options}>
+                    {/* <FilterOptions
+                        name="floors"
+                        values={filters.filter(row => row.name == 'floors')}
+                    /> */}
+                </div>
             </div>
+        </div>
+        <div className={styles.buttons}>
+            <button
+                className={`${styles.buttonReset} button-jitney`}
+                type="button"
+                // onClick={actions.resetFilters}
+            >
+                <SvgIcon name="remove" />
+                <span>Сбросить</span>
+            </button>
         </div>
     </div>
 

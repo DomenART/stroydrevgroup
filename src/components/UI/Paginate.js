@@ -6,14 +6,16 @@ import styles from './Paginate.module.sass'
 export default ({ total, onChange }) =>
     <ReactPaginate
         previousLabel={<SvgIcon name="small-chevron-left" />}
+        previousClassName={styles.previous}
         nextLabel={<SvgIcon name="small-chevron-right" />}
+        nextClassName={styles.next}
         breakLabel={"..."}
-        breakClassName={"break"}
+        breakClassName={styles.break}
         pageCount={total}
         marginPagesDisplayed={2}
         pageRangeDisplayed={5}
         onPageChange={onChange}
-        containerClassName={"pagination"}
-        subContainerClassName={"pages pagination"}
-        activeClassName={"active"}
+        containerClassName={styles.container}
+        subContainerClassName={styles.subcontainer}
+        activeClassName={styles.active}
     />

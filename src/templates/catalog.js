@@ -1,5 +1,4 @@
 import React, { Component } from 'react'
-import { Provider, Consumer } from '../components/Catalog/FilterContext'
 import Link from 'gatsby-link'
 import Layout from '../components/App/Layout'
 import Head from '../components/App/Head'
@@ -14,7 +13,6 @@ class Page extends Component {
     render() {
         const { breadcrumbs, options } = this.props.pathContext
         const { page } = this.props.data
-        // console.log(options)
 
         return (
             <Layout>
@@ -23,7 +21,10 @@ class Page extends Component {
                     <PageHeader />
                     <Breadcrumbs items={breadcrumbs} />
                     <PageTitle html={page.title} />
-                    <CatalogFilter />
+                    <CatalogFilter
+                        filters={page.acf.filters}
+                        page_id={this.props.pathContext.id}
+                    />
                     <div
                         dangerouslySetInnerHTML={{ __html: page.content }}
                     />

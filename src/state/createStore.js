@@ -1,5 +1,6 @@
-import { createStore } from 'redux'
-import rootReducer from './index'
+import { createStore, applyMiddleware } from 'redux'
+import thunk from 'redux-thunk'
+import rootReducer from './reducers'
 
 export default () => {
     const devtools =
@@ -7,5 +8,9 @@ export default () => {
             ? window.__REDUX_DEVTOOLS_EXTENSION__ &&
             window.__REDUX_DEVTOOLS_EXTENSION__()
             : f => f
-    return createStore(rootReducer, devtools)
+    return createStore(
+        rootReducer,
+        applyMiddleware(thunk),
+        devtools
+    )
 }

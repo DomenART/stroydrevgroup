@@ -158,16 +158,44 @@ svg
 .select
     -webkit-appearance: none
     -moz-appearance: none
-    height: 36px
+    height: 40px
     vertical-align: middle
     display: inline-block
     cursor: pointer
-    padding-right: 38px
-    padding-left: 8px
+    padding-right: 33px
+    padding-left: 4px
     border-radius: 5px
+    font-size: 14px
+    color: rgb(51, 51, 51)
+    line-height: 1
     border: 2px solid #dfdada
     font-family: inherit
-    background: url('../../assets/select.svg') no-repeat
+    background: #ffffff url('../../assets/select.svg') no-repeat
     background-position: calc(100% - 8px) 50%
     &:hover
         background-image: url('../../assets/select-hover.svg')
+
+.option
+    > input
+        display: none
+        & + div
+            border: 2px solid #dfdada
+            background: #ffffff
+            border-radius: 5px
+            padding: 0 12px
+            height: 36px
+            line-height: 36px
+            cursor: pointer
+            font-size: 14px
+            color: rgb(1, 1, 1)
+            font-weight: bold
+            text-align: center
+            &:hover
+                border-color: #f9d384
+        &:checked + div
+            background-color: #fff297
+            border-color: #f9d384
+        &:disabled + div
+            color: #aaa
+            cursor: no-drop
+            border: 2px solid #e9e9e9

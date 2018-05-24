@@ -1,0 +1,57 @@
+@import '../App/variables'
+
+.container
+    padding: 10px 0
+    margin: 50px 0
+    border-top: 1px solid #f7f8fb
+    border-bottom: 1px solid #f7f8fb
+    display: flex
+    justify-content: center
+    align-items: center
+    li
+        list-style: none
+        margin: 0 6px
+        a
+            color: #666666
+            text-decoration: none
+            display: inline-block
+            width: 36px
+            height: 36px
+            border: 2px solid transparent
+            line-height: 34px
+            text-align: center
+            font-weight: bold
+            font-size: 14px
+            border-radius: 50%
+            &:hover
+                text-decoration: underline
+                color: #000000
+        &.active
+            a
+                border-color: #f9d486
+                font-size: 18px
+                color: #000000
+        &.previous
+            &:hover
+                svg
+                    border-bottom-color: #000000
+            svg
+                padding: 2px
+                width: 6px
+                height: 10px
+                border-bottom: 1px solid transparent
+        &.next
+            &:hover
+                svg
+                    border-bottom-color: #000000
+            svg
+                padding: 2px
+                width: 6px
+                height: 10px
+                border-bottom: 1px solid transparent
+
+.break
+    color: #666666
+    text-align: center
+    font-weight: bold
+    font-size: 14px
