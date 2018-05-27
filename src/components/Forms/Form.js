@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import axios from 'axios'
 import config from '../../config.json'
 
 class Form extends Component {
@@ -14,20 +15,19 @@ class Form extends Component {
     submitForm(e) {
         e.preventDefault()
 
-        fetch(config.API_URL + this.props.action, {
+        axios.get(config.API_URL + this.props.action, {
             method: 'POST',
             body: new FormData(this.form.current)
         })
-        .then(response => response.json())
         .then(response => {
-            if (response.status == 'validation_failed') {
+            if (response.data.status == 'validation_failed') {
                 UIkit.notification({
-                    message: response.message,
+                    message: response.data.message,
                     status: 'danger'
                 })
             }
 
-            if (response.status == 'mail_sent') {
+            if (response.data.status == 'mail_sent') {
                 this.form.current.reset()
 
                 if (this.props.successMessage) {
@@ -45,7 +45,7 @@ class Form extends Component {
                     })
                 } else {
                     UIkit.notification({
-                        message: response.message,
+                        message: response.data.message,
                         status: 'success'
                     })
                 }

@@ -111,7 +111,7 @@ export default (state = initialState, action) => {
                     [action.page]: {
                         ...state.pages[action.page],
                         loadingProjects: false,
-                        projects: action.data
+                        projects: action.projects
                     }
                 }
             };

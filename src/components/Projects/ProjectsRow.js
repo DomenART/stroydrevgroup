@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import Link from 'gatsby-link'
-import styles from './ProjectsTile.module.sass'
+import styles from './ProjectsRow.module.sass'
 import SvgIcon from '../UI/SvgIcon'
 import config from '../../config.json'
 
@@ -23,20 +23,22 @@ class ProjectsTile extends Component {
                     />
                 </Link>
 
-                <div className={styles.name}>
-                    <Link to={link}>{title}</Link>
-                </div>
+                <div className={styles.info}>
+                    <div className={styles.name}>
+                        <Link to={link}>{title}</Link>
+                    </div>
 
-                <div className={styles.area}>
-                    площ.
-                    <span>
-                        {new Intl.NumberFormat('ru-RU').format(area)}
-                        <span>м<sup>2</sup></span>
-                    </span>
-                </div>
+                    <div className={styles.area}>
+                        площ.
+                        <span>
+                            {new Intl.NumberFormat('ru-RU').format(area)}
+                            <span>м<sup>2</sup></span>
+                        </span>
+                    </div>
 
-                <div className={styles.params}>
-                    {width} <span>м х</span> {length} <span>м</span>
+                    <div className={styles.params}>
+                        {width} <span>м х</span> {length} <span>м</span>
+                    </div>
                 </div>
 
                 <div className={styles.prices}>
@@ -53,7 +55,7 @@ class ProjectsTile extends Component {
 
                 <button className={styles.more}>
                     <SvgIcon name="info" />
-                    Подробнее
+                    <span>Подробнее</span>
                 </button>
             </div>
         )

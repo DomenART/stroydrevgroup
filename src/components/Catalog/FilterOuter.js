@@ -4,7 +4,7 @@ import FilterOptions from './FilterOptions'
 import SvgIcon from '../UI/SvgIcon'
 import styles from './FilterOuter.module.sass'
 
-const FilterOuter = ({ filters, updateFilters, activateFilter, deactivateFilter }) =>
+const FilterOuter = ({ filters, updateFilters, onReset }) =>
     <div className={styles.container}>
         <div className={styles.title}>
             Выберите<br />
@@ -20,8 +20,6 @@ const FilterOuter = ({ filters, updateFilters, activateFilter, deactivateFilter 
                     name="type"
                     values={filters['type']}
                     updateFilters={updateFilters}
-                    activateFilter={activateFilter}
-                    deactivateFilter={deactivateFilter}
                 />
             </div>
             <div className={styles.group}>
@@ -33,8 +31,6 @@ const FilterOuter = ({ filters, updateFilters, activateFilter, deactivateFilter 
                     name="material"
                     values={filters['material']}
                     updateFilters={updateFilters}
-                    activateFilter={activateFilter}
-                    deactivateFilter={deactivateFilter}
                 />
             </div>
             <div className={styles.group}>
@@ -54,10 +50,11 @@ const FilterOuter = ({ filters, updateFilters, activateFilter, deactivateFilter 
                     Этажность:
                 </div>
                 <div className={styles.options}>
-                    {/* <FilterOptions
+                    <FilterOptions
                         name="floors"
-                        values={filters.filter(row => row.name == 'floors')}
-                    /> */}
+                        values={filters['floors']}
+                        updateFilters={updateFilters}
+                    />
                 </div>
             </div>
         </div>
@@ -65,7 +62,7 @@ const FilterOuter = ({ filters, updateFilters, activateFilter, deactivateFilter 
             <button
                 className={`${styles.buttonReset} button-jitney`}
                 type="button"
-                // onClick={actions.resetFilters}
+                onClick={onReset}
             >
                 <SvgIcon name="remove" />
                 <span>Сбросить</span>

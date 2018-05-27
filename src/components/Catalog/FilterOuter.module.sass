@@ -28,6 +28,10 @@
         margin-right: -#{$container-padding-medium - $container-padding-extra-small}
         padding-left: $container-padding-medium - $container-padding-extra-small
         padding-right: $container-padding-medium - $container-padding-extra-small
+    @media (max-width: $breakpoint-small-max)
+        flex-wrap: wrap
+        padding-top: 10px
+        padding-bottom: 10px
 
 .title
     font-size: 14px
@@ -37,24 +41,42 @@
     font-weight: 600
     margin-right: 9px
     padding-top: 6px
+    @media (max-width: $breakpoint-large-max)
+        display: none
 
 .filters
     display: flex
     flex-grow: 1
+    margin-right: 9px
+    @media (max-width: $breakpoint-medium-max)
+        flex-wrap: wrap
 
 .buttonReset
+    white-space: nowrap
+    display: block
+    margin: 19px 0
     svg
         width: 14px
         height: 14px
         fill: #999999
         margin-right: 5px
         transition: all ease .3s
+    @media (max-width: $breakpoint-small-max)
+        margin-top: 10px
+        margin-bottom: 10px
 
 .group
     border-left: 1px solid #ffffff
     padding: 19px 10px
     &:last-child
         border-right: 1px solid #ffffff
+    @media (max-width: $breakpoint-small-max)
+        padding-top: 10px
+        padding-bottom: 10px
+        margin-left: -10px
+        border: none
+        &:last-child
+            border: none
 
 .label
     font-size: 12px

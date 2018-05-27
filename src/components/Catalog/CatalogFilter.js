@@ -9,55 +9,44 @@ import styles from './CatalogFilter.module.sass'
 import config from '../../config.json'
 import {
     setView,
-    setFilters,
     setInitialData,
     setPaginatePage,
     setLimit,
     setOrder,
     loadProjects,
     updateFilters,
-    activateFilter,
-    deactivateFilter,
+    disableEmptyFilters,
 } from '../../state/actions/catalog';
 
 class CatalogFilter extends Component {
     constructor(props) {
         super(props)
 
-        this.setInitialData = this.props.setInitialData.bind(this, this.props.page_id)
+        this.initialData = {
+            loadingProjects: false,
+            total: 0,
+            totalPages: 0,
+            projects: [],
+            filters: this.prepareFilters(),
+            query: {
+                page: 1,
+                per_page: 24,
+                orderby: 'menu_order',
+                order: 'asc',
+                filter: {
+                    meta_query: this.prepareQueryFilters(),
+                }
+            }
+        }
+
+        this.setInitialData = this.props.setInitialData.bind(this, this.props.page_id, this.initialData)
         this.setPaginatePage = this.props.setPaginatePage.bind(this, this.props.page_id)
         this.setLimit = this.props.setLimit.bind(this, this.props.page_id)
         this.setOrder = this.props.setOrder.bind(this, this.props.page_id)
         this.updateFilters = this.props.updateFilters.bind(this, this.props.page_id)
-        this.activateFilter = this.props.activateFilter.bind(this, this.props.page_id)
-        this.deactivateFilter = this.props.deactivateFilter.bind(this, this.props.page_id)
 
         if (!this.props.pages[this.props.page_id]) {
-            this.setInitialData({
-                loadingProjects: false,
-                total: 0,
-                totalPages: 0,
-                projects: [],
-                filters: this.prepareFilters(),
-                query: {
-                    page: 1,
-                    per_page: 24,
-                    orderby: 'menu_order',
-                    order: 'asc',
-                    filter: {
-                        meta_query: {relation: 'AND'}
-                    }
-                }
-            })
-            // this.props.setQuery(this.props.page_id, {
-            //     page: 1,
-            //     per_page: 24,
-            //     orderby: 'menu_order',
-            //     order: 'asc',
-            //     filter: {
-            //         meta_query: {relation: 'AND'}
-            //     }
-            // })
+            this.setInitialData()
         }
 
         // this.page_id = this.props.page_id
@@ -122,8 +111,8 @@ class CatalogFilter extends Component {
     }
 
     componentDidMount() {
-
-        this.props.loadProjects(this.props.page_id)
+        // this.props.loadProjects(this.props.page_id)
+        // this.props.disableEmptyFilters(this.props.page_id)
         // this.page = this.props.pages[this.props.page]
 
         // this.initialLoad()
@@ -138,6 +127,27 @@ class CatalogFilter extends Component {
             })
         })
         return filters
+    }
+
+    prepareQueryFilters() {
+        const meta_query = {relation: 'AND'}
+        this.props.filters.forEach(group => {
+            meta_query[group.name] = {}
+            group.values.forEach((row, index) => {
+                if (row.active) {
+                    meta_query[group.name][index] = {
+                        key: group.name,
+                        value: row.value,
+                        compare: row.compare,
+                        type: row.type
+                    }
+                }
+            })
+            if (Object.keys(meta_query[group.name]).length) {
+                meta_query[group.name].ralation = 'OR'
+            }
+        })
+        return meta_query
     }
 
     // changeOrder(order) {
@@ -304,8 +314,7 @@ class CatalogFilter extends Component {
                 <FilterOuter
                     filters={filters}
                     updateFilters={this.updateFilters}
-                    activateFilter={this.activateFilter}
-                    deactivateFilter={this.deactivateFilter}
+                    onReset={this.setInitialData}
                 />
                 <div className={styles.container}>
                     {loadingProjects && (
@@ -331,14 +340,13 @@ class CatalogFilter extends Component {
                         </div>
                     ) : (
                         projects.map(row => (
-                            <div key={row.id}>
-                                <ProjectsRow
-                                    title={row.title.rendered}
-                                    slug={row.slug}
-                                    image={row.thumbnail}
-                                    {...row.acf}
-                                />
-                            </div>
+                            <ProjectsRow
+                                title={row.title.rendered}
+                                slug={row.slug}
+                                image={row.thumbnail}
+                                key={row.id}
+                                {...row.acf}
+                            />
                         ))
                     ))}
                     {totalPages > 1 ? (
@@ -362,13 +370,11 @@ const mapDispatchToProps = (dispatch) => ({
     setView: (view) => dispatch(setView(view)),
     setOrder: (page, order) => dispatch(setOrder(page, order)),
     setLimit: (page, number) => dispatch(setLimit(page, number)),
-    setFilters: (page, filters) => dispatch(setFilters(page, filters)),
     setInitialData: (page, data) => dispatch(setInitialData(page, data)),
     loadProjects: (page) => dispatch(loadProjects(page)),
     setPaginatePage: (page, payload) => dispatch(setPaginatePage(page, payload)),
     updateFilters: (page, name, values) => dispatch(updateFilters(page, name, values)),
-    activateFilter: (page, name, key) => dispatch(activateFilter(page, name, key)),
-    deactivateFilter: (page, name, key) => dispatch(deactivateFilter(page, name, key)),
+    disableEmptyFilters: (page) => dispatch(disableEmptyFilters(page)),
 })
 
 export default connect(

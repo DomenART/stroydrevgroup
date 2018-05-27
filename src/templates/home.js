@@ -125,19 +125,6 @@ export const query = graphql`
                         }
                     }
                 }
-                content_page {
-                    internal {
-                        type
-                    }
-                    text
-                    video {
-                        title
-                        mime_type
-                        localFile {
-                            publicURL
-                        }
-                    }
-                }
                 slideshow_items {
                     title
                     image {
@@ -155,6 +142,7 @@ export const query = graphql`
                     price
                 }
             }
+            ...FlexibleFields
         }
         reviews: allWordpressWpReviews {
             edges {

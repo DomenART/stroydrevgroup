@@ -5,6 +5,7 @@ import Head from '../components/App/Head'
 import PageHeader from '../components/Page/PageHeader.js'
 import PageMain from '../components/Page/PageMain.js'
 import PageTitle from '../components/Page/PageTitle.js'
+import PageContent from '../components/Page/PageContent.js'
 import CatalogFilter from '../components/Catalog/CatalogFilter.js'
 import Flexible from '../components/Flexible/Flexible'
 import Breadcrumbs from '../components/UI/Breadcrumbs'
@@ -25,10 +26,13 @@ class Page extends Component {
                         filters={page.acf.filters}
                         page_id={this.props.pathContext.id}
                     />
-                    <div
-                        dangerouslySetInnerHTML={{ __html: page.content }}
-                    />
-                    {/* <Flexible rows={page.acf.content_page} /> */}
+                    <PageContent>
+                        <div
+                            dangerouslySetInnerHTML={{ __html: page.content }}
+                        />
+                        {console.log(page.acf.content_page)}
+                        <Flexible rows={page.acf.content_page} />
+                    </PageContent>
                 </PageMain>
             </Layout>
         )
@@ -40,6 +44,7 @@ export default Page
 export const query = graphql`
     query catalogPageQuery($id: String!) {
         page: wordpressPage(id: { eq: $id }) {
+            ...FlexibleFields
             title
             content
             date(formatString: "MMMM DD, YYYY")

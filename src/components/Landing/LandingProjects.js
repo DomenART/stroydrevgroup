@@ -3,6 +3,7 @@ import Link from 'gatsby-link'
 import SvgIcon from '../UI/SvgIcon'
 import ProjectsTile from '../Projects/ProjectsTile'
 import isEqual from 'lodash/isEqual'
+import axios from 'axios'
 import styles from './LandingProjects.module.sass'
 import config from '../../config.json'
 
@@ -86,11 +87,10 @@ class LandingProjects extends Component {
             `filter[meta_query][relation]=OR`,
             this.filterString()
         ]
-        fetch(`${config.API_URL}wp/v2/project?${params.join('&')}`)
-        .then(response => response.json())
+        axios.get(`${config.API_URL}wp/v2/project?${params.join('&')}`)
         .then(response => {
             this.setState({
-                projects: response
+                projects: response.data
             })
         })
     }

@@ -1,12 +1,16 @@
 import queryString from 'jquery-param'
 import config from '../../config.json'
-import { SSL_OP_NETSCAPE_CHALLENGE_BUG } from 'constants';
+import axios from 'axios'
 
 export function setInitialData(page, data) {
-    return {
-        type: 'CATALOG_SET_INITIAL_DATA',
-        page,
-        data
+    return dispatch => {
+        dispatch({
+            type: 'CATALOG_SET_INITIAL_DATA',
+            page,
+            data
+        })
+        dispatch(loadProjects(page))
+        dispatch(disableEmptyFilters(page))
     }
 }
 
@@ -48,18 +52,12 @@ export function setView(view) {
     }
 }
 
-export function setFilters(page, filters) {
-    return {
-        type: 'CATALOG_SET_FILTERS',
-        page,
-        filters
-    }
-}
-
 export function updateFilters(page, name, values) {
     return (dispatch, getState) => {
         const filters = JSON.parse(JSON.stringify(getState().catalog.pages[page].filters))
         const query = JSON.parse(JSON.stringify(getState().catalog.pages[page].query))
+
+        query.page = 1
 
         Object.keys(values).forEach(key => {
             filters[name][key] = {
@@ -67,11 +65,9 @@ export function updateFilters(page, name, values) {
                 ...values[key]
             }
             if (values[key].active) {
-                if (!query.filter.meta_query[name]) {
-                    query.filter.meta_query[name] = {relation: 'OR'}
-                }
                 query.filter.meta_query[name] = {
                     ...query.filter.meta_query[name],
+                    relation: 'OR',
                     [key]: {
                         key: name,
                         value: filters[name][key].value,
@@ -91,16 +87,54 @@ export function updateFilters(page, name, values) {
             page,
             filters
         })
-
-        query.page = 1
-
         dispatch({
             type: 'CATALOG_SET_QUERY',
             page,
             query
         })
-
+        dispatch(disableEmptyFilters(page))
         dispatch(loadProjects(page))
+    }
+}
+
+export function disableEmptyFilters(page) {
+    return (dispatch, getState) => {
+        const query = getState().catalog.pages[page].query
+        const filters = getState().catalog.pages[page].filters
+
+        Object.keys(filters).forEach(group => {
+            Object.keys(filters[group]).forEach(key => {
+                const new_query = {
+                    ...query,
+                    per_page: 1,
+                    filter: {
+                        ...query.filter,
+                        meta_query: {
+                            ...query.filter.meta_query,
+                            [group]: {
+                                [key]: {
+                                    key: group,
+                                    value: filters[group][key].value,
+                                    compare: filters[group][key].compare,
+                                    type: filters[group][key].type
+                                }
+                            }
+                        }
+                    }
+                }
+                axios.get(`${config.API_URL}wp/v2/project?${queryString(new_query)}`)
+                .then(response => {
+                    if (!filters[group][key].active) {
+                        filters[group][key].disabled = response.data.length === 0
+                    }
+                    dispatch({
+                        type: 'CATALOG_SET_FILTERS',
+                        page,
+                        filters
+                    })
+                })
+            })
+        })
     }
 }
 
@@ -113,42 +147,19 @@ export function loadProjects(page) {
 
         const query = queryString(getState().catalog.pages[page].query)
 
-        fetch(`${config.API_URL}wp/v2/project?${query}`)
+        axios.get(`${config.API_URL}wp/v2/project?${query}`)
         .then(response => {
             dispatch(setTotal(
                 page,
-                Number(response.headers.get('x-wp-total')),
-                Number(response.headers.get('x-wp-totalpages'))
+                Number(response.headers['x-wp-total']),
+                Number(response.headers['x-wp-totalpages'])
             ))
-            return response.json()
-        })
-        .then(data => {
+
             dispatch({
                 type: 'CATALOG_LOAD_PROJECTS_SUCCESS',
                 page,
-                data
+                projects: response.data
             })
         })
     }
 }
-
-// когда меняем query загружаем projects и отключаем фильтры
-
-// action set page
-    // запускает loadProjects
-
-// action set per_page
-    // запускает loadProjects
-
-// action set orderby & order
-    // запускает loadProjects
-
-// action anable filter
-
-// action disable filter
-
-// action activate filter
-    // запускает loadProjects & prepareFilters
-
-// action deactivate filter
-    // запускает loadProjects & prepareFilters
