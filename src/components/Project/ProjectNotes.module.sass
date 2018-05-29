@@ -1,0 +1,28 @@
+@import '../App/variables'
+
+.container
+    border-bottom: 1px solid #ebebeb
+    padding: 11px 6%
+    font-size: 13px
+    color: #333333
+    @media (max-width: $breakpoint-extra-small-max)
+        padding-right: $container-padding-medium
+        padding-left: $container-padding-medium
+        margin-left: -$container-padding-medium
+        margin-right: -$container-padding-medium
+    ul
+        margin: 0
+        padding: 0 0 0 20px
+        li
+            margin: 8px 0
+            position: relative
+            list-style: none
+            &::before
+                content: ''
+                top: 8px
+                left: -18px
+                position: absolute
+                width: 6px
+                height: 6px
+                border-radius: 2px
+                background-color: #999999

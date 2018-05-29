@@ -1,0 +1,67 @@
+@import '../App/variables'
+
+.container
+    border-bottom: 1px solid #ebebeb
+    padding: 45px 65px 29px 6%
+    @media (max-width: $breakpoint-medium-max)
+        padding-right: 6%
+    @media (max-width: $breakpoint-extra-small-max)
+        padding-right: $container-padding-medium
+        padding-left: $container-padding-medium
+        padding-top: 25px
+        padding-bottom: 5px
+        margin-left: -$container-padding-medium
+        margin-right: -$container-padding-medium
+
+.grid
+    display: flex
+    justify-content: space-between
+    @media (max-width: $breakpoint-medium-max)
+        flex-wrap: wrap
+    @media (max-width: $breakpoint-small-max)
+        flex-wrap: initial
+    @media (max-width: $breakpoint-extra-small-max)
+        flex-wrap: wrap
+
+.column
+    width: auto
+    margin-bottom: 15px
+    @media (max-width: $breakpoint-medium-max)
+        min-width: 45%
+    @media (max-width: $breakpoint-small-max)
+        min-width: initial
+    @media (max-width: $breakpoint-extra-small-max)
+        min-width: 45%
+
+.param
+    display: flex
+    justify-content: space-between
+    align-items: center
+    margin: 12px 0
+    min-height: 36px
+    &:first-child
+        margin-top: 0
+    &:last-child
+        margin-bottom: 0
+
+.label
+    font-size: 14px
+    color: #333333
+    margin-right: 20px
+
+.value
+    font-style: 18px
+    font-weight: bold
+    color: #ffffff
+    min-width: 36px
+    text-align: center
+    line-height: 36px
+    display: inline-block
+    background-color: #81b100
+    box-sizing: border-box
+    padding: 0 10px
+
+.valueText
+    line-height: 36px
+    font-size: 14px
+    color: #333333

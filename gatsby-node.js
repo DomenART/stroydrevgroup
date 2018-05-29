@@ -12,30 +12,80 @@ exports.modifyBabelrc = ({ babelrc }) =>
 exports.createPages = ({ graphql, boundActionCreators }) => {
     const { createPage } = boundActionCreators
     return new Promise((resolve, reject) => {
-        // if (template == 'catalog') {
-        //     const options = {
-        //         material: [],
-        //         type: [],
-        //         floors: []
-        //     }
-        //     projects.map(row => {
-        //         Object.keys(options).map(key => {
-        //             if (row.node.acf[key] && options[key].indexOf(row.node.acf[key]) === -1) {
-        //                 options[key].push(row.node.acf[key])
-        //             }
-        //         })
-        //     })
-        //     context.options = options
-        // }
+        let pages = []
+        let home = {}
+        const createBreadcrumbs = (current) => {
+            const breadcrumbs = [{
+                id: home.id,
+                uri: urlParse(home.link).pathname,
+                title: home.title,
+                current: false
+            }]
+            const addParent = wordpress_id => {
+                const item = pages.find(child => child.node.wordpress_id == wordpress_id)
+                if (item.node.parent_element) {
+                    addParent(item.node.parent_element.wordpress_id)
+                }
+                breadcrumbs.push({
+                    id: item.node.id,
+                    uri: urlParse(item.node.link).pathname,
+                    title: item.node.title,
+                    current: false
+                })
+            }
+            if (current.parent_element) {
+                addParent(current.parent_element.wordpress_id)
+            } else if (current.acf && current.acf.linked_page) {
+                addParent(current.acf.linked_page.wordpress_id)
+            }
+            breadcrumbs.push({
+                id: current.id,
+                uri: urlParse(current.link).pathname,
+                title: current.title,
+                current: true
+            })
 
-        // ==== PAGES (WORDPRESS NATIVE) ====
+            return breadcrumbs
+        }
+        const pdoNeighbors = (current, rows) => {
+            let previous = {}
+            let next = {}
+
+            switch (current) {
+                case 0:
+                    previous = rows[rows.length-1].node
+                    next = rows[1].node
+                    break;
+                case (rows.length-1):
+                    previous = rows[rows.length-2].node
+                    next = rows[0].node
+                    break;
+                default:
+                    previous = rows[current-1].node
+                    next = rows[current+1].node
+                    break;
+            }
+
+            return {
+                previous: {
+                    path: urlParse(previous.link).pathname,
+                    title: previous.title
+                },
+                next: {
+                    path: urlParse(next.link).pathname,
+                    title: next.title
+                }
+            }
+        }
+
         graphql(`{
-            allWordpressPage {
+            pages: allWordpressPage {
                 edges {
                     node {
                         id
+                        wordpress_id
                         parent_element {
-                          id
+                          wordpress_id
                         }
                         title
                         status
@@ -46,6 +96,7 @@ exports.createPages = ({ graphql, boundActionCreators }) => {
             }
             home: wordpressPage(slug: { eq: "index" }) {
                 id
+                wordpress_id
                 link
                 title
             }
@@ -56,48 +107,24 @@ exports.createPages = ({ graphql, boundActionCreators }) => {
                 reject(result.errors)
             }
 
-            // Create Page pages.
-            const edges = result.data.allWordpressPage.edges
+            pages = result.data.pages.edges
+            home = result.data.home
+        })
+
+        // ==== PAGES (WORDPRESS NATIVE AND ACF) ====
+        .then(() => {
             const defaultTemplate = 'page'
-            _.each(edges, edge => {
+            _.each(pages, edge => {
                 const template = edge.node.template ?
                     path.parse(edge.node.template).name :
                     defaultTemplate
-                const pathname = urlParse(edge.node.link).pathname
-                const breadcrumbs = [{
-                    id: result.data.home.id,
-                    uri: urlParse(result.data.home.link).pathname,
-                    title: result.data.home.title,
-                    current: false
-                }]
-                const addParent = id => {
-                    const item = edges.find(child => child.node.id == id)
-                    if (item.node.parent_element) {
-                        addParent(item.node.parent_element.id)
-                    }
-                    breadcrumbs.push({
-                        id: id,
-                        uri: urlParse(item.node.link).pathname,
-                        title: item.node.title,
-                        current: false
-                    })
-                }
-                if (edge.node.parent_element) {
-                    addParent(edge.node.parent_element.id)
-                }
-                breadcrumbs.push({
-                    id: edge.node.id,
-                    uri: pathname,
-                    title: edge.node.title,
-                    current: true
-                })
 
                 createPage({
                     path: urlParse(edge.node.link).pathname,
                     component: slash(path.resolve(`./src/templates/${template}.js`)),
                     context: {
                         id: edge.node.id,
-                        breadcrumbs: breadcrumbs
+                        breadcrumbs: createBreadcrumbs(edge.node)
                     }
                 })
             })
@@ -147,7 +174,16 @@ exports.createPages = ({ graphql, boundActionCreators }) => {
                     edges {
                         node {
                             id
+                            wordpress_id
                             link
+                            title
+                            status
+                            link
+                            acf {
+                                linked_page {
+                                    wordpress_id
+                                }
+                            }
                         }
                     }
                 }
@@ -159,12 +195,14 @@ exports.createPages = ({ graphql, boundActionCreators }) => {
                 }
 
                 const postTemplate = path.resolve("./src/templates/project.js")
-                _.each(result.data.allWordpressWpProject.edges, edge => {
+                _.each(result.data.allWordpressWpProject.edges, (edge, index) => {
                     createPage({
                         path: urlParse(edge.node.link).pathname,
                         component: slash(postTemplate),
                         context: {
-                            id: edge.node.id
+                            id: edge.node.id,
+                            breadcrumbs: createBreadcrumbs(edge.node),
+                            neighbors: pdoNeighbors(index, result.data.allWordpressWpProject.edges)
                         }
                     })
                 })

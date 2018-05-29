@@ -15,10 +15,7 @@ class Form extends Component {
     submitForm(e) {
         e.preventDefault()
 
-        axios.get(config.API_URL + this.props.action, {
-            method: 'POST',
-            body: new FormData(this.form.current)
-        })
+        axios.post(config.API_URL + this.props.action, new FormData(this.form.current))
         .then(response => {
             if (response.data.status == 'validation_failed') {
                 UIkit.notification({

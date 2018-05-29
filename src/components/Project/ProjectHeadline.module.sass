@@ -1,0 +1,94 @@
+@import '../App/variables'
+
+.container
+    border-top: 1px solid #f7f8fb
+    border-bottom: 1px solid #f7f8fb
+    padding: 12px 0
+    margin: 21px 0
+    display: flex
+    align-items: center
+    justify-content: space-between
+    &:last-child
+        margin: 21px 0
+    @media (max-width: $breakpoint-extra-small-max)
+        flex-wrap: wrap
+        margin: 0
+        &:last-child
+            margin: 0
+
+.share
+    display: flex
+    align-items: center
+    flex-grow: 15
+    @media (max-width: $breakpoint-extra-small-max)
+        flex-wrap: wrap
+        margin-bottom: 15px
+        width: 100%
+
+.shareTitle
+    margin-right: 8px
+    font-size: 16px
+    color: rgb(0, 0, 0)
+
+.print
+    min-width: 32px
+    min-height: 32px
+    width: 32px
+    height: 32px
+    position: relative
+    background-color: #f5f5f5
+    border: 1px solid #cccccc
+    box-sizing: border-box
+    cursor: pointer
+    transition: .3s ease
+    transition-property: background-color border
+    svg
+        fill: #000000
+        width: 16px
+        height: 16px
+        position: absolute
+        left: 50%
+        top: 50%
+        transform: translate(-50%, -50%)
+        transition: .3s ease
+        transition-property: fill
+    &:hover
+        background-color: #ada395
+        border-color: #ada395
+        svg
+            fill: #ffffff
+
+
+.neighbors
+    flex-grow: 5
+    text-align: right
+
+.neighborsLink
+    font-size: 14px
+    color: rgb(98, 98, 98)
+    font-weight: bold
+    text-transform: uppercase
+    text-decoration: none
+    border-bottom: 1px solid transparent
+    transition: .3s ease
+    transition-property: color border-bottom
+    svg
+        width: 12px
+        height: 12px
+        vertical-align: middle
+        display: inline-block
+        position: relative
+        top: -2px
+    &:hover
+        color: #000000
+        text-decoration: none
+        border-bottom-color: #000000
+
+.neighborsBorder
+    width: 1px
+    background-color: #cccccc
+    height: 11px
+    width: 1px
+    margin: 0 12px
+    display: inline-block
+    vertical-align: middle

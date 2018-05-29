@@ -141,8 +141,10 @@ export const query = graphql`
                     desc
                     price
                 }
+                content_page {
+                    ...FlexibleFields
+                }
             }
-            ...FlexibleFields
         }
         reviews: allWordpressWpReviews {
             edges {

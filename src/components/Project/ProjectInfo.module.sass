@@ -1,0 +1,94 @@
+@import '../App/variables'
+
+.container
+    margin-bottom: 115px
+    @media (max-width: $breakpoint-extra-small-max)
+        margin-left: -$container-padding-medium
+        margin-right: -$container-padding-medium
+        margin-bottom: 30px
+
+.tabs
+    padding: 0
+    margin: 0
+    display: flex
+    > li
+        padding: 0 20px
+        list-style: none
+        margin: 0 10px
+        font-size: 24px
+        color: #ffffff
+        background-color: #c5b593
+        box-shadow: inset 0 -10px 15px -15px rgba(0,0,0,.8)
+        line-height: 80px
+        flex-grow: 1
+        cursor: pointer
+        transition: .3s ease
+        transition-property: background-color box-shadow color font-size
+        @media (max-width: $breakpoint-extra-small-max)
+            font-size: 14px
+            font-weight: 600
+            margin: 0 2px
+            padding: 0 8px
+            line-height: 48px
+        &:first-child
+            margin-left: 0
+        &:last-child
+            margin-right: 0
+        &:global.uk-active
+            font-size: 35px
+            background-color: #ffd251
+            color: rgb(0, 0, 0)
+            box-shadow: inset 0 -10px 15px -15px rgba(0,0,0,0)
+            @media (max-width: $breakpoint-extra-small-max)
+                font-size: 14px
+
+.switcher
+    background-color: #ffd251
+    padding: 3px
+
+.additional
+    background-color: #ffe18b
+    padding: 21px 18px 23px
+    font-size: 16px
+    color: #000
+
+.equipments
+    display: flex
+    @media (max-width: $breakpoint-small-max)
+        flex-wrap: wrap
+
+.equipment
+    background-color: #ffe18b
+    flex-grow: 1
+    margin-left: 2px
+    padding: 21px 18px 23px
+    &:first-child
+        margin-left: 0
+    &:nth-child(2n)
+        background-color: #fff4c7
+    @media (max-width: $breakpoint-small-max)
+        width: 100%
+
+.equipmentTitle
+    font-size: 18px
+    color: rgb(78, 69, 40)
+    font-weight: bold
+    text-transform: uppercase
+    line-height: 1
+    margin-bottom: 17px
+    letter-spacing: 0.5px
+
+.equipmentList
+    background-color: rgb(255, 255, 255)
+    box-shadow: 0px 0px 3px 0px rgba(15, 22, 38, 0.15)
+    padding: 0
+    margin: 0
+    li
+        list-style: none
+        padding: 14px 24px
+        font-size: 16px
+        color: rgb(0, 0, 0)
+        line-height: 1.438
+        &:nth-child(2n-1)
+            background-color: #fefcf4
+            border-bottom: 1px solid #f4efde

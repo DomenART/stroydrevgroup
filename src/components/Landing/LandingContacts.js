@@ -4,35 +4,12 @@ import Link from 'gatsby-link'
 import ContactsRow from './ContactsRow'
 import ContactsForm from '../Forms/ContactsForm'
 import SvgIcon from '../UI/SvgIcon'
-import {
-    FacebookShareButton,
-    FacebookIcon,
-    MailruShareButton,
-    MailruIcon,
-    GooglePlusShareButton,
-    GooglePlusIcon,
-    PinterestShareButton,
-    PinterestIcon,
-    OKShareButton,
-    OKIcon,
-    VKShareButton,
-    VKIcon,
-    TwitterShareButton,
-    TwitterIcon,
-} from 'react-share'
+import Share from '../UI/Share'
 import styles from './LandingContacts.module.sass'
 
 class LandingContacts extends Component {
     render() {
-        const { isMediumMax, isExtraSmall } = this.props.resolution
-
-        let iconSize = 48
-        if (isMediumMax) {
-            iconSize = 42
-        }
-        if (isExtraSmall) {
-            iconSize = 37
-        }
+        const { isExtraSmall } = this.props.resolution
 
         const feedback = (
             <div className={styles.feedback}>
@@ -65,34 +42,7 @@ class LandingContacts extends Component {
                                     Поделиться:
                                 </h3>
                                 <div className={styles.share}>
-                                    <FacebookShareButton
-                                        url={this.props.pathname}
-                                        children={<FacebookIcon size={iconSize} />}
-                                    />
-                                    <MailruShareButton
-                                        url={this.props.pathname}
-                                        children={<MailruIcon size={iconSize} />}
-                                    />
-                                    <GooglePlusShareButton
-                                        url={this.props.pathname}
-                                        children={<GooglePlusIcon size={iconSize} />}
-                                    />
-                                    {/*<PinterestShareButton
-                                        url={this.props.pathname}
-                                        children={<PinterestIcon size={iconSize} />}
-                                    />*/}
-                                    <OKShareButton
-                                        url={this.props.pathname}
-                                        children={<OKIcon size={iconSize} />}
-                                    />
-                                    <VKShareButton
-                                        url={this.props.pathname}
-                                        children={<VKIcon size={iconSize} />}
-                                    />
-                                    <TwitterShareButton
-                                        url={this.props.pathname}
-                                        children={<TwitterIcon size={iconSize} />}
-                                    />
+                                    <Share />
                                 </div>
                                 {!isExtraSmall && feedback}
                             </div>
@@ -119,7 +69,6 @@ class LandingContacts extends Component {
 
 export default connect(
     state => ({
-        pathname: state.app.pathname,
         contacts_footer: state.app.options.contacts_footer,
         resolution: state.resolution
     })

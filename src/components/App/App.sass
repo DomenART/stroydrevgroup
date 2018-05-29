@@ -56,6 +56,20 @@ h2
         line-height: 1
         margin-bottom: 38px
 
+h3
+    color: #000000
+    font-size: 34px
+    font-weight: 400
+    line-height: 1.2
+    margin-bottom: 60px
+    @media (max-width: $breakpoint-medium-max)
+        font-size: 28px
+        margin-bottom: 40px
+    @media (max-width: $breakpoint-extra-small-max)
+        font-size: 22px
+        line-height: 1
+        margin-bottom: 20px
+
 figure
     margin: 0
 
@@ -86,6 +100,7 @@ svg
     background-color: #ffffff
     border-radius: 30px
     padding: 0 40px
+    font-family: $font-family
     &:active,
     &:focus
         outline: none
@@ -114,6 +129,7 @@ svg
     letter-spacing: 0.25px
     cursor: pointer
     transition: all ease .3s
+    font-family: $font-family
     &:active,
     &:focus
         outline: none
@@ -126,6 +142,39 @@ svg
         border-color: #d5c5a5
         svg
             fill: #ffffff
+
+.button-normal
+    padding: 0 15px
+    text-decoration: none
+    display: inline-block
+    color: #4e4528
+    font-size: 14px
+    font-weight: 700
+    line-height: 38px
+    border-style: solid
+    border-width: 1px
+    border-color: rgb(247, 199, 62)
+    border-radius: 19px
+    background-color: rgb(255, 210, 81)
+    box-shadow: 0px 3px 7px 0px rgba(255, 189, 0, 0.2)
+    cursor: pointer
+    transition: all ease .3s
+    font-family: $font-family
+    white-space: nowrap
+    svg
+        fill: #4e4528
+    &:active,
+    &:focus
+        outline: none
+    &::-moz-focus-inner
+        border: 0
+    &:hover
+        color: #000000
+        text-decoration: none
+        border-color: rgb(253, 200, 52)
+        background-color: rgb(254, 211, 12)
+        svg
+            fill: #000000
 
 .button-trust
     cursor: pointer
@@ -143,6 +192,7 @@ svg
     padding: 0 25px
     text-decoration: none
     transition: background-image ease .3s
+    font-family: $font-family
     &:active,
     &:focus
         outline: none

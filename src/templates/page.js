@@ -17,6 +17,7 @@ class Page extends Component {
                 <h1
                     dangerouslySetInnerHTML={{ __html: page.title }}
                 />
+                1
                 <div
                     dangerouslySetInnerHTML={{ __html: page.content }}
                 />

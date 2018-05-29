@@ -10,7 +10,7 @@ class ProjectsTile extends Component {
             title, slug, image, price,
             old_price, area, length, width
         } = this.props
-        const link = `project/${slug}`
+        const link = `/project/${slug}`
 
         return (
             <div className={styles.project}>

@@ -1,9 +1,17 @@
 import React from 'react'
+import Flexible from '../Flexible/Flexible'
 import styles from './PageContent.module.sass'
 
-const PageContent = ({ children }) =>
+const PageContent = ({ content, flexible }) =>
     <div className={styles.container}>
-        {children}
+        {content && (
+            <div
+                dangerouslySetInnerHTML={{ __html: content }}
+            />
+        )}
+        {flexible && (
+            <Flexible rows={flexible} />
+        )}
     </div>
 
 export default PageContent

@@ -1,0 +1,47 @@
+@import '../App/variables'
+
+.slideshow
+    position: relative
+    margin-bottom: 20px
+
+.slider
+    position: relative
+
+.sliderItem
+    width: 100%
+    border: 1px solid #e8e8e8
+    cursor: pointer
+    &_active
+        border-color: #ffd251
+        outline 1px solid #ffd251
+
+.prev,
+.next
+    background-color: rgba(153, 153, 153, 0.4)
+    border: none
+    cursor: pointer
+    width: 50px
+    height: 50px
+    position: absolute
+    top: 50%
+    margin-top: -25px
+    transition: background-color ease .3s
+    svg
+        width: 30px
+        height: 30px
+        position: absolute
+        left: 50%
+        top: 50%
+        transform: translate(-50%, -50%)
+        fill: #c3c3c3
+        transition: fill ease .3s
+    &:hover
+        background-color: rgba(113, 113, 113, 0.6)
+        svg
+            fill: #ffffff
+
+.prev
+    left: -9px
+
+.next
+    right: -9px

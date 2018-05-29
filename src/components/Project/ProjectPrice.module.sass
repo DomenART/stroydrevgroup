@@ -1,0 +1,38 @@
+@import '../App/variables'
+
+.container
+    border-top: 1px solid #ebebeb
+    border-bottom: 1px solid #ebebeb
+    padding: 13px 0 19px
+    padding-left: 6%
+    display: flex
+    align-items: center
+    justify-content: space-between
+    flex-wrap: wrap
+    @media (max-width: $breakpoint-extra-small-max)
+        padding-right: $container-padding-medium
+        padding-left: $container-padding-medium
+        margin-left: -$container-padding-medium
+        margin-right: -$container-padding-medium
+        justify-content: center
+
+.price
+    font-size: 24px
+    color: rgb(0, 0, 0)
+    line-height: 1
+    white-space: nowrap
+    margin: 15px 0
+    @media (max-width: $breakpoint-extra-small-max)
+        font-size: 18px
+        width: 100%
+        text-align: center
+    span
+        font-weight: bold
+        font-size: 48px
+        color: #ada395
+        margin-left: 15px
+        margin-right: 10px
+        display: inline-block
+        margin-top: -7px
+        @media (max-width: $breakpoint-extra-small-max)
+            font-size: 36px
