@@ -6,7 +6,7 @@
     "develop": "gatsby develop",
     "build": "gatsby build",
     "serve": "gatsby serve",
-    "deploy": "git pull && gatsby build && cp -r ./public/* ../public_html"
+    "deploy": "gatsby build && cp -r ./public/* ../public_html"
   },
   "dependencies": {
     "autoprefixer": "^8.4.1",
