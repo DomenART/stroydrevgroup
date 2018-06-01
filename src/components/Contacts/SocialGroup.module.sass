@@ -28,5 +28,25 @@
 .subscribe
     line-height: 29px
     color: #000
+    svg
+        display: none
+        fill: #000
+        transition: fill .3s ease
+        width: 14px
+        height: 14px
+        position: absolute
+        left: 50%
+        top: 50%
+        transform: translate(-50%, -50%)
+    @media (max-width: $breakpoint-small-max)
+        position: relative
+        width: 32px
+        height: 32px
+        padding: 0
+        border-radius: 50%
+        span
+            display: none
+        svg
+            display: inline-block
 
 .body

@@ -3,7 +3,7 @@ import { connect } from 'react-redux'
 import Form from './Form'
 import Input from './Input'
 import Textarea from './Textarea'
-import FeedbackSuccess from './FeedbackSuccess'
+import CalculationIndividualSuccess from './CalculationIndividualSuccess'
 import Link from 'gatsby-link'
 import styles from './ModalForm.module.sass'
 import SvgIcon from '../UI/SvgIcon'
@@ -14,7 +14,7 @@ import SvgIcon from '../UI/SvgIcon'
         phone: state.app.options.phone
     })
 )
-class Calculation extends Component {
+class CalculationIndividual extends Component {
     constructor(props) {
         super(props)
 
@@ -34,7 +34,7 @@ class Calculation extends Component {
 
     render() {
         return (
-            <div id="Calculation" ref="modal">
+            <div id="CalculationIndividual" ref="modal">
                 <div className={`${styles.dialog} uk-modal-dialog`}>
                     <button className={styles.close} />
                     <Form
@@ -42,15 +42,16 @@ class Calculation extends Component {
                         className={styles.form}
                         method="post"
                         encType='multipart/form-data'
-                        successMessage={<FeedbackSuccess />}
+                        successMessage={<CalculationIndividualSuccess />}
                         successCallback={this.hideModal}
                     >
                         <div className={styles.body}>
                             <div className={styles.header}>
                                 <div className={styles.headerIcon}>
-                                    <SvgIcon name="question" />
+                                    <SvgIcon name="clip" />
                                 </div>
-                                Заказать расчет
+                                Рассчитайте мой проект
+                                <span>БЕСПЛАТНО</span>
                             </div>
                             <div className={styles.fields}>
                                 <div className="uk-margin-small">
@@ -94,6 +95,15 @@ class Calculation extends Component {
                                         placeholder="Комментарий"
                                     />
                                 </div>
+                                <div className={styles.file} data-uk-form-custom="target: true">
+                                    <div className={styles.fileIcon}>
+                                        <SvgIcon name="clip" />
+                                    </div>
+                                    <input type="file" name="file" onChange={this.changeInput} />
+                                    <input type="text" className={styles.fileInput} placeholder="Прикрепить файл" disabled />
+                                    <span className={styles.fileNote}>(не более 30 Мб)</span>
+                                </div>
+                                <hr className={styles.hr} />
                             </div>
                             <label className={styles.rights}>
                                 <Input
@@ -118,4 +128,4 @@ class Calculation extends Component {
     }
 }
 
-export default Calculation
+export default CalculationIndividual

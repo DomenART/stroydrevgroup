@@ -5,15 +5,15 @@
     border-top: 1px solid #cccccc
     padding-left: 48px
     padding-bottom: 1px
-    padding-top: 27px
-    margin-bottom: 34px
-    @media (max-width: $breakpoint-medium-max)
-        margin-bottom: 25px
+    padding-top: 26px
+    padding-bottom: 26px
+    // @media (max-width: $breakpoint-medium-max)
+    //     margin-bottom: 25px
     @media (max-width: $breakpoint-extra-small-max)
         padding-left: 41px
         padding-top: 19px
     @media (max-width: $breakpoint-extra-small-max)
-        margin-bottom: 7px
+        padding-bottom: 7px
     &:last-child
         border-bottom: 1px solid #cccccc
 
@@ -25,12 +25,16 @@
     height: 27px
     border-radius: 50%
     background-color: #ffd251
-    padding: 1.2%
-    fill: #000
-    box-sizing: border-box
+    svg
+        fill: #000
+        width: 14px
+        height: 14px
+        position: absolute
+        left: 50%
+        top: 50%
+        transform: translate(-50%, -50%)
 
 .head
-    margin-bottom: 25px
     display: grid
     grid-gap: 13px
     grid-template-columns: auto auto
@@ -85,6 +89,8 @@
     font-size: 16px
     line-height: 1.5
     letter-spacing: 0.16px
+    margin-top: 25px
+    // margin-bottom: 10px
     @media (max-width: $breakpoint-medium-max)
         font-size: 14px
         letter-spacing: 0.14px

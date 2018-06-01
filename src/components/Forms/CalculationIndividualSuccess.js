@@ -9,7 +9,7 @@ import SvgIcon from '../UI/SvgIcon'
         phone: state.app.options.phone
     })
 )
-class CalculationSuccess extends Component {
+class CalculationIndividualSuccess extends Component {
     render() {
         const { phone } = this.props
 
@@ -49,4 +49,4 @@ class CalculationSuccess extends Component {
     }
 }
 
-export default CalculationSuccess
+export default CalculationIndividualSuccess

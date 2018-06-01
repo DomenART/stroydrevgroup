@@ -7,7 +7,7 @@ import ContactsFormSuccess from './ContactsFormSuccess'
 import SvgIcon from '../UI/SvgIcon'
 import styles from './ContactsForm.module.sass'
 
-const ContactsForm = () =>
+const ContactsForm = ({ icon, title, description }) =>
     <Form
         action="contact-form-7/v1/contact-forms/352/feedback"
         className={styles.box}
@@ -16,11 +16,19 @@ const ContactsForm = () =>
         successMessage={<ContactsFormSuccess />}
     >
         <div className={styles.head}>
-            <SvgIcon name="question" className={styles.headIcon} />
-            <div className={styles.headTitle}>Хочу задать вопрос</div>
-            <div className={styles.headDesc}>
-                Отправьте нам сообщение, и мы свяжемся с вами в ближайшее время
-            </div>
+            <SvgIcon name={icon} className={styles.headIcon} />
+            {title && (
+                <div
+                    className={styles.headTitle}
+                    dangerouslySetInnerHTML={{__html:title}}
+                />
+            )}
+            {description && (
+                <div
+                    className={styles.headDesc}
+                    dangerouslySetInnerHTML={{__html:description}}
+                />
+            )}
         </div>
         <div className={styles.fields}>
             <div className="uk-margin-small">

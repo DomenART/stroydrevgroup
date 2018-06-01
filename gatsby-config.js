@@ -49,6 +49,7 @@ module.exports = {
             resolve: `gatsby-plugin-postcss-sass`,
             options: {
                 postCssPlugins: [
+                    require('postcss-icss-keyframes')(),
                     require('autoprefixer')({
                         grid: false
                     }),

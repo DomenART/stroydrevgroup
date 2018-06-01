@@ -1,13 +1,16 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import SvgSprite from '../UI/SvgSprite'
+import ScrollUp from '../UI/ScrollUp'
 import HeaderMobile from '../Header/HeaderMobile.js'
 import ToolbarMobile from '../Header/ToolbarMobile.js'
 import Sidebar from '../Sidebar/Sidebar'
 import Offcanvas from '../Offcanvas/Offcanvas'
 import Footer from '../Footer/Footer'
-import Calculation from '../Forms/Calculation'
 import Feedback from '../Forms/Feedback'
+import Calculation from '../Forms/Calculation'
+import Consultation from '../Forms/Consultation'
+import CalculationIndividual from '../Forms/CalculationIndividual'
 
 class Layout extends Component {
     render() {
@@ -23,9 +26,12 @@ class Layout extends Component {
                     {children}
                     <Footer />
                 </Offcanvas>
-                <Calculation />
                 <Feedback />
+                <Consultation />
+                <Calculation />
+                <CalculationIndividual />
                 <SvgSprite />
+                <ScrollUp />
             </div>
         )
     }

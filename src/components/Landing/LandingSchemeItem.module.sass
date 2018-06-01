@@ -1,5 +1,53 @@
 @import '../App/variables'
 
+@keyframes arrow
+    0%
+        left: -46px
+    50%
+        left: -2px
+    100%
+        left: -2px
+
+@keyframes dot-1
+    0%
+        left: -46px
+    50%
+        left: -44px
+    100%
+        left: 0
+
+@keyframes dot-2
+    0%
+        left: -46px
+    50%
+        left: -30px
+    100%
+        left: 0
+
+@keyframes dot-3
+    0%
+        left: -46px
+    50%
+        left: -20px
+    100%
+        left: 0
+
+@keyframes dot-4
+    0%
+        left: -46px
+    50%
+        left: -11px
+    100%
+        left: 0
+
+@keyframes dot-5
+    0%
+        left: -46px
+    50%
+        left: -4px
+    100%
+        left: 0
+
 .box
     position: relative
     @media (max-width: $breakpoint-extra-small-max)
@@ -9,34 +57,61 @@
     &:first-child
         .arrow
             display: none
-    &:last-child
-        .arrow
-            width: 82px
-            height: 20px
-            left: -62px
-            @media (max-width: $breakpoint-medium-max)
-                left: -55px
-                transform: scale(.7)
-            @media (max-width: $breakpoint-extra-small-max)
-                width: 76px
-                height: 20px
-                left: -95px
 
 .arrow
     fill: #ffffff
     position: absolute
     left: -8%
     top: 41px
+    display: block
     width: 41px
     height: 20px
+    span
+        position: absolute
+        width: 1px
+        height: 1px
+        box-shadow: 0 0 0 1.2px #fff
+        position: absolute
+        background: #ffffff
+        border-radius: 1px
+        top: 50%
+        transform: translateY(-50%)
+    svg
+        width: 100%
+        height: 100%
+        fill: #ffffff
+        position: absolute
+        top: 50%
+        transform: translateY(-50%)
     @media (max-width: $breakpoint-medium-max)
         left: -24%
         transform: scale(.68)
     @media (max-width: $breakpoint-extra-small-max)
-        width: 38px
-        height: 17px
         left: -56px
+        svg
+            width: 38px
+            height: 17px
 
+.arrow_inview
+    svg
+        animation-duration: 1.5s
+        animation-fill-mode: both
+        animation-timing-function: ease-out
+        animation-name: arrow
+    span
+        animation-duration: 1.8s
+        animation-fill-mode: both
+        animation-timing-function: ease-out
+        &:nth-child(1)
+            animation-name: dot-1
+        &:nth-child(2)
+            animation-name: dot-2
+        &:nth-child(3)
+            animation-name: dot-3
+        &:nth-child(4)
+            animation-name: dot-4
+        &:nth-child(5)
+            animation-name: dot-5
 .image
     width: 100px
     height: 100px

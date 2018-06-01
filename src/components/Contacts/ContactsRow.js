@@ -4,7 +4,9 @@ import styles from './ContactsRow.module.sass'
 
 const ContactsRow = ({ name, comment, icon, text, add }) =>
     <div className={styles.row}>
-        <SvgIcon name={icon} className={styles.icon} />
+        <div className={styles.icon}>
+            <SvgIcon name={icon} />
+        </div>
         <div className={styles.head}>
             <div
                 className={styles.name}
@@ -29,12 +31,14 @@ const ContactsRow = ({ name, comment, icon, text, add }) =>
                 />
             )}
         </div>
-        <div
-            className={styles.text}
-            dangerouslySetInnerHTML={{
-                __html: text
-            }}
-        />
+        {text && (
+            <div
+                className={styles.text}
+                dangerouslySetInnerHTML={{
+                    __html: text
+                }}
+            />
+        )}
     </div>
 
 export default ContactsRow

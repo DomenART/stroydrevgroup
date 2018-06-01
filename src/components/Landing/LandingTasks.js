@@ -12,7 +12,10 @@ const LandingTask = ({ title }) =>
     </div>
 
 const LandingTasks = ({ items }) =>
-    <section className={styles.container}>
+    <section
+        className={styles.container}
+        data-uk-scrollspy="target: > div; cls: uk-animation-slide-left-small; delay: 400"
+    >
         {items.map((item, index) => <LandingTask {...item} key={index} />)}
     </section>
 

@@ -36,6 +36,7 @@
     "nprogress": "^0.2.0",
     "overlayscrollbars": "^1.4.4",
     "postcss-grid-kiss": "^1.4.2",
+    "postcss-icss-keyframes": "^0.2.1",
     "prop-types": "^15.6.1",
     "query-string": "^6.1.0",
     "rc-tooltip": "^3.7.2",

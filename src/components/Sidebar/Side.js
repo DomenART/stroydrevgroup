@@ -5,7 +5,7 @@ import Menu from './Menu'
 import SvgIcon from '../UI/SvgIcon'
 import styles from './Side.module.sass'
 
-const Side = ({ catalog, about, info, phone, isDrawerOpen, setRef }) => {
+const Side = ({ catalog, side_first, side_second, phone, isDrawerOpen, setRef }) => {
     let sideCls = [styles.side]
     if (isDrawerOpen) {
         sideCls.push(styles.side_shadow)
@@ -57,8 +57,8 @@ const Side = ({ catalog, about, info, phone, isDrawerOpen, setRef }) => {
 
             <div className={styles.menus}>
                 <Menu type="main" items={catalog} />
-                <Menu type="second" items={about} />
-                <Menu type="second" items={info} />
+                <Menu type="second" items={side_first} />
+                <Menu type="second" items={side_second} />
             </div>
 
             <SocialGroups className={styles.groups} />

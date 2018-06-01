@@ -27,8 +27,11 @@ const LandingOurAdvantages = ({ title, items }) =>
             className={styles.title}
             dangerouslySetInnerHTML={{ __html: title }}
         />
-        {/* <div className={styles.grid}> */}
-        <div className="uk-grid" data-uk-grid>
+        <div
+            className="uk-grid"
+            data-uk-grid
+            data-uk-scrollspy="target: > div; cls: uk-animation-slide-bottom-medium; delay: 500"
+        >
             {items.map((item, index) => <Advantage {...item} key={index} />)}
         </div>
     </section>

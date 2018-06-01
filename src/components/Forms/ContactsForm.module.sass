@@ -1,19 +1,25 @@
+@import '../App/variables'
+
 .box
     box-shadow: 0 6px 9px rgba(13, 11, 8, 0.27)
     background-color: #46bda3
     background-image: linear-gradient(-27deg, #56c986 0%, #3ab4b9 100%)
-    min-height: 100%
     padding: 52px 35px 36px
     box-sizing: border-box
     position: relative
-    margin-top: -22px
-    &:last-child
-        margin-bottom: -34px
+    max-width: 500px
+    margin: 0 auto
+    @media (max-width: $breakpoint-ultra-small-max)
+        padding: 25px
 
 .head
     padding-left: 63px
     position: relative
-    margin-bottom: 25px
+    margin-bottom: 16px
+    min-height: 46px
+    display: flex
+    justify-content: center
+    flex-flow: column
 
 .headIcon
     background: rgba(0,0,0,.4)
@@ -32,7 +38,6 @@
     font-weight: 700
     line-height: 22px
     letter-spacing: 0.9px
-    margin-bottom: 19px
 
 .headDesc
     color: #ffffff
@@ -40,10 +45,14 @@
     font-weight: 600
     line-height: 18px
     letter-spacing: 0.35px
+    margin-top: 19px
+    margin-bottom: 9px
 
 .fields
     padding: 0 64px
     margin-bottom: 15px
+    @media (max-width: $breakpoint-ultra-small-max)
+        padding: 0
 
 .rights
     color: #323232
@@ -66,3 +75,4 @@
     text-align: center
     button
         width: 248px
+        max-width: 100%

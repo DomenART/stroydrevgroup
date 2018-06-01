@@ -10,11 +10,10 @@ import SvgIcon from '../UI/SvgIcon'
 
 @connect(
     state => ({
-        isBrowser: state.app.isBrowser,
         phone: state.app.options.phone
     })
 )
-class Calculation extends Component {
+class Consultation extends Component {
     constructor(props) {
         super(props)
 
@@ -34,11 +33,11 @@ class Calculation extends Component {
 
     render() {
         return (
-            <div id="Calculation" ref="modal">
+            <div id="Consultation" ref="modal">
                 <div className={`${styles.dialog} uk-modal-dialog`}>
                     <button className={styles.close} />
                     <Form
-                        action="contact-form-7/v1/contact-forms/351/feedback"
+                        action="contact-form-7/v1/contact-forms/352/feedback"
                         className={styles.form}
                         method="post"
                         encType='multipart/form-data'
@@ -50,7 +49,8 @@ class Calculation extends Component {
                                 <div className={styles.headerIcon}>
                                     <SvgIcon name="question" />
                                 </div>
-                                Заказать расчет
+                                Заказать консультацию
+                                <span>Отправьте нам сообщение, и мы свяжемся с вами в ближайшее время</span>
                             </div>
                             <div className={styles.fields}>
                                 <div className="uk-margin-small">
@@ -118,4 +118,4 @@ class Calculation extends Component {
     }
 }
 
-export default Calculation
+export default Consultation

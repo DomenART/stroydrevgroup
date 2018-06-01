@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import Link from 'gatsby-link'
-import ContactsRow from './ContactsRow'
+import ContactsRow from '../Contacts/ContactsRow'
 import ContactsForm from '../Forms/ContactsForm'
 import SvgIcon from '../UI/SvgIcon'
 import Share from '../UI/Share'
@@ -59,7 +59,13 @@ class LandingContacts extends Component {
                         </div>
                     </div>
                     <div className="uk-width-1-3@xl uk-visible@xl">
-                        <ContactsForm />
+                        <div className={styles.form}>
+                            <ContactsForm
+                                icon="question"
+                                title="Хочу задать вопрос"
+                                description="Отправьте нам сообщение, и мы свяжемся с вами в ближайшее время"
+                            />
+                        </div>
                     </div>
                 </div>
             </section>

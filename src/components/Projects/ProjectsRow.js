@@ -53,10 +53,10 @@ class ProjectsTile extends Component {
                     </div>
                 </div>
 
-                <button className={styles.more}>
+                <Link to={link} className={styles.more}>
                     <SvgIcon name="info" />
                     <span>Подробнее</span>
-                </button>
+                </Link>
             </div>
         )
     }

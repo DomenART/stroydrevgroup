@@ -13,7 +13,7 @@ const ProjectPrice = ({ price }) =>
             }} />
             руб.
         </div>
-        <button className={`button-normal`} data-uk-toggle="target: #Calculation">
+        <button className={`button-normal`} data-uk-toggle="target: #Consultation">
             Заказать консультацию
         </button>
     </div>

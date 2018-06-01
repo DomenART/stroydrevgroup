@@ -1,5 +1,6 @@
 import React from 'react'
 import styles from './SocialGroup.module.sass'
+import SvgIcon from '../UI/SvgIcon';
 
 const SocialGroup = ({ title, link, icon, children }) =>
     <div className={styles.box}>
@@ -9,7 +10,8 @@ const SocialGroup = ({ title, link, icon, children }) =>
                 {title}
             </div>
             <a href={link} className={`${styles.subscribe} button-jitney`}>
-                подписаться
+                <span>подписаться</span>
+                <SvgIcon name="subscribe" />
             </a>
         </div>
         <div className={styles.body}>

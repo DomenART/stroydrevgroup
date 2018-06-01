@@ -41,7 +41,10 @@ const LandingBanners = () =>
             </div>
 
             <div className="uk-width-1-2@s uk-width-1-4@l">
-                <div className={`${styles.banner} ${styles.banner_green}`}>
+                <div
+                    className={`${styles.banner} ${styles.banner_green}`}
+                    data-uk-toggle="target: #CalculationIndividual"
+                >
                     <div className={styles.left}>
                         <div className={styles.icon}>
                             <SvgIcon name="banner-3" style={{

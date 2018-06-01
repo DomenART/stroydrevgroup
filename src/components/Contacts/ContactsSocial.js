@@ -1,18 +1,23 @@
-import React from 'react'
+import React, { Fragment } from 'react'
+import styles from './ContactsSocial.module.sass'
+import ContactsForm from '../Forms/ContactsForm'
+import SocialGroup from './SocialGroup'
 import SvgIcon from '../UI/SvgIcon'
-import SocialGroup from '../Contacts/SocialGroup'
-import LandingGeography from './LandingGeography'
-import styles from './LandingSocial.module.sass'
 
-const LandingSocial = () =>
-    <section className={styles.container}>
+const ContactsSocial = ({ groups }) =>
+    <div className={styles.container}>
         <div className="uk-grid" data-uk-grid>
-            <div className="uk-width-2-3 uk-visible@s">
-                <h3 className={`${styles.title} ${styles.col_first}`}>
-                    Мы в соцсетях: #стройдрев
-                </h3>
+            <div className="uk-width-1-3@l">
+                <h3 className={styles.title}>Обратная связь</h3>
+                <ContactsForm
+                    icon="at"
+                    title="Свяжитесь с нами"
+                />
+            </div>
+            <div className="uk-width-2-3@l">
+                <h3 className={styles.title}>Мы в соцсетях: #стройдрев</h3>
                 <div className="uk-grid" data-uk-grid>
-                    <div className="uk-width-1-2">
+                    <div className="uk-width-1-2@s">
                         <SocialGroup
                             title="@stroydrevgroup"
                             icon={(
@@ -33,7 +38,7 @@ const LandingSocial = () =>
                             Картинка инстаграма
                         </SocialGroup>
                     </div>
-                    <div className="uk-width-1-2">
+                    <div className="uk-width-1-2@s">
                         <SocialGroup
                             title="Стройдрев"
                             icon={(
@@ -56,13 +61,7 @@ const LandingSocial = () =>
                     </div>
                 </div>
             </div>
-            <div className="uk-width-1-3@s uk-flex uk-flex-column">
-                <h3 className={`${styles.title} ${styles.col_second}`}>
-                    География работы
-                </h3>
-                <LandingGeography />
-            </div>
         </div>
-    </section>
+    </div>
 
-export default LandingSocial
+export default ContactsSocial

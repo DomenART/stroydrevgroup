@@ -9,8 +9,12 @@ class Layout extends Component {
             payload: prepareMenu(this.props.data.about.items)
         })
         this.props.dispatch({
-            type: 'MENU_LOAD_INFO',
-            payload: prepareMenu(this.props.data.info.items)
+            type: 'MENU_LOAD_SIDE_FIRST',
+            payload: prepareMenu(this.props.data.side_first.items)
+        })
+        this.props.dispatch({
+            type: 'MENU_LOAD_SIDE_SECOND',
+            payload: prepareMenu(this.props.data.side_second.items)
         })
         this.props.dispatch({
             type: 'MENU_LOAD_CATALOG',
@@ -56,10 +60,13 @@ export const query = graphql`
         catalog: wordpressWpApiMenusMenusItems(slug: {eq: "katalog"}) {
             ...menuFields
         }
-        info: wordpressWpApiMenusMenusItems(slug: {eq: "informatsionnoe"}) {
+        about: wordpressWpApiMenusMenusItems(slug: {eq: "menyu-o-kompanii"}) {
             ...menuFields
         }
-        about: wordpressWpApiMenusMenusItems(slug: {eq: "menyu-kompanii"}) {
+        side_second: wordpressWpApiMenusMenusItems(slug: {eq: "bokovoe-menyu-2"}) {
+            ...menuFields
+        }
+        side_first: wordpressWpApiMenusMenusItems(slug: {eq: "bokovoe-menyu-1"}) {
             ...menuFields
         }
         footer: wordpressWpApiMenusMenusItems(slug: {eq: "menyu-v-podvale"}) {

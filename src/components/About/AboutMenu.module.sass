@@ -1,0 +1,30 @@
+@import '../App/variables'
+
+.menu
+    display: flex
+    margin-left: -4px
+    margin-bottom: 6px
+
+.item
+    margin-left: 4px
+    display: inline-block
+    flex-grow: 1
+    background-color: #ac9e80
+    text-decoration: none
+    color: #ffffff
+    font-size: 16px
+    line-height: 1.25
+    font-weight: bold
+    padding: 10px
+    box-sizing: border-box
+    width: 100%
+    transition: ease .3s
+    transition-property: background-color, color
+    &:visited
+        color: #ffffff
+    &:hover
+        background-color: #968a70
+        text-decoration: none
+        color: #ffffff
+    &_active
+        background-color: #ffd251

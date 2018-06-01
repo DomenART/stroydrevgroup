@@ -7,19 +7,51 @@ import styles from './LandingSchemeItem.module.sass'
     resolution: state.resolution
 }))
 class LandingSchemeItem extends Component {
+    constructor(props) {
+        super(props)
+
+        this.state = {
+            inview: false
+        }
+
+        this.scrollspy = React.createRef()
+    }
+
+    componentDidMount() {
+        UIkit.util.on(this.scrollspy.current, 'inview', (e) => {
+            this.setState({
+                inview: true
+            })
+        })
+    }
+
     render() {
-        const { text, text_small, image, arrow } = this.props
+        const { text, text_small, image } = this.props
         const { isExtraSmall } = this.props.resolution
 
+        const arrowCls = [styles.arrow]
+        if (this.state.inview) {
+            arrowCls.push(styles.arrow_inview)
+        }
+
         return (
-            <div className={styles.box}>
+            <div
+                className={styles.box}
+                ref={this.scrollspy}
+            >
                 <div className={styles.image}>
                     <img src={image.localFile.publicURL} alt="" />
                 </div>
                 <div className={styles.check}>
                     <SvgIcon name="check" />
                 </div>
-                <SvgIcon className={styles.arrow} name={arrow} />
+                <div
+                    className={arrowCls.join(' ')}
+                    ref={this.arrow}
+                >
+                    <span /><span /><span /><span /><span />
+                    <SvgIcon name="arrow-scheme" />
+                </div>
                 <div
                     className={styles.title}
                     dangerouslySetInnerHTML={{

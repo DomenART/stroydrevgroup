@@ -36,7 +36,8 @@ class Sidebar extends Component {
     render() {
         const {
             isDrawerOpen, isBrowser, isMediumMax, isExtraLarge,
-            containerOffset, copyright, phone, catalog, about, info
+            containerOffset, copyright, phone,
+            catalog, side_first, side_second
         } = this.props
 
         let boxCls = [styles.box]
@@ -69,8 +70,8 @@ class Sidebar extends Component {
                     isDrawerOpen={isDrawerOpen}
                     phone={phone}
                     catalog={catalog}
-                    about={about}
-                    info={info}
+                    side_first={side_first}
+                    side_second={side_second}
                 />
             </aside>
         )
@@ -87,7 +88,7 @@ export default connect(
         copyright: state.app.options.copyright,
         phone: state.app.options.phone,
         catalog: state.menu.catalog,
-        about: state.menu.about,
-        info: state.menu.info,
+        side_first: state.menu.side_first,
+        side_second: state.menu.side_second,
     })
 )(enhanceWithClickOutside(Sidebar))
