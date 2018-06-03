@@ -11,6 +11,21 @@ import PagegQuestions from '../components/Page/PagegQuestions.js'
 import Breadcrumbs from '../components/UI/Breadcrumbs'
 import AboutMain from '../components/About/AboutMain'
 import AboutMenu from '../components/About/AboutMenu'
+import AboutIntro from '../components/About/AboutIntro'
+import AboutDate from '../components/About/AboutDate'
+import AboutProduction from '../components/About/AboutProduction'
+import AboutProjects from '../components/About/AboutProjects'
+import AboutTechnologies from '../components/About/AboutTechnologies'
+import AboutServices from '../components/About/AboutServices'
+import AboutPhotos from '../components/About/AboutPhotos'
+import AboutContent from '../components/About/AboutContent'
+import AboutRewards from '../components/About/AboutRewards'
+import AboutReviews from '../components/About/AboutReviews'
+import AboutInfo from '../components/About/AboutInfo'
+import AboutOdnoklassniki from '../components/About/AboutOdnoklassniki'
+import AboutUseful from '../components/About/AboutUseful'
+import AboutFacebook from '../components/About/AboutFacebook'
+import AboutInstagram from '../components/About/AboutInstagram'
 
 class Page extends Component {
     render() {
@@ -33,16 +48,62 @@ class Page extends Component {
                         <div className="uk-width-1-2">
                         </div>
                         <div className="uk-width-1-2">
+                            <AboutIntro
+                                title={page.acf.intro_title}
+                                text={page.acf.intro_text}
+                                media={page.acf.intro_media}
+                            />
                         </div>
                         <div className="uk-width-1-2">
                             <div className="uk-grid uk-grid-small" data-uk-grid>
                                 <div className="uk-width-1-2">
+                                    <AboutDate />
                                 </div>
                                 <div className="uk-width-1-2">
+                                    <AboutProduction />
                                 </div>
                                 <div className="uk-width-1-2">
+                                    <AboutProjects />
                                 </div>
                                 <div className="uk-width-1-2">
+                                    <AboutTechnologies />
+                                </div>
+                            </div>
+                        </div>
+                        <div className="uk-width-1-2">
+                            <AboutServices />
+                        </div>
+                        <div className="uk-width-1-2">
+                            <AboutPhotos />
+                        </div>
+                        <div className="uk-width-1-2">
+                            <AboutContent text={page.content} />
+                        </div>
+                        <div className="uk-width-1-2">
+                            <div className="uk-grid uk-grid-small" data-uk-grid>
+                                <div className="uk-width-1-2">
+                                    <AboutRewards />
+                                </div>
+                                <div className="uk-width-1-2">
+                                    <AboutReviews />
+                                </div>
+                                <div className="uk-width-1-">
+                                    <AboutInfo
+                                        title={page.acf.compare_title}
+                                        text={page.acf.compare_text}
+                                    />
+                                </div>
+                                <div className="uk-width-1-2">
+                                    <AboutOdnoklassniki />
+                                </div>
+                                <div className="uk-width-1-2">
+                                    <AboutUseful />
+                                </div>
+                                <div className="uk-width-1-2">
+                                    <AboutInstagram />
+                                </div>
+                                <div className="uk-width-1-2">
+                                    <AboutFacebook />
                                 </div>
                             </div>
                         </div>
@@ -70,6 +131,17 @@ export const query = graphql`
                 seo_title
                 seo_keywords
                 seo_description
+                intro_title
+                intro_text
+                intro_media {
+                    mime_type
+                    media_type
+                    localFile {
+                        publicURL
+                    }
+                }
+                compare_title
+                compare_text
             }
         }
     }

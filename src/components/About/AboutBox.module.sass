@@ -1,0 +1,57 @@
+@import '../App/variables'
+
+.container
+    perspective: 900px
+    perspective-origin: center center
+    display: block
+    text-decoration: none
+    &:visited
+        text-decoration: none
+        color: inherit
+    &:hover
+        text-decoration: none
+        color: inherit
+
+.box
+    width: 100%
+    position: relative
+    transform-style: preserve-3d
+    transition: transform .5s ease
+
+.front
+    position: absolute
+    left: 0
+    top: 0
+    right: 0
+    bottom: 0
+
+.back
+    position: absolute
+    left: 0
+    top: 0
+    right: 0
+    bottom: 0
+
+.parent
+    background-color: rgb(184, 184, 184)
+    border-radius: 2px 0 2px 2px
+    min-width: 86px
+    padding: 0 2px
+    box-sizing: border-box
+    text-align: center
+    line-height: 16px
+    font-size: 12px
+    color: rgb(255, 255, 255)
+    text-transform: uppercase
+    text-decoration: none
+    color: #ffffff
+    top: 16px
+    right: 16px
+    position: absolute
+    transition: background-color .3s ease
+    &:visited
+        color: #ffffff
+    &:hover
+        color: #ffffff
+        background-color: #9d9d9d
+        text-decoration: none

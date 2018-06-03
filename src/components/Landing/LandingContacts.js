@@ -47,12 +47,12 @@ class LandingContacts extends Component {
                                 {!isExtraSmall && feedback}
                             </div>
                             <div className="uk-width-1-2">
-                                <Link to={`#`} className={styles.link}>
+                                <Link to="/privacy-policy" className={styles.link}>
                                     Политика конфиденциальности и обработки персональных данных
                                 </Link>
                             </div>
                             <div className={`${isExtraSmall ? 'uk-text-right' : ''} uk-width-1-2`}>
-                                <Link to={`#`} className={styles.link}>
+                                <Link to="/terms-of-use" className={styles.link}>
                                     Пользовательское соглашение
                                 </Link>
                             </div>

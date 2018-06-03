@@ -1,0 +1,118 @@
+@import '../App/variables'
+
+.back
+    position: absolute
+    left: 0
+    top: 0
+    right: 0
+    bottom: 0
+    background-color: #773f1b
+    box-shadow: inset 0 0 0 15px #773f1b, inset 0 0 0 17px #b8b8b8
+    display: flex
+    flex-flow: column
+    justify-content: center
+    text-align: center
+
+.backSubTitle
+    font-size: 12px
+    text-transform: uppercase
+    text-align: center
+    font-weight: 300
+    color: #ffffff
+    letter-spacing: 2.5px
+    margin-bottom: 54px
+    &::before
+        content: ''
+        width: 65px
+        height: 1px
+        display: inline-block
+        vertical-align: middle
+        background: rgba(255,255,255,.44)
+        margin-right: 21px
+        position: relative
+        top: -2px
+    &::after
+        content: ''
+        width: 65px
+        height: 1px
+        display: inline-block
+        vertical-align: middle
+        background: rgba(255,255,255,.44)
+        margin-left: 21px
+        position: relative
+        top: -2px
+
+.backTitle
+    font-size: 36px
+    font-weight: 300
+    color: #ffffff
+    letter-spacing: 11px
+    line-height: 1
+    margin-bottom: 36px
+    span
+        text-transform: uppercase
+        font-weight: 700
+        letter-spacing: 2px
+        margin-bottom: 12px
+        display: block
+
+.backMore
+    font-size: 12px
+    color: rgba(255,255,255,.59)
+    text-transform: uppercase
+    letter-spacing: 2.2px
+    margin-bottom: 22px
+    transition: color .3s ease
+    &:visited
+        color: rgba(255,255,255,.59)
+    &:hover
+        color: rgb(255,255,255)
+        span
+            background: rgb(255, 255, 255)
+            &::before
+                background: rgb(255, 255, 255)
+            &::after
+                background: rgb(255, 255, 255)
+    span
+        width: 18px
+        height: 1px
+        display: inline-block
+        position: relative
+        background: rgba(255, 255, 255, .59)
+        vertical-align: middle
+        margin-left: 10px
+        transition: background .3s ease
+        &::before
+            content: ''
+            background: rgba(255, 255, 255, .59)
+            width: 5px
+            height: 1px
+            position: absolute
+            top: 0
+            right: 0
+            transform-origin: 100% 0
+            transform: rotate(45deg)
+            transition: background .3s ease
+        &::after
+            content: ''
+            background: rgba(255, 255, 255, .59)
+            width: 5px
+            height: 1px
+            position: absolute
+            bottom: 0
+            right: 0
+            transform-origin: 100% 100%
+            transform: rotate(-45deg)
+            transition: background .3s ease
+
+.front
+    position: absolute
+    left: 0
+    top: 0
+    right: 0
+    bottom: 0
+    background: url('../../assets/about-photos.jpg') no-repeat 50% 50%
+    background-size: cover
+    display: flex
+    align-items: center
+    text-align: center

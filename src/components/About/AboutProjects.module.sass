@@ -1,0 +1,145 @@
+@import '../App/variables'
+
+.back
+    position: absolute
+    left: 0
+    top: 0
+    right: 0
+    bottom: 0
+    border: 4px solid rgb(57, 188, 137)
+    background-color: rgb(0, 225, 146)
+    // box-shadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.37)
+    display: flex
+    flex-direction: column
+    align-items: center
+    justify-content: center
+    text-align: center
+    padding: 10%
+
+.backIcon
+    width: 118px
+    height: 118px
+    min-width: 118px
+    min-height: 118px
+    position: absolute
+    left: 50%
+    top: 50%
+    transform: translate(-50%, -50%)
+    border-radius: 50%
+    background: #fff297
+    box-shadow: 0 0 0 1px #ffde9a, 0px 0px 6px 0px rgba(0, 0, 0, 0.22), inset 0 0 0 11px #ffcc66, inset 0 0 0 12px #f8c352
+    svg
+        width: 54px
+        height: 54px
+        position: absolute
+        left: 50%
+        top: 50%
+        transform: translate(-50%, -50%)
+        fill: #7e5c44
+
+.backIconWrap
+    width: 200px
+    height: 200px
+    min-width: 200px
+    min-height: 200px
+    position: relative
+    background-color: #39bc89
+    margin-bottom: 24px
+    margin-top: 6.2%
+
+.backMore
+    font-size: 18px
+    color: rgb(26, 85, 62)
+    font-weight: bold
+    line-height: 1
+    text-align: center
+    text-decoration: none
+    border-bottom: 1px solid transparent
+    padding-bottom: 4px
+    transition: .3s ease
+    transition-property: color, border-bottom
+    &:visited
+        color: rgb(26, 85, 62)
+    &:hover
+        color: #164734
+        text-decoration: none
+        border-bottom-color: #0ca16c
+        span
+            &::before,
+            &::after
+                background: #1b6649
+    span
+        width: 24px
+        height: 3px
+        display: inline-block
+        position: relative
+        background: rgb(37, 122, 89)
+        border-radius: 1px
+        vertical-align: middle
+        margin-left: 8px
+        &::before
+            content: ''
+            background: rgb(37, 122, 89)
+            width: 10px
+            height: 3px
+            border-radius: 1px
+            position: absolute
+            top: 0
+            right: 0
+            transform-origin: 100% 0
+            transform: rotate(45deg)
+            transition: background .3s ease
+        &::after
+            content: ''
+            background: rgb(37, 122, 89)
+            width: 10px
+            height: 3px
+            border-radius: 1px
+            position: absolute
+            bottom: 0
+            right: 0
+            transform-origin: 100% 100%
+            transform: rotate(-45deg)
+            transition: background .3s ease
+
+.front
+    position: absolute
+    left: 0
+    top: 0
+    right: 0
+    bottom: 0
+    background: linear-gradient( 117deg, rgb(58,180,185) 0%, rgb(86,201,134) 100%)
+    display: flex
+    flex-direction: column
+    align-items: center
+    justify-content: center
+    text-align: center
+
+.frontIcon
+    width: 132px
+    height: 132px
+    min-width: 132px
+    min-height: 132px
+    margin-top: 10%
+    margin-bottom: 12%
+    position: relative
+    border-radius: 50%
+    background: #fff297
+    box-shadow: 0px 0px 6px 0px rgba(0, 0, 0, 0.22), 0 0 0 1px #ffde9a, inset 0 0 0 11px #ffcc66, inset 0 0 0 12px #f8c352
+    svg
+        width: 54px
+        height: 54px
+        position: absolute
+        left: 50%
+        top: 50%
+        transform: translate(-50%, -50%)
+        fill: #a47e43
+
+.frontTitle
+    font-size: 18px
+    color: rgb(255, 255, 255)
+    font-weight: bold
+    text-transform: uppercase
+    line-height: 1.333
+    text-align: center
+    letter-spacing: 0.3px

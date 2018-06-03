@@ -1,0 +1,109 @@
+@import '../App/variables'
+
+.back
+    position: absolute
+    left: 0
+    top: 0
+    right: 0
+    bottom: 0
+    background-color: #dfe2eb
+    box-shadow: inset 0 0 0 15px #dfe2eb, inset 0 0 0 17px #edeff4
+    display: flex
+    flex-direction: column
+    align-items: center
+    justify-content: center
+    text-align: center
+    padding: 20%
+
+.backIcon
+    width: 56px
+    height: 56px
+    min-width: 56px
+    min-height: 56px
+    border-radius: 50%
+    overflow: hidden
+    border: 1px solid #f9e0ac
+    margin-bottom: 24px
+
+.backTitle
+    font-size: 20px
+    color: rgb(97, 79, 60)
+    font-weight: bold
+    line-height: 1.1
+    text-align: center
+
+.backMore
+    font-size: 12px
+    color: rgba(0,0,0,.59)
+    text-transform: uppercase
+    letter-spacing: 2.2px
+    margin-top: 23.4%
+    transition: color .3s ease
+    &:visited
+        color: rgba(0,0,0,.59)
+    &:hover
+        color: rgb(0,0,0)
+        span
+            background: rgb(0, 0, 0)
+            &::before
+                background: rgb(0, 0, 0)
+            &::after
+                background: rgb(0, 0, 0)
+    span
+        width: 18px
+        height: 1px
+        display: inline-block
+        position: relative
+        background: #95908d
+        vertical-align: middle
+        margin-left: 10px
+        transition: background .3s ease
+        &::before
+            content: ''
+            background: #95908d
+            width: 5px
+            height: 1px
+            position: absolute
+            top: 0
+            right: 0
+            transform-origin: 100% 0
+            transform: rotate(45deg)
+            transition: background .3s ease
+        &::after
+            content: ''
+            background: #95908d
+            width: 5px
+            height: 1px
+            position: absolute
+            bottom: 0
+            right: 0
+            transform-origin: 100% 100%
+            transform: rotate(-45deg)
+            transition: background .3s ease
+
+.front
+    position: absolute
+    left: 0
+    top: 0
+    right: 0
+    bottom: 0
+    background: #d7d9e2
+    display: flex
+    flex-flow: column
+    align-items: center
+    justify-content: center
+
+.frontIcon
+    border-radius: 50%
+    overflow: hidden
+    margin-bottom: 32px
+    margin-top: 7.5%
+
+.frontTitle
+    font-size: 18px
+    color: rgb(183, 106, 66)
+    font-weight: bold
+    text-transform: uppercase
+    line-height: 1.333
+    text-align: center
+    letter-spacing: 0.5px
