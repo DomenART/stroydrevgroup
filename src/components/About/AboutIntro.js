@@ -1,7 +1,7 @@
 import React from 'react'
 import styles from './AboutIntro.module.sass'
 
-const AboutIntro = ({ title, text, media }) =>
+const AboutIntro = ({ title, text, media = {} }) =>
     <div className={styles.box}>
         <figure className={styles.media}>
             {media.media_type == 'image' ? (
