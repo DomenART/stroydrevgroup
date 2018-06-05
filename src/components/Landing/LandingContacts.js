@@ -9,7 +9,7 @@ import styles from './LandingContacts.module.sass'
 
 class LandingContacts extends Component {
     render() {
-        const { isExtraSmall } = this.props.resolution
+        const { isExtraSmallMax } = this.props.resolution
 
         const feedback = (
             <div className={styles.feedback}>
@@ -35,7 +35,7 @@ class LandingContacts extends Component {
                                 {this.props.contacts_footer.map((row, index) => (
                                     <ContactsRow {...row} key={index} />
                                 ))}
-                                {isExtraSmall && feedback}
+                                {isExtraSmallMax && feedback}
                             </div>
                             <div className={`${styles.share_cell} uk-width-1-2@s uk-flex uk-flex-column`}>
                                 <h3 className={styles.title}>
@@ -44,14 +44,14 @@ class LandingContacts extends Component {
                                 <div className={styles.share}>
                                     <Share />
                                 </div>
-                                {!isExtraSmall && feedback}
+                                {!isExtraSmallMax && feedback}
                             </div>
                             <div className="uk-width-1-2">
                                 <Link to="/privacy-policy" className={styles.link}>
                                     Политика конфиденциальности и обработки персональных данных
                                 </Link>
                             </div>
-                            <div className={`${isExtraSmall ? 'uk-text-right' : ''} uk-width-1-2`}>
+                            <div className={`${isExtraSmallMax ? 'uk-text-right' : ''} uk-width-1-2`}>
                                 <Link to="/terms-of-use" className={styles.link}>
                                     Пользовательское соглашение
                                 </Link>

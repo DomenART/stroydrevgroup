@@ -19,19 +19,24 @@
         text-decoration: none
 
 .backIcon
-    width: 200px
-    height: 200px
-    min-width: 200px
-    min-height: 200px
-    background: #ffc859
+    width: 75%
+    min-width: 75%
     position: relative
-    margin-bottom: 20px
+    background-color: #ffc859
+    margin-bottom: 8%
     margin-top: 18%
+    &::before
+        content: ''
+        position: relative
+        width: 100%
+        padding-bottom: 97%
+        display: block
     img
         position: absolute
         left: 50%
         top: 50%
         transform: translate(-50%, -50%)
+        width: 46.7%
 
 .backTitle
     font-size: 18px
@@ -41,6 +46,9 @@
     line-height: 1.333
     text-align: center
     letter-spacing: 0.5px
+
+.backIcon
+    width: 27.3%
 
 .front
     position: absolute

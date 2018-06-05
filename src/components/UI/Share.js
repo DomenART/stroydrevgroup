@@ -26,7 +26,7 @@ import styles from './Share.module.sass'
 )
 class Share extends Component {
     render() {
-        const { isMediumMax, isExtraSmall } = this.props.resolution
+        const { isMediumMax, isExtraSmallMax } = this.props.resolution
 
         let iconSize = 48
 
@@ -36,7 +36,7 @@ class Share extends Component {
             if (isMediumMax) {
                 iconSize = 42
             }
-            if (isExtraSmall) {
+            if (isExtraSmallMax) {
                 iconSize = 37
             }
         }

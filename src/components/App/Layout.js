@@ -15,7 +15,7 @@ import CalculationIndividual from '../Forms/CalculationIndividual'
 class Layout extends Component {
     render() {
         const { isDrawerOpen, children } = this.props
-        const { isExtraSmall, isMediumMax } = this.props.resolution
+        const { isExtraSmallMax, isMediumMax } = this.props.resolution
 
         return (
             <div className='wrapper uk-offcanvas-content'>

@@ -27,7 +27,7 @@ class LandingSchemeItem extends Component {
 
     render() {
         const { text, text_small, image } = this.props
-        const { isExtraSmall } = this.props.resolution
+        const { isExtraSmallMax } = this.props.resolution
 
         const arrowCls = [styles.arrow]
         if (this.state.inview) {
@@ -55,7 +55,7 @@ class LandingSchemeItem extends Component {
                 <div
                     className={styles.title}
                     dangerouslySetInnerHTML={{
-                        __html: isExtraSmall ? text_small : text
+                        __html: isExtraSmallMax ? text_small : text
                     }}
                 />
             </div>

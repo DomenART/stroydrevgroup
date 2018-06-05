@@ -20,7 +20,7 @@
     font-weight: 300
     color: #ffffff
     letter-spacing: 2.5px
-    margin-bottom: 54px
+    margin-bottom: 7.6%
     &::before
         content: ''
         width: 65px
@@ -31,6 +31,9 @@
         margin-right: 21px
         position: relative
         top: -2px
+        @media (max-width: $breakpoint-extra-small-max)
+            width: 10px
+            margin-right: 5px
     &::after
         content: ''
         width: 65px
@@ -41,6 +44,9 @@
         margin-left: 21px
         position: relative
         top: -2px
+        @media (max-width: $breakpoint-extra-small-max)
+            width: 10px
+            margin-left: 5px
 
 .backTitle
     font-size: 36px
@@ -48,7 +54,11 @@
     color: #ffffff
     letter-spacing: 11px
     line-height: 1
-    margin-bottom: 36px
+    margin-bottom: 5.1%
+    @media (max-width: $breakpoint-large-max)
+        letter-spacing: 8px
+    @media (max-width: $breakpoint-extra-small-max)
+        font-size: 22px
     span
         text-transform: uppercase
         font-weight: 700
@@ -60,8 +70,9 @@
     font-size: 12px
     color: rgba(255,255,255,.59)
     text-transform: uppercase
+    text-decoration: underline
     letter-spacing: 2.2px
-    margin-bottom: 22px
+    margin-bottom: 3.3%
     transition: color .3s ease
     &:visited
         color: rgba(255,255,255,.59)

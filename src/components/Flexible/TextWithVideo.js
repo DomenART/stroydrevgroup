@@ -25,16 +25,16 @@ class TextWithVideo extends Component {
     render() {
         const { expand } = this.state
         const { text, video } = this.props
-        const { isExtraSmall } = this.props.resolution
+        const { isExtraSmallMax } = this.props.resolution
 
         return (
             <div className={`${styles.section} uk-grid`} data-uk-grid>
                 <div className={`${styles.text} uk-width-1-2@l`}>
                     <div dangerouslySetInnerHTML={{
-                        __html: !expand && isExtraSmall ?
+                        __html: !expand && isExtraSmallMax ?
                             truncate(text, { length: 200 }) : text
                     }} />
-                    {isExtraSmall && !expand && (
+                    {isExtraSmallMax && !expand && (
                         <button
                             className={`${styles.more} button-jitney`}
                             onClick={this.showFullText}

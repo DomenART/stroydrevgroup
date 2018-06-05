@@ -20,11 +20,22 @@
 
 .backIcon
     margin-top: 4%
-    margin-bottom: 35px
+    margin-bottom: 13.5%
     position: relative
+    width: 26.5%
+    min-width: 26.5%
+    &::before
+        content: ''
+        display: block
+        padding-bottom: 100%
+        width: 100%
     svg
-        width: 71px
-        height: 71px
+        width: 100%
+        height: 100%
+        position: absolute
+        left: 50%
+        top: 50%
+        transform: translate(-50%, -50%)
         fill-rule: evenodd
         stroke-width: 3px
         stroke: rgb(255, 255, 255)
@@ -64,10 +75,21 @@
 
 .frontIcon
     position: relative
+    width: 26.5%
+    min-width: 26.5%
+    &::before
+        content: ''
+        display: block
+        padding-bottom: 100%
+        width: 100%
     svg
-        width: 160px
-        height: 160px
+        width: 100%
+        height: 100%
         fill: #fff
+        position: absolute
+        left: 50%
+        top: 50%
+        transform: translate(-50%, -50%)
 
 .frontTitle
     font-size: 18px

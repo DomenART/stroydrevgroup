@@ -2,24 +2,38 @@
 
 .menu
     display: flex
-    margin-left: -4px
-    margin-bottom: 6px
+    padding: 0
+    margin: 0 0 0 -4px
+    @media (max-width: $breakpoint-extra-small-max)
+        flex-wrap: wrap
 
 .item
-    margin-left: 4px
+    padding-left: 4px
+    list-style: none
+    width: 25%
+    box-sizing: border-box
+    @media (max-width: $breakpoint-extra-small-max)
+        width: 50%
+        padding-bottom: 4px
+
+.link
     display: inline-block
-    flex-grow: 1
     background-color: #ac9e80
     text-decoration: none
     color: #ffffff
     font-size: 16px
-    line-height: 1.25
-    font-weight: bold
-    padding: 10px
-    box-sizing: border-box
+    line-height: 1.333
+    font-weight: 700
+    padding: 8px 12px
+    min-height: 80px
     width: 100%
+    box-sizing: border-box
     transition: ease .3s
     transition-property: background-color, color
+    @media (max-width: $breakpoint-ultra-small-max)
+        min-height: 100%
+        padding: 8px
+        font-size: 14px
     &:visited
         color: #ffffff
     &_active

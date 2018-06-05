@@ -42,7 +42,7 @@ class LandingSlideshow extends Component {
 
     render() {
         const { items } = this.props
-        const { isExtraSmall } = this.props.resolution
+        const { isExtraSmallMax } = this.props.resolution
 
         return (
             <div className={styles.slideshow} ref="slideshow">
@@ -71,7 +71,7 @@ class LandingSlideshow extends Component {
                     <SvgIcon name="chevron-right" />
                 </button>
                 <ul className={`${styles.dots} uk-slideshow-nav`}></ul>
-                {isExtraSmall && <div className={styles.phone}>{this.props.phone}</div>}
+                {isExtraSmallMax && <div className={styles.phone}>{this.props.phone}</div>}
             </div>
         )
     }

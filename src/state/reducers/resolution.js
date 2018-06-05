@@ -1,8 +1,10 @@
 
 const initialState = {
+    isExtraSmallMax: false, // 0 to 768
     isLargeMax: false, // 0 to 1600
     isMediumMax: false, // 0 to 1280
-    isExtraSmall: false, // 0 to 768
+
+    isExtraSmall: false, // from 480
     isSmall: false, // from 768
     isMedium: false, // from 960
     isLarge: false, // from 1280

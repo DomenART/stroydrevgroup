@@ -19,11 +19,23 @@
         text-decoration: none
 
 .backIcon
-    margin-bottom: 45px
+    margin-bottom: 16%
+    width: 29%
+    min-width: 29%
+    position: relative
+    &::before
+        content: ''
+        display: block
+        padding-bottom: 100%
+        width: 100%
     svg
-        width: 80px
-        height: 80px
+        width: 100%
+        height: 100%
         fill: #fff
+        position: absolute
+        left: 50%
+        top: 50%
+        transform: translate(-50%, -50%)
 
 .backTitle
     font-size: 22px
@@ -38,14 +50,26 @@
     top: 0
     right: 0
     bottom: 0
-    background: #eeb31d
+    background-color: #ee931d
+    background-image: linear-gradient(-27deg, #eebf1d 0%, #ee931d 100%)
     display: flex
     align-items: center
     justify-content: center
 
 .frontIcon
     position: relative
+    width: 46.4%
+    min-width: 46.4%
+    &::before
+        content: ''
+        display: block
+        padding-bottom: 100%
+        width: 100%
     svg
-        width: 160px
-        height: 160px
+        width: 100%
+        height: 100%
         fill: #fff
+        position: absolute
+        left: 50%
+        top: 50%
+        transform: translate(-50%, -50%)

@@ -5,7 +5,9 @@
     justify-content: center
     align-items: center
     position: relative
-    padding-bottom: 50%
+    padding-bottom: calc(50% - 5px)
+    @media (max-width: $breakpoint-extra-small-max)
+        padding-bottom: 100%
 
 .info
     padding-left: 65px

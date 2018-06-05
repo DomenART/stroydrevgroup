@@ -10,8 +10,9 @@ class AboutBox extends Component {
     constructor(props) {
         super(props)
         this.state = {
+            gutter: 10,
             offset: 0,
-            hover: true
+            hover: false
         }
         this.box = React.createRef()
         this.updateOffset = this.updateOffset.bind(this)
@@ -38,10 +39,12 @@ class AboutBox extends Component {
     }
 
     updateOffset() {
-        const ratio = this.props.rect ? 4 : 2
+        const width = this.box.current.offsetWidth
+        const offset = this.props.rect ?
+            (width - this.state.gutter) / 4 : width / 2
 
         this.setState({
-            offset: this.box.current.offsetWidth / ratio
+            offset: offset
         })
     }
 
@@ -73,7 +76,7 @@ class AboutBox extends Component {
             />
         )
 
-        style.paddingTop = rect ? '50%' : '100%'
+        style.paddingTop = rect ? `calc(50% - ${this.state.gutter / 2}px)` : '100%'
 
         const box = (
             <div
@@ -104,7 +107,11 @@ class AboutBox extends Component {
 
         if (parent.to) {
             return (
-                <Link to={parent.to} className={styles.container}>
+                <Link
+                    to={parent.to}
+                    className={styles.container}
+                    target={parent.target}
+                >
                     {box}
                 </Link>
             )

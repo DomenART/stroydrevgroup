@@ -3,17 +3,19 @@ import Link from 'gatsby-link'
 import styles from './AboutMenu.module.sass'
 
 const AboutMenu = ({ items }) =>
-    <div className={styles.menu}>
+    <ul className={styles.menu}>
         {items.map(({ key, slug, title }) => (
-            <Link
-                to={slug}
-                className={styles.item}
-                activeClassName={styles.item_active}
-                key={key}
-                >
-                {title}
-            </Link>
+            <li className={styles.item}>
+                <Link
+                    to={slug}
+                    className={styles.link}
+                    activeClassName={styles.link_active}
+                    key={key}
+                    >
+                    {title}
+                </Link>
+            </li>
         ))}
-    </div>
+    </ul>
 
 export default AboutMenu

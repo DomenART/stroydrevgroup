@@ -13,21 +13,30 @@
     align-items: center
     text-align: center
     padding: 4%
+    @media (max-width: $breakpoint-extra-small-max)
+        flex-flow: column
+        justify-content: center
 
 .backIconWrap
-    width: 220px
-    height: 210px
-    min-width: 220px
-    min-height: 210px
+    width: 34%
+    min-width: 34%
     position: relative
     background-color: #ff9626
-    margin-right: 13px
+    margin-right: 2.2%
+    @media (max-width: $breakpoint-extra-small-max)
+        width: 58.8%
+        min-width: 58.8%
+        margin-right: 0
+        margin-bottom: 2.2%
+    &::before
+        content: ''
+        display: block
+        width: 100%
+        padding-bottom: 96%
 
 .backIcon
-    width: 146px
-    height: 146px
-    min-width: 146px
-    min-height: 146px
+    width: 67%
+    min-width: 67%
     position: absolute
     left: 50%
     top: 50%
@@ -35,9 +44,14 @@
     border-radius: 50%
     background: #fff297
     box-shadow: 0 0 0 1px #ffde9a, 0px 0px 6px 0px rgba(0, 0, 0, 0.22), inset 0 0 0 11px #ffcc66, inset 0 0 0 12px #f8c352
+    &::before
+        content: ''
+        display: block
+        padding-bottom: 100%
+        width: 100%
     svg
-        width: 80px
-        height: 80px
+        width: 55%
+        height: 55%
         position: absolute
         left: 50%
         top: 50%
@@ -55,6 +69,10 @@
     font-weight: 300
     margin-top: 7px
     margin-bottom: 12px
+    @media (max-width: $breakpoint-extra-large-max)
+        font-size: 18px
+    @media (max-width: $breakpoint-extra-small-max)
+        display: none
 
 .backSubTitle
     font-size: 24px
@@ -67,6 +85,8 @@
     width: 100%
     text-align: center
     text-transform: uppercase
+    @media (max-width: $breakpoint-extra-large-max)
+        font-size: 18px
 
 .front
     position: absolute
@@ -80,21 +100,30 @@
     align-items: center
     text-align: center
     padding: 4%
+    @media (max-width: $breakpoint-extra-small-max)
+        flex-flow: column
+        justify-content: center
 
 .frontIconWrap
-    width: 220px
-    height: 210px
-    min-width: 220px
-    min-height: 210px
+    width: 34%
+    min-width: 34%
     position: relative
     background-color: #fca83b
-    margin-right: 13px
+    margin-right: 2.2%
+    @media (max-width: $breakpoint-extra-small-max)
+        width: 58.8%
+        min-width: 58.8%
+        margin-right: 0
+        margin-bottom: 2.2%
+    &::before
+        content: ''
+        display: block
+        width: 100%
+        padding-bottom: 96%
 
 .frontIcon
-    width: 146px
-    height: 146px
-    min-width: 146px
-    min-height: 146px
+    width: 67%
+    min-width: 67%
     position: absolute
     left: 50%
     top: 50%
@@ -102,9 +131,14 @@
     border-radius: 50%
     background: #fff297
     box-shadow: 0 0 0 1px #ffde9a, 0px 0px 6px 0px rgba(0, 0, 0, 0.22), inset 0 0 0 11px #ffcc66, inset 0 0 0 12px #f8c352
+    &::before
+        content: ''
+        display: block
+        padding-bottom: 100%
+        width: 100%
     svg
-        width: 80px
-        height: 80px
+        width: 55%
+        height: 55%
         position: absolute
         left: 50%
         top: 50%
@@ -122,6 +156,10 @@
     font-weight: 300
     margin-top: 7px
     margin-bottom: 12px
+    @media (max-width: $breakpoint-extra-large-max)
+        font-size: 18px
+    @media (max-width: $breakpoint-extra-small-max)
+        display: none
 
 .frontSubTitle
     font-size: 24px
@@ -134,3 +172,5 @@
     width: 100%
     text-align: center
     text-transform: uppercase
+    @media (max-width: $breakpoint-extra-large-max)
+        font-size: 18px

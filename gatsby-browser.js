@@ -24,9 +24,11 @@ exports.onClientEntry = () => {
     })
 
     const queries = {
+        isExtraSmallMax: window.matchMedia("(max-width: 767px)"), // 0 to 768
         isLargeMax: window.matchMedia("(max-width: 1599px)"), // 0 to 1600
         isMediumMax: window.matchMedia("(max-width: 1279px)"), // 0 to 1600
-        isExtraSmall: window.matchMedia("(max-width: 767px)"), // 0 to 768
+
+        isExtraSmall: window.matchMedia("(min-width: 480px)"), // 0 to 480
         isSmall: window.matchMedia("(min-width: 768px)"), // 768 to 960
         isMedium: window.matchMedia("(min-width: 960px)"), // 960 to 1280
         isLarge: window.matchMedia("(min-width: 1280px)"), // 1280 to 1600

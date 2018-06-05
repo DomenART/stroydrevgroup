@@ -3,10 +3,12 @@ import AboutBox from './AboutBox'
 import styles from './AboutOdnoklassniki.module.sass'
 import SvgIcon from '../UI/SvgIcon'
 
-const AboutOdnoklassniki = () =>
+const AboutOdnoklassniki = ({ rect = false }) =>
     <AboutBox
+        rect={rect}
         parent={{
-            to: 'http://ok.ru'
+            to: 'http://ok.ru',
+            target: '_blank'
         }}
         back={(
             <div className={styles.back}>

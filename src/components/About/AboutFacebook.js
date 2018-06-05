@@ -3,10 +3,12 @@ import AboutBox from './AboutBox'
 import styles from './AboutFacebook.module.sass'
 import SvgIcon from '../UI/SvgIcon'
 
-const AboutFacebook = () =>
+const AboutFacebook = ({ rect = false }) =>
     <AboutBox
+        rect={rect}
         parent={{
-            to: 'http://facebook.ru'
+            to: 'http://facebook.ru',
+            target: '_blank'
         }}
         back={(
             <div className={styles.back}>

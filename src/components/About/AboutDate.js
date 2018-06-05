@@ -2,8 +2,9 @@ import React from 'react'
 import AboutBox from './AboutBox'
 import styles from './AboutDate.module.sass'
 
-const AboutDate = () =>
+const AboutDate = ({ rect = false }) =>
     <AboutBox
+        rect={rect}
         back={(
             <div className={styles.back}>
                 <div className={styles.backTitle}>

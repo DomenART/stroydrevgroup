@@ -10,26 +10,15 @@ import PageContent from '../components/Page/PageContent.js'
 import PagegQuestions from '../components/Page/PagegQuestions.js'
 import Breadcrumbs from '../components/UI/Breadcrumbs'
 import AboutMain from '../components/About/AboutMain'
-import AboutMenu from '../components/About/AboutMenu'
-import AboutIntro from '../components/About/AboutIntro'
-import AboutDate from '../components/About/AboutDate'
-import AboutProduction from '../components/About/AboutProduction'
-import AboutProjects from '../components/About/AboutProjects'
-import AboutTechnologies from '../components/About/AboutTechnologies'
-import AboutServices from '../components/About/AboutServices'
-import AboutPhotos from '../components/About/AboutPhotos'
-import AboutContent from '../components/About/AboutContent'
-import AboutRewards from '../components/About/AboutRewards'
-import AboutReviews from '../components/About/AboutReviews'
-import AboutInfo from '../components/About/AboutInfo'
-import AboutOdnoklassniki from '../components/About/AboutOdnoklassniki'
-import AboutUseful from '../components/About/AboutUseful'
-import AboutFacebook from '../components/About/AboutFacebook'
-import AboutInstagram from '../components/About/AboutInstagram'
+import AboutGridExtraSmall from '../components/About/AboutGridExtraSmall'
+import AboutGridSmall from '../components/About/AboutGridSmall'
+import AboutGridMedium from '../components/About/AboutGridMedium'
+import AboutGridLarge from '../components/About/AboutGridLarge'
 
 class Page extends Component {
     render() {
         const { breadcrumbs, options } = this.props.pathContext
+        const { isExtraSmallMax, isSmall, isMedium, isLarge } = this.props.resolution
         const { page } = this.props.data
 
         return (
@@ -41,45 +30,71 @@ class Page extends Component {
                 <AboutMain>
                     <Breadcrumbs items={breadcrumbs} />
                     <PageTitle html={page.title} />
-                    <div className="uk-grid uk-grid-small" data-uk-grid>
-                        <div className="uk-width-1-2">
-                            <AboutMenu items={this.props.about} />
+                    {{
+                        [isExtraSmallMax]: (
+                            <AboutGridExtraSmall
+                                page={page}
+                                menu={this.props.about}
+                            />
+                        ),
+                        [isSmall]: (
+                            <AboutGridSmall
+                                page={page}
+                                menu={this.props.about}
+                            />
+                        ),
+                        [isMedium]: (
+                            <AboutGridMedium
+                                page={page}
+                                menu={this.props.about}
+                            />
+                        ),
+                        [isLarge]: (
+                            <AboutGridLarge
+                                page={page}
+                                menu={this.props.about}
+                            />
+                        ),
+                    }[true]}
+                    {/* <div className="uk-grid uk-grid-small" data-uk-grid>
+                        <div className="uk-width-3-4@m uk-width-1-2@l">
+                            <AboutMenu items={menu} />
                         </div>
-                        <div className="uk-width-1-2">
+                        <div className="uk-width-1-2@l">
                         </div>
-                        <div className="uk-width-1-2">
+                        <div className="uk-width-1-2@l">
                             <AboutIntro
                                 title={page.acf.intro_title}
                                 text={page.acf.intro_text}
                                 media={page.acf.intro_media}
                             />
                         </div>
-                        <div className="uk-width-1-2">
+                        <div className="uk-width-1-2@l">
                             <div className="uk-grid uk-grid-small" data-uk-grid>
-                                <div className="uk-width-1-2">
+                                <div className="uk-width-1-2@s uk-width-1-3@m uk-width-1-2@l">
                                     <AboutDate />
                                 </div>
-                                <div className="uk-width-1-2">
+                                <div className="uk-width-1-2@s uk-width-1-3@m uk-width-1-2@l">
                                     <AboutProduction />
                                 </div>
-                                <div className="uk-width-1-2">
+                                <div className="uk-width-1-2@s uk-width-1-3@m uk-width-1-2@l">
                                     <AboutProjects />
                                 </div>
-                                <div className="uk-width-1-2">
+                                <div className="uk-width-1-2@s uk-width-1-3@m uk-width-1-2@l">
                                     <AboutTechnologies />
                                 </div>
                             </div>
                         </div>
-                        <div className="uk-width-1-2">
+                        <div className="uk-width-1-2@l">
                             <AboutServices />
                         </div>
-                        <div className="uk-width-1-2">
+                        <div className="uk-width-1-2@l">
                             <AboutPhotos />
                         </div>
-                        <div className="uk-width-1-2">
+                        <div className="uk-width-1-2@l">
                             <AboutContent text={page.content} />
                         </div>
-                        <div className="uk-width-1-2">
+                        <div className="uk-width-1-2@l">
                             <div className="uk-grid uk-grid-small" data-uk-grid>
                                 <div className="uk-width-1-2">
                                     <AboutRewards />
@@ -99,6 +114,13 @@ class Page extends Component {
                                 <div className="uk-width-1-2">
                                     <AboutUseful />
                                 </div>
+                            </div>
+                        </div>
+                        <div className="uk-width-1-2@l">
+                            <AboutConsultation />
+                        </div>
+                        <div className="uk-width-1-2@l">
+                            <div className="uk-grid uk-grid-small" data-uk-grid>
                                 <div className="uk-width-1-2">
                                     <AboutInstagram />
                                 </div>
@@ -107,8 +129,14 @@ class Page extends Component {
                                 </div>
                             </div>
                         </div>
-                    </div>
+                    </div> */}
                 </AboutMain>
+                {(page.content || page.acf.content_page) && (
+                    <PageContent
+                        content={page.content}
+                        flexible={page.acf.content_page}
+                    />
+                )}
                 <PagegQuestions />
             </Layout>
         )
@@ -117,7 +145,8 @@ class Page extends Component {
 
 export default connect(
     state => ({
-        about: state.menu.about
+        about: state.menu.about,
+        resolution: state.resolution
     })
 )(Page)
 
@@ -142,6 +171,9 @@ export const query = graphql`
                 }
                 compare_title
                 compare_text
+                content_page {
+                    ...FlexibleFields
+                }
             }
         }
     }
