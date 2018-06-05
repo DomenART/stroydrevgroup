@@ -11,20 +11,20 @@ class AboutBox extends Component {
         super(props)
         this.state = {
             gutter: 10,
-            offset: 0,
+            width: 0,
             hover: false
         }
         this.box = React.createRef()
-        this.updateOffset = this.updateOffset.bind(this)
+        this.updateWidth = this.updateWidth.bind(this)
         this.enter = this.enter.bind(this)
         this.leave = this.leave.bind(this)
     }
 
     componentDidMount() {
-        this.updateOffset()
+        this.updateWidth()
         if (this.props.isBrowser) {
-            window.addEventListener('resize', this.updateOffset)
-            window.addEventListener('load', this.updateOffset)
+            window.addEventListener('resize', this.updateWidth)
+            window.addEventListener('load', this.updateWidth)
         }
         if (this.box) {
             this.box.current.addEventListener('mouseenter', this.enter)
@@ -37,17 +37,13 @@ class AboutBox extends Component {
             this.box.current.addEventListener('mouseenter', this.enter)
             this.box.current.addEventListener('mouseleave', this.leave)
         }
-        window.removeEventListener('resize', this.updateOffset)
-        window.removeEventListener('load', this.updateOffset)
+        window.removeEventListener('resize', this.updateWidth)
+        window.removeEventListener('load', this.updateWidth)
     }
 
-    updateOffset() {
-        const width = this.box.current.offsetWidth
-        const offset = this.props.rect ?
-            (width - this.state.gutter) / 4 : width / 2
-
+    updateWidth() {
         this.setState({
-            offset: offset
+            width: this.box.current.offsetWidth
         })
     }
 
@@ -65,13 +61,14 @@ class AboutBox extends Component {
 
     render() {
         const { back, front, parent = {}, rect } = this.props
-
+        const offset = this.props.rect ?
+            (this.state.width - this.state.gutter) / 4 :
+            this.state.width / 2
         const style = this.state.hover ? {
-            transform: `rotateX(-90deg) translateY(${this.state.offset}px)`
+            transform: `rotateX(-90deg) translateY(${offset}px)`
         } : {
-            transform: `translateZ(-${this.state.offset}px)`
+            transform: `translateZ(-${offset}px)`
         }
-
         const parentButton = parent.title && (
             <span
                 className={styles.parent}
@@ -90,7 +87,7 @@ class AboutBox extends Component {
                 <div
                     className={styles.front}
                     style={{
-                        transform: `translateZ(${this.state.offset}px)`
+                        transform: `translateZ(${offset}px)`
                     }}
                 >
                     {front}
@@ -99,7 +96,7 @@ class AboutBox extends Component {
                 <div
                     className={styles.back}
                     style={{
-                        transform: `translateY(-${this.state.offset}px) rotateX(90deg)`
+                        transform: `translateY(-${offset}px) rotateX(90deg)`
                     }}
                 >
                     {back}

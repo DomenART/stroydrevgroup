@@ -35,7 +35,7 @@ class Page extends Component {
                         page={page}
                         menu={this.props.about}
                     />
-                    {{
+                    {/* {{
                         [isExtraSmallMax]: (
                             <AboutGridExtraSmall
                                 page={page}
@@ -60,7 +60,7 @@ class Page extends Component {
                                 menu={this.props.about}
                             />
                         ),
-                    }[true]}
+                    }[true]} */}
                     {/* <div className="uk-grid uk-grid-small" data-uk-grid>
                         <div className="uk-width-3-4@m uk-width-1-2@l">
                             <AboutMenu items={menu} />
