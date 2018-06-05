@@ -60,7 +60,6 @@ class AboutBox extends Component {
     }
 
     render() {
-        console.log(this.props.rect)
         const { back, front, parent = {}, rect } = this.props
         const offset = this.props.rect ?
             (this.state.width - this.state.gutter) / 4 :
@@ -77,7 +76,8 @@ class AboutBox extends Component {
             />
         )
 
-        style.paddingTop = rect ? `calc(50% - ${this.state.gutter / 2}px)` : '100%'
+        style.paddingTop = this.props.rect ? `calc(50% - ${this.state.gutter / 2}px)` : '100%'
+        console.log(style)
 
         const box = (
             <div
