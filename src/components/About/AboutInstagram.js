@@ -24,7 +24,7 @@ const AboutInstagram = ({ title, text }) =>
                 <iframe
                     src='https://stroydrevgroup.ru/wp-content/themes/app/vendor/inwidget/index.php?toolbar=false&view=1'
                     scrolling='no'
-                    frameborder='no'
+                    frameBorder='no'
                     className={styles.iframe}
                 />
             </div>

@@ -22,7 +22,6 @@ class AboutBox extends Component {
 
     componentDidMount() {
         this.updateOffset()
-
         if (this.props.isBrowser) {
             window.addEventListener('resize', this.updateOffset)
             window.addEventListener('load', this.updateOffset)
@@ -34,6 +33,10 @@ class AboutBox extends Component {
     }
 
     componentWillUnmount() {
+        if (this.box) {
+            this.box.current.addEventListener('mouseenter', this.enter)
+            this.box.current.addEventListener('mouseleave', this.leave)
+        }
         window.removeEventListener('resize', this.updateOffset)
         window.removeEventListener('load', this.updateOffset)
     }

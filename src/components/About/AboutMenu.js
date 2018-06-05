@@ -5,12 +5,11 @@ import styles from './AboutMenu.module.sass'
 const AboutMenu = ({ items }) =>
     <ul className={styles.menu}>
         {items.map(({ key, slug, title }) => (
-            <li className={styles.item}>
+            <li className={styles.item} key={key}>
                 <Link
                     to={slug}
                     className={styles.link}
                     activeClassName={styles.link_active}
-                    key={key}
                     >
                     {title}
                 </Link>

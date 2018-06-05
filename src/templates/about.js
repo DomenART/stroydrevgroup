@@ -31,10 +31,10 @@ class Page extends Component {
                 <AboutMain>
                     <Breadcrumbs items={breadcrumbs} />
                     <PageTitle html={page.title} />
-                    {/* <AboutGrid
+                    <AboutGrid
                         page={page}
                         menu={this.props.about}
-                    /> */}
+                    />
                     {{
                         [isExtraSmallMax]: (
                             <AboutGridExtraSmall
