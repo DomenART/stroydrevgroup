@@ -79,6 +79,7 @@ class AboutBox extends Component {
         if (this.props.rect) {
             cls.push(styles.box_rect)
         }
+        console.log(this.props.rect, cls)
 
         const box = (
             <div
