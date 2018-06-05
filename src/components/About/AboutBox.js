@@ -60,6 +60,7 @@ class AboutBox extends Component {
     }
 
     render() {
+        console.log(this.props.rect)
         const { back, front, parent = {}, rect } = this.props
         const offset = this.props.rect ?
             (this.state.width - this.state.gutter) / 4 :
