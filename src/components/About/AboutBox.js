@@ -75,13 +75,14 @@ class AboutBox extends Component {
                 dangerouslySetInnerHTML={{__html:parent.title}}
             />
         )
-
-        style.paddingTop = this.props.rect ? `calc(50% - ${this.state.gutter / 2}px)` : '100%'
-        console.log(style)
+        const cls = [styles.box]
+        if (this.props.rect) {
+            cls.push(styles.box_rect)
+        }
 
         const box = (
             <div
-                className={styles.box}
+                className={cls.join(' ')}
                 style={style}
                 ref={this.box}
             >
