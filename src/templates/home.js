@@ -149,6 +149,7 @@ export const query = graphql`
         reviews: allWordpressWpReviews {
             edges {
                 node {
+                    wordpress_id
                     slug
                     title
                     content

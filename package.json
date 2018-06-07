@@ -11,6 +11,7 @@
   "dependencies": {
     "autoprefixer": "^8.4.1",
     "axios": "^0.18.0",
+    "classnames": "^2.2.5",
     "cssnano": "^3.10.0",
     "dotenv": "^5.0.1",
     "gatsby": "^1.9.243",
@@ -51,7 +52,7 @@
     "react-touch-carousel": "^0.8.2",
     "redux-thunk": "^2.2.0",
     "svg-react-loader": "^0.4.5",
-    "uikit": "^3.0.0-beta.42",
+    "uikit": "^3.0.0-rc.5",
     "url-parse": "^1.2.0",
     "webfontloader": "^1.6.28",
     "whatwg-fetch": "^2.0.4",

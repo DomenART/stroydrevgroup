@@ -1,0 +1,142 @@
+@import '../App/variables'
+
+.box
+    border: 2px solid rgb(232, 232, 232)
+    background-color: rgb(255, 255, 255)
+    margin-bottom: 12px
+    padding: 16px 30px 39px
+    box-sizing: border-box
+    transition: .3s ease
+    transition-property: background-color, box-shadow
+    &:hover
+        background-color: rgb(247, 248, 251)
+        box-shadow: 0px 0px 6px 0px rgba(0, 0, 0, 0.32)
+    @media (max-width: $breakpoint-extra-small-max)
+        padding: 15px
+
+.headline
+    display: flex
+    justify-content: space-between
+    margin-bottom: 47px
+    @media (max-width: $breakpoint-extra-small-max)
+        flex-wrap: wrap
+        margin-bottom: 20px
+
+.author
+    font-size: 14px
+    color: rgb(143, 143, 143)
+    color: rgb(143, 143, 143)
+    display: flex
+    align-items: center
+    white-space: nowrap
+    margin-right: 20px
+    span
+        border-bottom: 1px solid #efefef
+    svg
+        width: 16px
+        height: 15px
+        margin-right: 5px
+        fill: #acacac
+
+.links
+    flex-grow: 1
+    align-items: center
+
+.link
+    margin-right: 5px
+    svg
+        width: 18px
+        height: 18px
+        color: #cccccc
+        transition: fill ease .3s
+    &_facebook
+        &:hover
+            svg
+                color: #404f91
+    &_instagram
+        &:hover
+            svg
+                color: #6a453b
+    &_twitter
+        &:hover
+            svg
+                color: #1da1f2
+    &_youtube
+        &:hover
+            svg
+                color: #df091c
+    &_vk
+        &:hover
+            svg
+                color: #4c75a3
+    &_odnoklassniki
+        &:hover
+            svg
+                color: #ee931d
+
+.date
+    font-size: 14px
+    color: rgb(143, 143, 143)
+    display: flex
+    align-items: center
+    svg
+        width: 16px
+        height: 15px
+        margin-right: 5px
+        fill: #adadad
+
+.title
+    font-size: 26px
+    color: rgb(0, 0, 0)
+    line-height: 1.231
+    font-weight: 300
+    letter-spacing: 0.3px
+    margin-bottom: 33px
+
+.media
+    margin-bottom: 43px
+    @media (max-width: $breakpoint-extra-small-max)
+        margin-bottom: 20px
+
+.image
+
+.video
+
+.info
+    position: relative
+    padding-left: 67px
+    padding-right: 20px
+    @media (max-width: $breakpoint-extra-small-max)
+        padding: 0
+
+.quote
+    position: absolute
+    left: 12px
+    top: 2px
+    width: 35px
+    height: 35px
+    fill: #ffd251
+    @media (max-width: $breakpoint-extra-small-max)
+        display: none
+
+.content
+    color: #666666
+    font-size: 14px
+    line-height: 1.58
+    margin-bottom: 36px
+    @media (max-width: $breakpoint-extra-small-max)
+        margin-bottom: 20px
+
+.more
+    margin: 0 -3px
+    padding: 0 16px
+    svg
+        width: 15px
+        height: 15px
+        fill: #999999
+        vertical-align: middle
+        position: relative
+        top: -1px
+    &:hover
+        svg
+            fill: #ffffff

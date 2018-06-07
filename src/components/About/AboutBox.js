@@ -60,26 +60,29 @@ class AboutBox extends Component {
     }
 
     render() {
-        const { back, front, parent = {}, rect } = this.props
-        const offset = this.props.rect ?
+        const { back, front, parent = {}, rect = false } = this.props
+
+        const offset = rect ?
             (this.state.width - this.state.gutter) / 4 :
             this.state.width / 2
+
         const style = this.state.hover ? {
             transform: `rotateX(-90deg) translateY(${offset}px)`
         } : {
             transform: `translateZ(-${offset}px)`
         }
+
         const parentButton = parent.title && (
             <span
                 className={styles.parent}
                 dangerouslySetInnerHTML={{__html:parent.title}}
             />
         )
+
         const cls = [styles.box]
         if (this.props.rect) {
             cls.push(styles.box_rect)
         }
-        console.log(this.props.rect, cls)
 
         const box = (
             <div
