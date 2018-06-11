@@ -4,7 +4,7 @@ import Link from 'gatsby-link'
 import ContactsRow from '../Contacts/ContactsRow'
 import ContactsForm from '../Forms/ContactsForm'
 import SvgIcon from '../UI/SvgIcon'
-import Share from '../UI/Share'
+import YaShare from '../UI/YaShare'
 import styles from './LandingContacts.module.sass'
 
 class LandingContacts extends Component {
@@ -42,7 +42,7 @@ class LandingContacts extends Component {
                                     Поделиться:
                                 </h3>
                                 <div className={styles.share}>
-                                    <Share />
+                                    <YaShare />
                                 </div>
                                 {!isExtraSmallMax && feedback}
                             </div>
