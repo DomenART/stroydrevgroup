@@ -35,12 +35,6 @@ class Page extends Component {
                         text={page.excerpt}
                     />
                 </PageMain>
-                {(page.content || page.acf.content_page) && (
-                    <PageContent
-                        content={page.content}
-                        flexible={page.acf.content_page}
-                    />
-                )}
                 <PageQuestions />
             </Layout>
         )
