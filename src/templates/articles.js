@@ -54,6 +54,9 @@ export const query = graphql`
                 seo_title
                 seo_keywords
                 seo_description
+                content_undefined {
+                    ...FlexibleFields
+                }
             }
         }
         tags: allWordpressTag {
