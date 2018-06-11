@@ -1,5 +1,4 @@
 import React, { Component } from 'react'
-import Link from 'gatsby-link'
 import Layout from '../components/App/Layout'
 import Head from '../components/App/Head'
 import PageHeader from '../components/Page/PageHeader'
@@ -7,29 +6,33 @@ import PageMain from '../components/Page/PageMain'
 import PageTitle from '../components/Page/PageTitle'
 import PageContent from '../components/Page/PageContent'
 import PageQuestions from '../components/Page/PageQuestions'
-import CatalogFilter from '../components/Catalog/CatalogFilter'
 import Breadcrumbs from '../components/UI/Breadcrumbs'
+import AboutMain from '../components/About/AboutMain'
+import ArticlesFilter from '../components/Articles/ArticlesFilter'
 
 class Page extends Component {
     render() {
-        const { breadcrumbs, options } = this.props.pathContext
-        const { page } = this.props.data
+        const { breadcrumbs } = this.props.pathContext
+        const { page, tags } = this.props.data
 
         return (
             <Layout>
-                <Head title={page.title} />
+                <Head title={page.name} />
                 <PageMain>
                     <PageHeader />
+                </PageMain>
+                <AboutMain>
                     <Breadcrumbs items={breadcrumbs} />
-                    <PageTitle html={page.title} />
-                    <CatalogFilter
-                        filters={page.acf.filters}
+                    <PageTitle html={page.name} />
+                    <ArticlesFilter
+                        rubric={page.wordpress_id}
+                        tags={tags.edges.map(row => row.node)}
                         page_id={this.props.pathContext.id}
                     />
-                </PageMain>
-                {(page.content || page.acf.content_page) && (
+                </AboutMain>
+                {(page.description || page.acf.content_page) && (
                     <PageContent
-                        content={page.content}
+                        content={page.description}
                         flexible={page.acf.content_page}
                     />
                 )}
@@ -42,28 +45,23 @@ class Page extends Component {
 export default Page
 
 export const query = graphql`
-    query catalogPageQuery($id: String!) {
-        page: wordpressPage(id: { eq: $id }) {
-            title
-            content
-            date(formatString: "MMMM DD, YYYY")
+    query categoryQuery($id: String!) {
+        page: wordpressCategory(id: { eq: $id }) {
+            wordpress_id
+            name
+            description
             acf {
                 seo_title
                 seo_keywords
                 seo_description
-                filters {
+            }
+        }
+        tags: allWordpressTag {
+            edges {
+                node {
+                    id
                     name
-                    values {
-                        active
-                        disabled
-                        type
-                        title
-                        compare
-                        value
-                    }
-                }
-                content_page {
-                    ...FlexibleFields
+                    wordpress_id
                 }
             }
         }

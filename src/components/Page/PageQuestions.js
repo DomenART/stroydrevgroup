@@ -1,9 +1,9 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import Share from '../UI/Share'
-import styles from './PagegQuestions.module.sass'
+import styles from './PageQuestions.module.sass'
 
-class PagegQuestions extends Component {
+class PageQuestions extends Component {
     render() {
         const { have_questions } = this.props
 
@@ -31,4 +31,4 @@ export default connect(
     state => ({
         have_questions: state.app.options.have_questions
     })
-)(PagegQuestions)
+)(PageQuestions)

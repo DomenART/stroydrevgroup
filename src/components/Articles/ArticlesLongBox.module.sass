@@ -1,0 +1,134 @@
+@import '../App/variables'
+
+.headline
+    line-height: 1
+    margin-bottom: 15px
+    width: 100%
+    display: flex
+    justify-content: space-between
+    align-items: center
+
+.tags
+    margin-bottom: 7px
+    svg
+        display: inline-block
+        width: 16px
+        height: 16px
+        margin-right: 9px
+        fill: #b5a498
+    button
+        display: inline-block
+        border: none
+        background: transparent
+        border-bottom: 1px solid #b5a498
+        cursor: pointer
+        padding: 0
+        margin-right: 5px
+        font-size: 14px
+        font-family: inherit
+        color: #dacbc1
+        &:hover
+            color: #ffffff
+            border-bottom-color: #ffffff
+        &::after
+            content: ','
+            display: inline
+        &:last-child::after
+            display: none
+
+.date
+    font-size: 14px
+    color: #dacbc1
+    display: flex
+    svg
+        width: 16px
+        height: 15px
+        margin-right: 5px
+        fill: #dacbc1
+
+.title
+    font-size: 30px
+    font-weight: 300
+    letter-spacing: 6.67px
+    line-height: 1.333
+    color: #ffffff
+    text-align: center
+    margin-bottom: 15px
+    &:first-line
+        font-weight: 700
+        letter-spacing: 2.22px
+        text-transform: uppercase
+    &:hover
+        color: #ffffff
+        text-decoration: underline
+
+.more
+    font-size: 12px
+    color: rgba(255,255,255,.59)
+    text-transform: uppercase
+    text-decoration: underline
+    letter-spacing: 2.2px
+    margin-bottom: 3.3%
+    transition: color .3s ease
+    &:visited
+        color: rgba(255,255,255,.59)
+    &:hover
+        color: rgb(255,255,255)
+        span
+            background: rgb(255, 255, 255)
+            &::before
+                background: rgb(255, 255, 255)
+            &::after
+                background: rgb(255, 255, 255)
+    span
+        width: 18px
+        height: 1px
+        display: inline-block
+        position: relative
+        background: rgba(255, 255, 255, .59)
+        vertical-align: middle
+        margin-left: 10px
+        transition: background .3s ease
+        &::before
+            content: ''
+            background: rgba(255, 255, 255, .59)
+            width: 5px
+            height: 1px
+            position: absolute
+            top: 0
+            right: 0
+            transform-origin: 100% 0
+            transform: rotate(45deg)
+            transition: background .3s ease
+        &::after
+            content: ''
+            background: rgba(255, 255, 255, .59)
+            width: 5px
+            height: 1px
+            position: absolute
+            bottom: 0
+            right: 0
+            transform-origin: 100% 100%
+            transform: rotate(-45deg)
+            transition: background .3s ease
+
+.back
+    position: relative
+    overflow: hidden
+    height: 100%
+    padding: 7% 15.5%
+    box-sizing: border-box
+    background-color: #773f1b
+    box-shadow: inset 0 0 0 15px #773f1b, inset 0 0 0 17px #916f5a
+    display: flex
+    flex-direction: column
+    justify-content: space-between
+    align-items: center
+
+.front
+    position: relative
+    overflow: hidden
+    background: #773f1b
+    height: 100%
+
+.image

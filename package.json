@@ -11,6 +11,7 @@
   "dependencies": {
     "autoprefixer": "^8.4.1",
     "axios": "^0.18.0",
+    "blueimp-md5": "^2.10.0",
     "classnames": "^2.2.5",
     "cssnano": "^3.10.0",
     "dotenv": "^5.0.1",
@@ -33,6 +34,7 @@
     "gsap": "^1.20.4",
     "jquery-param": "^1.0.1",
     "lodash": "^4.17.5",
+    "md5": "^2.2.1",
     "normalize.css": "^8.0.0",
     "nprogress": "^0.2.0",
     "overlayscrollbars": "^1.4.4",

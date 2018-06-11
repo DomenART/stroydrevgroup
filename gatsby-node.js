@@ -47,7 +47,7 @@ exports.createPages = ({ graphql, boundActionCreators }) => {
 
             return breadcrumbs
         }
-        const pdoNeighbors = (current, rows) => {
+        const neighbors = (current, rows) => {
             let previous = {}
             let next = {}
 
@@ -141,7 +141,12 @@ exports.createPages = ({ graphql, boundActionCreators }) => {
                             link
                             status
                             template
-                            format
+                            title
+                            categories {
+                              id
+                              name
+                              link
+                            }
                         }
                     }
                 }
@@ -153,12 +158,35 @@ exports.createPages = ({ graphql, boundActionCreators }) => {
                 }
 
                 const postTemplate = path.resolve("./src/templates/post.js")
-                _.each(result.data.allWordpressPost.edges, edge => {
+                _.each(result.data.allWordpressPost.edges, (edge, index) => {
+                    const breadcrumbs = [{
+                        id: home.id,
+                        uri: urlParse(home.link).pathname,
+                        title: home.title,
+                        current: false
+                    }]
+                    if (edge.node.categories.length) {
+                        breadcrumbs.push({
+                            id: edge.node.categories[0].id,
+                            uri: urlParse(edge.node.categories[0].link).pathname,
+                            title: edge.node.categories[0].name,
+                            current: false
+                        })
+                    }
+                    breadcrumbs.push({
+                        id: edge.node.id,
+                        uri: urlParse(edge.node.link).pathname,
+                        title: edge.node.title,
+                        current: true
+                    })
+
                     createPage({
                         path: urlParse(edge.node.link).pathname,
                         component: slash(postTemplate),
                         context: {
-                            id: edge.node.id
+                            id: edge.node.id,
+                            neighbors: neighbors(index, result.data.allWordpressPost.edges),
+                            breadcrumbs: breadcrumbs
                         }
                     })
                 })
@@ -166,6 +194,51 @@ exports.createPages = ({ graphql, boundActionCreators }) => {
             })
         })
         // ==== END POSTS ====
+
+        // ==== CATEGORIES (WORDPRESS NATIVE AND ACF) ====
+        .then(() => {
+            graphql(`{
+                allWordpressCategory {
+                    edges {
+                        node {
+                            id
+                            name
+                            link
+                        }
+                    }
+                }
+            }`)
+            .then(result => {
+                if (result.errors) {
+                    console.log(result.errors)
+                    reject(result.errors)
+                }
+
+                const postTemplate = path.resolve("./src/templates/articles.js")
+                _.each(result.data.allWordpressCategory.edges, edge => {
+                    createPage({
+                        path: urlParse(edge.node.link).pathname,
+                        component: slash(postTemplate),
+                        context: {
+                            id: edge.node.id,
+                            breadcrumbs: [{
+                                id: home.id,
+                                uri: urlParse(home.link).pathname,
+                                title: home.title,
+                                current: false
+                            }, {
+                                id: edge.node.id,
+                                uri: urlParse(edge.node.link).pathname,
+                                title: edge.node.name,
+                                current: true
+                            }]
+                        }
+                    })
+                })
+                resolve()
+            })
+        })
+        // ==== END CATEGORIES ====
 
         // ==== PROJECTS (WORDPRESS NATIVE AND ACF) ====
         .then(() => {
@@ -202,13 +275,13 @@ exports.createPages = ({ graphql, boundActionCreators }) => {
                         context: {
                             id: edge.node.id,
                             breadcrumbs: createBreadcrumbs(edge.node),
-                            neighbors: pdoNeighbors(index, result.data.allWordpressWpProject.edges)
+                            neighbors: neighbors(index, result.data.allWordpressWpProject.edges)
                         }
                     })
                 })
                 resolve()
             })
         })
-        // ==== PROJECTS POSTS ====
+        // ==== END PROJECTS ====
     })
 }

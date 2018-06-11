@@ -2,11 +2,11 @@ import { combineReducers } from 'redux'
 import app from './app'
 import menu from './menu'
 import resolution from './resolution'
-import catalog from './catalog'
+import filter from './filter'
 
 export default combineReducers({
     app,
     menu,
     resolution,
-    catalog
+    filter
 })

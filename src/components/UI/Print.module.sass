@@ -1,0 +1,29 @@
+@import '../App/variables'
+
+.print
+    min-width: 32px
+    min-height: 32px
+    width: 32px
+    height: 32px
+    position: relative
+    background-color: #f5f5f5
+    border: 1px solid #cccccc
+    box-sizing: border-box
+    cursor: pointer
+    transition: .3s ease
+    transition-property: background-color border
+    svg
+        fill: #000000
+        width: 16px
+        height: 16px
+        position: absolute
+        left: 50%
+        top: 50%
+        transform: translate(-50%, -50%)
+        transition: .3s ease
+        transition-property: fill
+    &:hover
+        background-color: #ada395
+        border-color: #ada395
+        svg
+            fill: #ffffff

@@ -57,19 +57,19 @@ export const query = graphql`
     }
 
     query layoutQuery {
-        catalog: wordpressWpApiMenusMenusItems(slug: {eq: "katalog"}) {
+        catalog: wordpressWpApiMenusMenusItems(wordpress_id: {eq: 2}) {
             ...menuFields
         }
-        about: wordpressWpApiMenusMenusItems(slug: {eq: "menyu-o-kompanii"}) {
+        about: wordpressWpApiMenusMenusItems(wordpress_id: {eq: 14}) {
             ...menuFields
         }
-        side_second: wordpressWpApiMenusMenusItems(slug: {eq: "bokovoe-menyu-2"}) {
+        side_second: wordpressWpApiMenusMenusItems(wordpress_id: {eq: 4}) {
             ...menuFields
         }
-        side_first: wordpressWpApiMenusMenusItems(slug: {eq: "bokovoe-menyu-1"}) {
+        side_first: wordpressWpApiMenusMenusItems(wordpress_id: {eq: 3}) {
             ...menuFields
         }
-        footer: wordpressWpApiMenusMenusItems(slug: {eq: "menyu-v-podvale"}) {
+        footer: wordpressWpApiMenusMenusItems(wordpress_id: {eq: 5}) {
             ...menuFields
         }
         options: wordpressAcfOptions {

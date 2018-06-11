@@ -16,6 +16,7 @@ exports.replaceRenderer = ({ bodyComponent, replaceBodyHTMLString }) => {
 
 exports.onRenderBody = ({ setPostBodyComponents, setHtmlAttributes }) => {
     const postBodyComponents = [
+        <script src="https://yastatic.net/share2/share.js" key="share2" />,
         <script src="https://ajax.googleapis.com/ajax/libs/webfont/1.6.26/webfont.js" key="webfontapi" />,
         <WebFonts key="webfontconfig" />
     ]

@@ -1,7 +1,6 @@
 import React from 'react'
 import styles from './AboutConsultation.module.sass'
 import SvgIcon from '../UI/SvgIcon';
-import Link from '../UI/Link';
 
 const AboutConsultation = ({ relative }) =>
     <div className={`${styles.container} ${relative ? styles.container_relative : ''}`}>

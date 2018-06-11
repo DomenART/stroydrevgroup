@@ -7,25 +7,6 @@
     padding-bottom: 5px
     margin-top: 15px
     margin-bottom: 15px
-    margin-left: -#{$container-padding-ultra-large}
-    margin-right: -#{$container-padding-ultra-large}
-    padding-left: $container-padding-ultra-large - 22px
-    padding-right: $container-padding-ultra-large - 22px
-    @media (max-width: $breakpoint-extra-large-max)
-        margin-left: -#{$container-padding-extra-large}
-        margin-right: -#{$container-padding-extra-large}
-        padding-left: $container-padding-extra-large - 22px
-        padding-right: $container-padding-extra-large - 22px
-    @media (max-width: $breakpoint-large-max)
-        margin-left: -#{$container-padding-large}
-        margin-right: -#{$container-padding-large}
-        padding-left: $container-padding-large - 22px
-        padding-right: $container-padding-large - 22px
-    @media (max-width: $breakpoint-medium-max)
-        margin-left: -#{$container-padding-medium}
-        margin-right: -#{$container-padding-medium}
-        padding-left: $container-padding-medium - 12px
-        padding-right: $container-padding-medium - 12px
 
 .loader
     position: absolute
@@ -126,7 +107,124 @@
 
 .options
     display: flex
-    > *
-        margin-left: 4px
-        &:first-child
-            margin-left: 0
+    flex-wrap: wrap
+    > * > input + div
+        height: 28px
+        line-height: 28px
+        margin: 2px
+
+@media (min-width: $breakpoint-extra-large)
+    .grid
+        display: grid
+        grid-template-columns: 1fr 1fr 1fr 1fr
+        grid-gap: 10px
+    .cell_1
+        grid-column: span 2
+        grid-row: span 2
+    .cell_2
+    .cell_3
+        grid-column: 4 / 5
+        grid-row: span 2
+    .cell_4
+    .cell_5
+        grid-column: 1 / 3
+    .cell_6
+        grid-column: 3 / 5
+    .cell_7
+        grid-column: 1 / 3
+    .cell_8
+    .cell_9
+    .cell_10
+        grid-column: 1 / 3
+    .cell_11
+        grid-column: 3 / 5
+    .cell_12
+        grid-row: span 2
+        grid-column: 1 / 3
+    .cell_13
+        grid-column: 3 / 5
+    .cell_14
+        grid-column: 3 / 5
+
+@media (min-width: $breakpoint-large) and (max-width: $breakpoint-large-max)
+    .grid
+        display: grid
+        grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr
+        grid-gap: 10px
+    .cell_1
+        grid-column: 1 / 5
+        grid-row: 1 / 3
+    .cell_2
+        grid-column: 5 / 7
+        grid-row: 2 / 3
+    .cell_3
+        grid-column: 5 / 7
+        grid-row: 1 / 2
+    .cell_4
+        grid-column: 1 / 3
+        grid-row: 3 / 4
+    .cell_5
+        grid-column: 1 / 4
+        grid-row: 4 / 5
+    .cell_6
+        grid-column: 3 / 7
+        grid-row: 3 / 4
+    .cell_7
+        grid-column: 1 / 5
+        grid-row: 5 / 6
+    .cell_8
+        grid-column: 5 / 7
+        grid-row: 5 / 6
+    .cell_9
+        grid-column: 1 / 3
+        grid-row: 6 / 7
+    .cell_10
+        grid-column: 4 / 7
+        grid-row: 4 / 5
+    .cell_11
+        grid-column: 3 / 7
+        grid-row: 6 / 7
+    .cell_12
+        grid-column: 1 / 4
+        grid-row: 7 / 9
+    .cell_13
+        grid-column: 4 / 7
+        grid-row: 7 / 8
+    .cell_14
+        grid-column: 4 / 7
+        grid-row: 8 / 9
+
+@media (max-width: $breakpoint-medium-max)
+    .grid
+        display: grid
+        grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr
+        grid-gap: 10px
+    .cell_1
+        grid-column: 1 / 4
+        grid-row: 1 / 2
+    .cell_2
+        display: none
+    .cell_3
+        display: none
+    .cell_4
+        display: none
+    .cell_5
+        display: none
+    .cell_6
+        display: none
+    .cell_7
+        display: none
+    .cell_8
+        display: none
+    .cell_9
+        display: none
+    .cell_10
+        display: none
+    .cell_11
+        display: none
+    .cell_12
+        display: none
+    .cell_13
+        display: none
+    .cell_14
+        display: none

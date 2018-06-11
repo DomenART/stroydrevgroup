@@ -1,0 +1,110 @@
+@import '../App/variables'
+
+.box
+    background-color: rgb(255, 255, 255)
+    padding: 19px 26px
+    box-sizing: border-box
+    min-height: 100%
+    display: flex
+    flex-direction: column
+    justify-content: space-between
+    &_yellow
+        background: #ffe89c linear-gradient(-27deg, #fcffa5 0%, #ffe798 100%)
+    &_green
+        background: #39be8a linear-gradient(-27deg, #56c986 0%, #3ab4b9 100%)
+        .tags
+            svg
+                fill: #bfe9d6
+            button
+                color: #bfe9d6
+                border-bottom-color: #a7cebd
+        .date
+            color: #bfe9d6
+            svg
+                fill: #bfe9d6
+        .title
+            color: #ffffff
+            &:hover
+                color: #ffffff
+    &_gray
+        background: #eaedf4
+
+.headline
+    line-height: 1
+    margin-bottom: 15px
+
+.tags
+    margin-bottom: 7px
+    svg
+        display: inline-block
+        width: 16px
+        height: 16px
+        margin-right: 9px
+        fill: #acacac
+    button
+        display: inline-block
+        border: none
+        background: transparent
+        border-bottom: 1px solid #efefef
+        cursor: pointer
+        padding: 0
+        margin-right: 5px
+        font-size: 14px
+        font-family: inherit
+        color: rgb(143, 143, 143)
+        &:hover
+            color: #000000
+            border-bottom-color: #000
+        &::after
+            content: ','
+            display: inline
+        &:last-child::after
+            display: none
+
+.date
+    font-size: 14px
+    color: rgb(143, 143, 143)
+    display: flex
+    align-items: center
+    svg
+        width: 16px
+        height: 15px
+        margin-right: 5px
+        fill: #adadad
+
+.title
+    font-size: 20px
+    font-weight: 400
+    color: rgb(51, 51, 51)
+    letter-spacing: 0.2px
+    text-decoration: underline
+    line-height: 1.4
+    &:hover
+        color: rgb(0, 0, 0)
+        text-decoration: underline
+
+.image
+    margin-bottom: 35px
+    text-align: center
+
+.intro
+    font-size: 14px
+    color: rgb(93, 93, 93)
+    line-height: 1.571
+    margin-bottom: 31px
+
+.more
+    margin: 0 5px
+    padding: 0 16px
+    background-color: rgb(245, 245, 245)
+    svg
+        width: 15px
+        height: 15px
+        fill: #999999
+        vertical-align: middle
+        position: relative
+        top: -1px
+        margin-left: 2px
+    &:hover
+        svg
+            fill: #ffffff

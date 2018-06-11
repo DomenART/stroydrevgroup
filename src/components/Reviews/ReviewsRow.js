@@ -2,8 +2,8 @@ import React, { Component } from 'react'
 import classNames from 'classnames'
 import socialLinkIcon from '../../utils/socialLinkIcon'
 import styles from './ReviewsRow.module.sass'
-import Link from '../UI/Link';
-import SvgIcon from '../UI/SvgIcon';
+import Link from '../UI/Link'
+import SvgIcon from '../UI/SvgIcon'
 
 class ReviewsRow extends Component {
     render() {

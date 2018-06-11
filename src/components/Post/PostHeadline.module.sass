@@ -1,0 +1,112 @@
+@import '../App/variables'
+
+.headline
+    display: flex
+    justify-content: space-between
+
+.headlineLeft
+    display: flex
+    align-items: center
+    margin-right: 50px
+
+.tags
+    display: flex
+    align-items: center
+    margin-right: 50px
+    svg
+        margin-right: 9px
+        width: 16px
+        height: 16px
+        fill: #acacac
+    span
+        display: inline-block
+        border-bottom: 1px solid #efefef
+        font-size: 14px
+        line-height: 1.15
+        color: #8f8f8f
+        margin-right: 5px
+        &::after
+            content: ','
+            display: inline
+        &:last-child::after
+            display: none
+
+.date
+    font-size: 14px
+    color: #8f8f8f
+    display: flex
+    align-items: center
+    margin-right: 50px
+    svg
+        margin-right: 6px
+        width: 16px
+        height: 16px
+        fill: #acacac
+
+.favorite
+    padding: 0
+    border: none
+    background: transparent
+    font-size: 14px
+    color: #ff9999
+    display: flex
+    align-items: center
+    white-space: nowrap
+    cursor: pointer
+    transition: color .3s ease
+    margin-right: 50px
+    span
+        border-bottom: 1px dashed #ff9999
+        transition: border-bottom-color .3s ease
+    svg
+        margin-right: 5px
+        width: 16px
+        height: 16px
+        fill: #ff9999
+        transition: fill .3s ease
+    &:hover
+        color: #ff6262
+        svg
+            fill: #ff6262
+        span
+            border-bottom-color: #ff6262
+
+.regard
+    display: flex
+    align-items: center
+
+.likes
+    background: transparent
+    padding: 0
+    border: none
+    font-size: 14px
+    color: #999999
+    margin-right: 25px
+    cursor: pointer
+    display: flex
+    align-items: center
+    transition: color .3s ease
+    svg
+        fill: #a9a9a9
+        width: 18px
+        height: 18px
+        margin-right: 5px
+        transition: fill .3s ease
+    &:hover
+        color: #000000
+        svg
+            fill: #000000
+
+.views
+    font-size: 14px
+    color: #999999
+    display: flex
+    align-items: center
+    svg
+        fill: #a9a9a9
+        width: 18px
+        height: 18px
+        margin-right: 5px
+
+.neighbors
+    margin-left: 50px

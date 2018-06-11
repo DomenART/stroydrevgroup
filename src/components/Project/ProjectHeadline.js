@@ -1,8 +1,9 @@
 import React from 'react'
 import Link from 'gatsby-link'
 import Share from '../UI/Share'
+import Neighbors from '../UI/Neighbors'
+import Print from '../UI/Print'
 import styles from './ProjectHeadline.module.sass'
-import SvgIcon from '../UI/SvgIcon';
 
 const ProjectHeadline = ({ neighbors }) =>
     <div className={styles.container}>
@@ -12,25 +13,9 @@ const ProjectHeadline = ({ neighbors }) =>
             </div>
             <Share size={32} />
         </div>
-        <button className={styles.print} onClick={() => window.print()}>
-            <SvgIcon name="printer" />
-        </button>
+        <Print />
         <div className={styles.neighbors}>
-            <Link
-                className={styles.neighborsLink}
-                to={neighbors.previous.path}
-                title={neighbors.previous.title}
-            >
-                <SvgIcon name="small-chevron-left" /> пред.
-            </Link>
-            <div className={styles.neighborsBorder} />
-            <Link
-                className={styles.neighborsLink}
-                to={neighbors.next.path}
-                title={neighbors.next.title}
-            >
-                след. <SvgIcon name="small-chevron-right" />
-            </Link>
+            <Neighbors {...neighbors} />
         </div>
     </div>
 

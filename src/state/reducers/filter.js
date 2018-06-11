@@ -5,9 +5,9 @@ const initialState = {
 
 export default (state = initialState, action) => {
     switch (action.type) {
-        case 'CATALOG_SET_VIEW':
+        case 'FILTER_SET_VIEW':
             return { ...state, view: action.view };
-        case 'CATALOG_SET_QUERY':
+        case 'FILTER_SET_QUERY':
             return {
                 ...state,
                 pages: {
@@ -18,7 +18,7 @@ export default (state = initialState, action) => {
                     }
                 }
             };
-        case 'CATALOG_SET_FILTERS':
+        case 'FILTER_SET_FILTERS':
             return {
                 ...state,
                 pages: {
@@ -29,7 +29,7 @@ export default (state = initialState, action) => {
                     }
                 }
             };
-        case 'CATALOG_SET_INITIAL_DATA':
+        case 'FILTER_SET_INITIAL_DATA':
             return {
                 ...state,
                 pages: {
@@ -37,7 +37,7 @@ export default (state = initialState, action) => {
                     [action.page]: action.data
                 }
             };
-        case 'CATALOG_SET_PAGINATE_PAGE':
+        case 'FILTER_SET_PAGINATE_PAGE':
             return {
                 ...state,
                 pages: {
@@ -51,7 +51,7 @@ export default (state = initialState, action) => {
                     }
                 }
             };
-        case 'CATALOG_SET_ORDER':
+        case 'FILTER_SET_ORDER':
             return {
                 ...state,
                 pages: {
@@ -66,7 +66,7 @@ export default (state = initialState, action) => {
                     }
                 }
             };
-        case 'CATALOG_SET_LIMIT':
+        case 'FILTER_SET_LIMIT':
             return {
                 ...state,
                 pages: {
@@ -80,7 +80,7 @@ export default (state = initialState, action) => {
                     }
                 }
             };
-        case 'CATALOG_SET_TOTAL':
+        case 'FILTER_SET_TOTAL':
             return {
                 ...state,
                 pages: {
@@ -92,26 +92,26 @@ export default (state = initialState, action) => {
                     }
                 }
             };
-        case 'CATALOG_LOAD_PROJECTS_START':
+        case 'FILTER_LOAD_DATA_START':
             return {
                 ...state,
                 pages: {
                     ...state.pages,
                     [action.page]: {
                         ...state.pages[action.page],
-                        loadingProjects: true
+                        loadingData: true
                     }
                 }
             };
-        case 'CATALOG_LOAD_PROJECTS_SUCCESS':
+        case 'FILTER_LOAD_DATA_SUCCESS':
             return {
                 ...state,
                 pages: {
                     ...state.pages,
                     [action.page]: {
                         ...state.pages[action.page],
-                        loadingProjects: false,
-                        projects: action.projects
+                        loadingData: false,
+                        rows: action.rows
                     }
                 }
             };

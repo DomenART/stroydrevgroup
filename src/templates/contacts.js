@@ -2,13 +2,13 @@ import React, { Component } from 'react'
 import Link from 'gatsby-link'
 import Layout from '../components/App/Layout'
 import Head from '../components/App/Head'
-import PageHeader from '../components/Page/PageHeader.js'
-import PageMain from '../components/Page/PageMain.js'
-import PageTitle from '../components/Page/PageTitle.js'
-import PageContent from '../components/Page/PageContent.js'
-import PagegQuestions from '../components/Page/PagegQuestions.js'
-import ContactsGroups from '../components/Contacts/ContactsGroups.js'
-import ContactsSocial from '../components/Contacts/ContactsSocial.js'
+import PageHeader from '../components/Page/PageHeader'
+import PageMain from '../components/Page/PageMain'
+import PageTitle from '../components/Page/PageTitle'
+import PageContent from '../components/Page/PageContent'
+import PageQuestions from '../components/Page/PageQuestions'
+import ContactsGroups from '../components/Contacts/ContactsGroups'
+import ContactsSocial from '../components/Contacts/ContactsSocial'
 import Breadcrumbs from '../components/UI/Breadcrumbs'
 
 class Page extends Component {
@@ -26,7 +26,7 @@ class Page extends Component {
                     <ContactsGroups groups={page.acf.contacts} />
                     <ContactsSocial />
                 </PageMain>
-                <PagegQuestions />
+                <PageQuestions />
             </Layout>
         )
     }

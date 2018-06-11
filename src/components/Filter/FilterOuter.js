@@ -1,6 +1,6 @@
 import React from 'react'
 import FilterSelect from './FilterSelect'
-import FilterOptions from './FilterOptions'
+import FilterOptions from '../Filter/FilterOptions'
 import SvgIcon from '../UI/SvgIcon'
 import styles from './FilterOuter.module.sass'
 
@@ -50,11 +50,11 @@ const FilterOuter = ({ filters, updateFilters, onReset }) =>
                     Этажность:
                 </div>
                 <div className={styles.options}>
-                    <FilterOptions
+                    {/* <FilterOptions
                         name="floors"
                         values={filters['floors']}
                         updateFilters={updateFilters}
-                    />
+                    /> */}
                 </div>
             </div>
         </div>

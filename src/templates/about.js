@@ -3,11 +3,11 @@ import { connect } from 'react-redux'
 import Link from 'gatsby-link'
 import Layout from '../components/App/Layout'
 import Head from '../components/App/Head'
-import PageHeader from '../components/Page/PageHeader.js'
-import PageMain from '../components/Page/PageMain.js'
-import PageTitle from '../components/Page/PageTitle.js'
-import PageContent from '../components/Page/PageContent.js'
-import PagegQuestions from '../components/Page/PagegQuestions.js'
+import PageHeader from '../components/Page/PageHeader'
+import PageMain from '../components/Page/PageMain'
+import PageTitle from '../components/Page/PageTitle'
+import PageContent from '../components/Page/PageContent'
+import PageQuestions from '../components/Page/PageQuestions'
 import Breadcrumbs from '../components/UI/Breadcrumbs'
 import AboutMain from '../components/About/AboutMain'
 import AboutGridExtraSmall from '../components/About/AboutGridExtraSmall'
@@ -17,9 +17,49 @@ import AboutGridLarge from '../components/About/AboutGridLarge'
 import AboutGrid from '../components/About/AboutGrid'
 
 class Page extends Component {
+    getGrid() {
+        const { page } = this.props.data
+        const { isExtraSmallMax, isSmall, isMedium, isLarge } = this.props.resolution
+
+        if (isExtraSmallMax) {
+            return (
+                <AboutGridExtraSmall
+                    page={page}
+                    menu={this.props.about}
+                />
+            )
+        }
+
+        if (isLarge) {
+            return (
+                <AboutGridLarge
+                    page={page}
+                    menu={this.props.about}
+                />
+            )
+        }
+
+        if (isMedium) {
+            return (
+                <AboutGridMedium
+                    page={page}
+                    menu={this.props.about}
+                />
+            )
+        }
+
+        if (isSmall) {
+            return (
+                <AboutGridSmall
+                    page={page}
+                    menu={this.props.about}
+                />
+            )
+        }
+    }
+
     render() {
         const { breadcrumbs, options } = this.props.pathContext
-        const { isExtraSmallMax, isSmall, isMedium, isLarge } = this.props.resolution
         const { page } = this.props.data
 
         return (
@@ -35,32 +75,7 @@ class Page extends Component {
                         page={page}
                         menu={this.props.about}
                     /> */}
-                    {{
-                        [isExtraSmallMax]: (
-                            <AboutGridExtraSmall
-                                page={page}
-                                menu={this.props.about}
-                            />
-                        ),
-                        [isSmall]: (
-                            <AboutGridSmall
-                                page={page}
-                                menu={this.props.about}
-                            />
-                        ),
-                        [isMedium]: (
-                            <AboutGridMedium
-                                page={page}
-                                menu={this.props.about}
-                            />
-                        ),
-                        [isLarge]: (
-                            <AboutGridLarge
-                                page={page}
-                                menu={this.props.about}
-                            />
-                        ),
-                    }[true]}
+                    {this.getGrid()}
                     {/* <div className="uk-grid uk-grid-small" data-uk-grid>
                         <div className="uk-width-3-4@m uk-width-1-2@l">
                             <AboutMenu items={menu} />
@@ -142,7 +157,7 @@ class Page extends Component {
                         flexible={page.acf.content_page}
                     />
                 )}
-                <PagegQuestions />
+                <PageQuestions />
             </Layout>
         )
     }
