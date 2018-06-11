@@ -30,10 +30,10 @@ class Page extends Component {
                         page_id={this.props.pathContext.id}
                     />
                 </AboutMain>
-                {(page.description || page.acf.content_page) && (
+                {(page.description || page.acf.content_undefined) && (
                     <PageContent
                         content={page.description}
-                        flexible={page.acf.content_page}
+                        flexible={page.acf.content_undefined}
                     />
                 )}
                 <PageQuestions />
