@@ -1,8 +1,5 @@
 import React from 'react'
-import Link from 'gatsby-link'
-import Share from '../UI/Share'
 import styles from './ProjectPrice.module.sass'
-import SvgIcon from '../UI/SvgIcon';
 
 const ProjectPrice = ({ price }) =>
     <div className={styles.container}>

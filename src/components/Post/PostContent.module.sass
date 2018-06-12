@@ -1,0 +1,54 @@
+@import '../App/variables'
+
+.container
+    max-width: 700px
+    margin: 0 auto
+
+.excerpt
+    font-size: 18px
+    color: rgb(0, 0, 0)
+    line-height: 1.667
+    margin-bottom: 50px
+
+.headShare
+    margin-bottom: 93px
+
+.content
+    position: relative
+    & :global .wp-caption
+        &.aligncenter
+            position: relative
+            left: 50%
+            transform: translateX(-50%)
+        &.alignnone
+            position: relative
+            width: 100% !important
+        &.alignleft
+            float: none
+            margin: 0
+        &.alignright
+            float: none
+            margin: 0
+            position: relative
+            left: 100%
+            transform: translateX(-100%)
+
+.footer
+    border-top: 1px solid #e8e8e8
+    margin-top: 80px
+    padding: 68px 0
+    display: flex
+    align-items: center
+    justify-content: space-between
+
+.footerShare
+    font-size: 14px
+    color: rgb(143, 143, 143)
+    line-height: 1.571
+    display: flex
+    justify-content: space-between
+    align-items: center
+    > div
+        margin-left: 16px
+
+.neighbors

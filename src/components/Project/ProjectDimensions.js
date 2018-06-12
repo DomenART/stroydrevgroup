@@ -1,8 +1,5 @@
 import React from 'react'
-import Link from 'gatsby-link'
-import Share from '../UI/Share'
 import styles from './ProjectDimensions.module.sass'
-import SvgIcon from '../UI/SvgIcon';
 
 const ProjectDimensions = ({ area, length, width }) =>
     <div className={styles.container}>

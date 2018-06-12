@@ -49,7 +49,7 @@ class PostHeadline extends Component {
     }
 
     render() {
-        const { tags, date, likes, views } = this.props.page
+        const { tags, date, likes, views } = this.props
 
         return (
             <div className={styles.headline}>

@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import Share from '../UI/Share'
+import YaShare from '../UI/YaShare'
 import styles from './PageQuestions.module.sass'
 
 class PageQuestions extends Component {
@@ -18,7 +18,7 @@ class PageQuestions extends Component {
                     />
                     <div className={`${styles.share} uk-width-1-2@m`}>
                         <div className={styles.title}>Поделиться:</div>
-                        <Share />
+                        <YaShare size="extra-large" />
                         <img className={styles.logo} src={require('../../assets/wooden-logo.png')} alt=""/>
                     </div>
                 </div>

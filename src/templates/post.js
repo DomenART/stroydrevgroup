@@ -6,8 +6,8 @@ import PageMain from '../components/Page/PageMain'
 import PostMain from '../components/Post/PostMain'
 import PostTitle from '../components/Post/PostTitle'
 import PostHeadline from '../components/Post/PostHeadline'
-import PostIntro from '../components/Post/PostIntro'
-import PageContent from '../components/Page/PageContent'
+import PostContent from '../components/Post/PostContent'
+import PostRelated from '../components/Post/PostRelated'
 import PageQuestions from '../components/Page/PageQuestions'
 import Breadcrumbs from '../components/UI/Breadcrumbs'
 
@@ -28,13 +28,24 @@ class Page extends Component {
                 </PostMain>
                 <PageMain>
                     <PostHeadline
-                        page={page}
+                        tags={page.tags}
+                        date={page.date}
+                        likes={page.likes}
+                        views={page.views}
+                        wordpress_id={page.wordpress_id}
                         neighbors={neighbors}
                     />
-                    <PostIntro
-                        text={page.excerpt}
+                    <PostContent
+                        excerpt={page.excerpt}
+                        content={page.content}
+                        neighbors={neighbors}
                     />
                 </PageMain>
+                {page.acf.related && (
+                    <PostRelated
+                        items={page.acf.related}
+                    />
+                )}
                 <PageQuestions />
             </Layout>
         )
@@ -66,6 +77,25 @@ export const query = graphql`
                 seo_title
                 seo_keywords
                 seo_description
+                related {
+                    wordpress_id
+                    post_title
+                    post_name
+                    post_thumbnail {
+                        localFile {
+                            childImageSharp {
+                                square: resolutions(width: 500, height: 500) {
+                                    src
+                                    srcSet
+                                }
+                                rectangle: resolutions(width: 500, height: 340) {
+                                    src
+                                    srcSet
+                                }
+                            }
+                        }
+                    }
+                }
             }
         }
     }

@@ -7,9 +7,8 @@ import SvgIcon from '../UI/SvgIcon'
 
 class ReviewsRow extends Component {
     render() {
-        const { title, content, id } = this.props
+        const { title, content, excerpt, id } = this.props
         const { name, links, date, media } = this.props.acf
-        const cut = content.rendered.split('<!--more-->')
 
         return (
             <div className={styles.box}>
@@ -66,9 +65,9 @@ class ReviewsRow extends Component {
                     <SvgIcon name="quote" className={styles.quote}/>
                     <div
                         className={styles.content}
-                        dangerouslySetInnerHTML={{ __html: cut[0] }}
+                        dangerouslySetInnerHTML={{ __html:excerpt.rendered}}
                     />
-                    {cut[1] && (
+                    {content.rendered && (
                         <Link
                             to={`#${id}`}
                             className={classNames(styles.more, 'button-jitney')}

@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import classNames from 'classnames'
 import styles from './YaShare.module.sass'
 
 class YaShare extends Component {
@@ -9,10 +10,12 @@ class YaShare extends Component {
     }
 
     componentDidMount() {
+        const { counter = false } = this.props
+
         this.share = Ya.share2(this.shareEl.current, {
             theme: {
                 services: 'vkontakte,facebook,odnoklassniki,moimir,gplus,twitter',
-                counter: true,
+                counter: counter,
                 size: 'm',
                 bare: false
             }
@@ -20,9 +23,13 @@ class YaShare extends Component {
     }
 
     render() {
+        const cls = classNames(styles.share, {
+            [styles[`share_${this.props.size}`]]: true
+        })
+
         return (
             <div
-                className={styles.share}
+                className={cls}
                 ref={this.shareEl}
             />
         )

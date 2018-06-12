@@ -6,11 +6,10 @@ import Link from '../UI/Link'
 import SvgIcon from '../UI/SvgIcon'
 import styles from './ReviewsDetail.module.sass'
 import config from '../../config.json'
-import Share from '../UI/Share'
+import YaShare from '../UI/YaShare'
 
-const Body = ({ title, content, id, previous, next, acf }) => {
+const Body = ({ title, content, excerpt, previous, next, acf }) => {
     const { name, links, date, media } = acf
-    const cut = content && content.rendered.split('<!--more-->')
 
     const nav = (
         <Fragment>
@@ -55,7 +54,7 @@ const Body = ({ title, content, id, previous, next, acf }) => {
                 )}
                 <div className={classNames('uk-width-expand', styles.info)}>
                     <div className={styles.share}>
-                        <Share size={24} />
+                        <YaShare size="small" />
                     </div>
                     <div
                         className={styles.title}
@@ -86,10 +85,10 @@ const Body = ({ title, content, id, previous, next, acf }) => {
                         <SvgIcon name="schedule" />
                         {date}
                     </div>
-                    {cut[1] && (
+                    {content.rendered && (
                         <div className={styles.intro}>
                             <SvgIcon name="quote" className={styles.quote}/>
-                            <div dangerouslySetInnerHTML={{ __html: cut[0] }} />
+                            <div dangerouslySetInnerHTML={{ __html: excerpt.rendered }} />
                         </div>
                     )}
                     {!media && nav}
@@ -99,7 +98,7 @@ const Body = ({ title, content, id, previous, next, acf }) => {
             <div
                 className={styles.content}
                 dangerouslySetInnerHTML={{
-                    __html: cut[1] || cut[0]
+                    __html: content.rendered || excerpt.rendered
                 }}
             />
         </Fragment>

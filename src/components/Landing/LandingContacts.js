@@ -42,7 +42,7 @@ class LandingContacts extends Component {
                                     Поделиться:
                                 </h3>
                                 <div className={styles.share}>
-                                    <YaShare />
+                                    <YaShare size="extra-large" />
                                 </div>
                                 {!isExtraSmallMax && feedback}
                             </div>

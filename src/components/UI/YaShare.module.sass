@@ -1,3 +1,40 @@
 @import '../App/variables'
 
 .share
+    & :global .ya-share2__container_size_m .ya-share2__item
+        margin: 0 5px 0 0
+    &_small
+        & :global .ya-share2__badge
+            border-radius: 0
+        & :global .ya-share2__container_size_m .ya-share2__icon
+            width: 24px
+            height: 24px
+    &_medium
+        & :global .ya-share2__badge
+            border-radius: 0
+        & :global .ya-share2__container_size_m .ya-share2__icon
+            width: 32px
+            height: 32px
+    &_large
+        & :global .ya-share2__container_size_m .ya-share2__item
+            margin: 0 9px 0 0
+        & :global .ya-share2__badge
+            border-radius: 0
+        & :global .ya-share2__container_size_m .ya-share2__icon
+            width: 40px
+            height: 40px
+    &_extra-large
+        & :global .ya-share2__container_size_m .ya-share2__item
+            margin: 0 7px 0 0
+        & :global .ya-share2__badge
+            border-radius: 0
+        & :global .ya-share2__container_size_m .ya-share2__icon
+            width: 48px
+            height: 48px
+            @media (max-width: $breakpoint-medium-max)
+                width: 42px
+                height: 42px
+            @media (max-width: $breakpoint-extra-small-max)
+                width: 37px
+                height: 37px
+
