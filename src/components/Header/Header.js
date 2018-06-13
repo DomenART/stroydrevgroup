@@ -47,7 +47,10 @@ class Header extends Component {
                         Кроме воскресенья<br />
                         с <b>09.00</b> до <b>20.00</b>
                     </div>
-                    <button className={styles.callbackButton}>
+                    <button
+                        className={styles.callbackButton}
+                        data-uk-toggle="target: #Calculation"
+                    >
                         <SvgIcon name="telephone" />
                     </button>
                 </div>
