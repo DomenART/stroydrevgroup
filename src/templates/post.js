@@ -8,6 +8,7 @@ import PostTitle from '../components/Post/PostTitle'
 import PostHeadline from '../components/Post/PostHeadline'
 import PostContent from '../components/Post/PostContent'
 import PostRelated from '../components/Post/PostRelated'
+import PageSubscription from '../components/Page/PageSubscription'
 import PageQuestions from '../components/Page/PageQuestions'
 import Breadcrumbs from '../components/UI/Breadcrumbs'
 
@@ -46,6 +47,7 @@ class Page extends Component {
                         items={page.acf.related}
                     />
                 )}
+                <PageSubscription />
                 <PageQuestions />
             </Layout>
         )

@@ -15,7 +15,10 @@ const Bar = ({ copyright, isDrawerOpen, toggle }) => {
                 className={toggleCls.join(' ')}
                 onClick={toggle}
             ><span /></button>
-            <button className={styles.callback}>
+            <button
+                className={styles.callback}
+                data-uk-toggle="target: #Calculation"
+            >
                 <SvgIcon name="telephone" />
             </button>
             <button

@@ -28,9 +28,9 @@ class Header extends Component {
                     Строительство деревянных домов <br />
                     и бань под ключ по России и СНГ
                 </div>
-                <div className={styles.search}>
+                {/* <div className={styles.search}>
                     <HeaderSearch />
-                </div>
+                </div> */}
                 {/* <div className={styles.nav}>
                     <Link to="/katalog" className={styles.catalog}>
                         Каталог проектов

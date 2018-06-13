@@ -11,7 +11,7 @@ const FooterStatic = ({ counters }) => {
                 dangerouslySetInnerHTML={{__html: counters}}
             />
             <div>
-                <Link to="#" className={styles.sitemap}>Карта сайта</Link>
+                <Link to="/sitemap" className={styles.sitemap}>Карта сайта</Link>
             </div>
             <div>
                 <a

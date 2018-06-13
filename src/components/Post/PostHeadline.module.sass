@@ -3,16 +3,27 @@
 .headline
     display: flex
     justify-content: space-between
+    margin-bottom: 52px
+    @media (max-width: $breakpoint-extra-small-max)
+        flex-wrap: wrap
 
 .headlineLeft
     display: flex
     align-items: center
     margin-right: 50px
+    @media (max-width: $breakpoint-small-max)
+        margin-right: 20px
+    @media (max-width: $breakpoint-extra-small-max)
+        flex-wrap: wrap
+        line-height: 3
+        margin-bottom: 20px
 
 .tags
     display: flex
     align-items: center
     margin-right: 50px
+    @media (max-width: $breakpoint-small-max)
+        margin-right: 20px
     svg
         margin-right: 9px
         width: 16px
@@ -37,6 +48,8 @@
     display: flex
     align-items: center
     margin-right: 50px
+    @media (max-width: $breakpoint-small-max)
+        margin-right: 20px
     svg
         margin-right: 6px
         width: 16px
@@ -55,6 +68,8 @@
     cursor: pointer
     transition: color .3s ease
     margin-right: 50px
+    @media (max-width: $breakpoint-small-max)
+        margin-right: 20px
     span
         border-bottom: 1px dashed #ff9999
         transition: border-bottom-color .3s ease
@@ -110,3 +125,5 @@
 
 .neighbors
     margin-left: 50px
+    @media (max-width: $breakpoint-small-max)
+        margin-left: 20px

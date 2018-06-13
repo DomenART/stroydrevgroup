@@ -20,18 +20,28 @@
             position: relative
             left: 50%
             transform: translateX(-50%)
+            @media (max-width: $breakpoint-medium-max)
+                max-width: 100%
+                left: initial
+                transform: initial
         &.alignnone
             position: relative
             width: 100% !important
         &.alignleft
             float: none
             margin: 0
+            @media (max-width: $breakpoint-medium-max)
+                max-width: 100%
         &.alignright
             float: none
             margin: 0
             position: relative
             left: 100%
             transform: translateX(-100%)
+            @media (max-width: $breakpoint-medium-max)
+                max-width: 100%
+                left: initial
+                transform: initial
 
 .footer
     border-top: 1px solid #e8e8e8
@@ -40,15 +50,27 @@
     display: flex
     align-items: center
     justify-content: space-between
+    @media (max-width: $breakpoint-extra-small-max)
+        flex-wrap: wrap
+        margin-top: 30px
+        padding: 30px 0
 
 .footerShare
-    font-size: 14px
-    color: rgb(143, 143, 143)
-    line-height: 1.571
     display: flex
     justify-content: space-between
     align-items: center
-    > div
-        margin-left: 16px
+    @media (max-width: $breakpoint-extra-small-max)
+        margin-bottom: 20px
+        flex-wrap: wrap
+    > span
+        display: inline-block
+        margin-right: 16px
+        font-size: 14px
+        color: rgb(143, 143, 143)
+        line-height: 1.571
+        @media (max-width: $breakpoint-extra-small-max)
+            display: block
+            width: 100%
+            margin-bottom: 10px
 
 .neighbors

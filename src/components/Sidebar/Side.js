@@ -19,7 +19,7 @@ const Side = ({ catalog, side_first, side_second, phone, isDrawerOpen, setRef })
                 </Link>
             </div>
 
-            <form className={styles.search}>
+            {/* <form className={styles.search}>
                 <input
                     name="query"
                     placeholder="Поиск по сайту"
@@ -28,7 +28,7 @@ const Side = ({ catalog, side_first, side_second, phone, isDrawerOpen, setRef })
                 <button className={styles.searchButton}>
                     <SvgIcon name="search" />
                 </button>
-            </form>
+            </form> */}
 
             <div className={styles.contact}>
                 <div className={styles.phone}>

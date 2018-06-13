@@ -29,8 +29,6 @@ class PostRelatedItem extends Component {
     componentDidMount() {
         this.ctx = this.canvas.current.getContext('2d')
         this.words = this.props.post_title.split(/\s+/g)
-        this.ctx.font = "bold 28px Open Sans"
-        this.ctx.textBaseline = "middle"
 
         this.prepareLines()
         if (this.props.isBrowser) {
@@ -45,11 +43,12 @@ class PostRelatedItem extends Component {
     }
 
     prepareLines() {
+        const { fontSize } = getComputedStyle(this.name.current)
         this.width = this.name.current.clientWidth
         this.height = this.name.current.clientHeight
         this.ctx.canvas.width = this.width
         this.ctx.canvas.height = this.height
-        this.ctx.font = "bold 28px Open Sans"
+        this.ctx.font = `bold ${fontSize} Open Sans`
         this.ctx.textBaseline = "middle"
 
         this.lines = []
@@ -158,34 +157,29 @@ class PostRelatedItem extends Component {
 
         return (
             <div
-                className={'uk-width-1-3'}
-                key={wordpress_id}
+                className={classNames(styles.item, {
+                    [styles.item_even]: even
+                })}
+                onMouseEnter={this.mouseEnterHandler}
+                onMouseLeave={this.mouseLeaveHandler}
             >
-                <div
-                    className={classNames(styles.item, {
-                        [styles.item_even]: even
-                    })}
-                    onMouseEnter={this.mouseEnterHandler}
-                    onMouseLeave={this.mouseLeaveHandler}
+                <Link
+                    to={`/${post_name}`}
+                    className={styles.image}
                 >
-                    <Link
-                        to={`/${post_name}`}
-                        className={styles.image}
-                    >
-                        <img
-                            {...img}
-                            alt={post_title}
-                        />
+                    <img
+                        {...img}
+                        alt={post_title}
+                    />
+                </Link>
+                <div
+                    ref={this.name}
+                    className={styles.name}
+                >
+                    <Link to={`/${post_name}`}>
+                        <div dangerouslySetInnerHTML={{__html:post_title}} />
+                        <canvas ref={this.canvas} />
                     </Link>
-                    <div
-                        ref={this.name}
-                        className={styles.name}
-                    >
-                        <Link to={`/${post_name}`}>
-                            <div dangerouslySetInnerHTML={{__html:post_title}} />
-                            <canvas ref={this.canvas} />
-                        </Link>
-                    </div>
                 </div>
             </div>
         )

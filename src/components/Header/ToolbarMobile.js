@@ -15,7 +15,10 @@ class ToolbarMobile extends Component {
 
         return (
             <div className={toolbarCls.join(' ')}>
-                <button className={styles.button}>
+                <button
+                    className={styles.button}
+                    data-uk-toggle="target: #Calculation"
+                >
                     <SvgIcon name="telephone" />
                 </button>
                 <button

@@ -20,7 +20,8 @@ const PostContent = ({ excerpt, content, neighbors }) =>
         />
         <div className={styles.footer}>
             <div className={styles.footerShare}>
-                Поделиться: <YaShare size="large" />
+                <span>Поделиться:</span>
+                <YaShare size="large" />
             </div>
             <div className={styles.neighbors}>
                 <Neighbors {...neighbors} />

@@ -10,31 +10,33 @@ class PostHeadline extends Component {
     constructor(props) {
         super(props)
 
-        this.addLike = this.addLike.bind(this)
+        // this.addLike = this.addLike.bind(this)
         this.addFav = this.addFav.bind(this)
     }
 
     componentDidMount() {
-        axios.post(`${config.API_URL}app/v1/add_view`, {
-            type: 'post',
-            id: this.props.wordpress_id
-        })
+        // axios.post(config.AJAX_URL, {
+        //     action: 'add_view',
+        //     type: 'post',
+        //     id: this.props.wordpress_id
+        // })
     }
 
-    addLike() {
-        axios.post(`${config.API_URL}app/v1/add_like`, {
-            type: 'post',
-            id: this.props.wordpress_id
-        })
-        .then(response => {
-            if (response.data === false) {
-                UIkit.notification({
-                    message: 'Вы уже голосовали за эту статью',
-                    status: 'danger'
-                })
-            }
-        })
-    }
+    // addLike() {
+    //     axios.post(config.AJAX_URL, {
+    //         action: 'add_like',
+    //         type: 'post',
+    //         id: this.props.wordpress_id
+    //     })
+    //     .then(response => {
+    //         if (response.data === false) {
+    //             UIkit.notification({
+    //                 message: 'Вы уже голосовали за эту статью',
+    //                 status: 'danger'
+    //             })
+    //         }
+    //     })
+    // }
 
     addFav() {
         const UA = navigator.userAgent.toLowerCase()
@@ -78,7 +80,7 @@ class PostHeadline extends Component {
                         <span>Добавить в избранное</span>
                     </button>
 
-                    <div className={styles.regard}>
+                    {/* <div className={styles.regard}>
                         <button
                             className={styles.likes}
                             onClick={this.addLike}
@@ -88,7 +90,7 @@ class PostHeadline extends Component {
                         <span className={styles.views}>
                             <SvgIcon name="eye" /> {views}
                         </span>
-                    </div>
+                    </div> */}
                 </div>
 
                 <Print />

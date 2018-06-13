@@ -1,3 +1,4 @@
 {
+    "AJAX_URL": "https://stroydrevgroup.ru/wp-admin/admin-ajax.php",
     "API_URL": "https://stroydrevgroup.ru/wp-json/"
 }

@@ -34,6 +34,7 @@ module.exports = {
                 showSpinner: false
             }
         },
+        'gatsby-plugin-sitemap',
         'gatsby-transformer-sharp',
         'gatsby-plugin-sharp',
         'gatsby-image',

@@ -1,0 +1,86 @@
+@import '../App/variables'
+
+.container
+    background-color: #333366
+    padding: 53px 20px 50px
+    background-image: linear-gradient(-27deg, #56c986 20%, #3ab4b9 50%)
+
+.title
+    text-shadow: 0 0 3px rgba(0, 0, 0, 0.1)
+    color: #ffffff
+    font-size: 18px
+    font-weight: 700
+    line-height: 1
+    text-align: center
+    margin-bottom: 23px
+
+.form
+    display: flex
+    justify-content: center
+    @media (max-width: $breakpoint-extra-small-max)
+        flex-wrap: wrap
+
+.input
+    position: relative
+    @media (max-width: $breakpoint-extra-small-max)
+        width: 100%
+        margin-bottom: 10px
+    svg
+        position: absolute
+        left: 12px
+        top: 50%
+        transform: translateY(-50%)
+        width: 16px
+        height: 16px
+        fill: #b2b2b2
+        z-index: 20
+        pointer-events: none
+    input
+        color: #666666
+        font-size: 14px
+        font-weight: 700
+        line-height: 14px
+        height: 50px
+        line-height: 50px
+        border: 2px solid #3796c2
+        background-color: #ffffff
+        padding: 0 35px
+        box-sizing: border-box
+        width: 230px
+        position: relative
+        z-index: 10
+        @media (max-width: $breakpoint-extra-small-max)
+            width: 100%
+        &:invalid
+            outline: none
+            box-shadow: none
+        &::-webkit-input-placeholder
+            color: #666666
+        &:-ms-input-placeholder
+            color: #666666
+        &::-moz-placeholder
+            color: #666666
+        &:-moz-placeholder
+            color: #666666
+
+.submit
+    padding: 0 35px
+    box-sizing: border-box
+    width: 230px
+    text-align: center
+    border: 2px solid #3796c2
+    margin-left: -2px
+    color: #ffffff
+    font-size: 14px
+    font-weight: 700
+    height: 50px
+    line-height: 50px
+    text-transform: uppercase
+    letter-spacing: 0.7px
+    background: linear-gradient(to top, #42a9e0 0%, #bae6f4 100%)
+    cursor: pointer
+    transition: background .3s ease
+    @media (max-width: $breakpoint-extra-small-max)
+        width: 100%
+    &:hover
+        background: linear-gradient(to top, #1da5ee 0%, #ace7fa 100%)

@@ -272,6 +272,9 @@ button
         position: relative
         left: 50%
         transform: translateX(-50%)
+        @media (max-width: $breakpoint-medium-max)
+            left: initial
+            transform: initial
     &.alignleft
         float: left
         margin-right: 20px
@@ -307,6 +310,12 @@ button
     counter-reset: list 0
     padding: 0
     margin: 20% 0
+    @media (max-width: $breakpoint-medium-max)
+        width: 100%
+        left: initial
+        transform: initial
+    @media (max-width: $breakpoint-extra-small-max)
+        grid-template-columns: 1fr
     li
         position: relative
         padding-left: 65px
@@ -338,6 +347,12 @@ button
     transform: translateX(-50%)
     padding: 0
     margin: 20% 0
+    @media (max-width: $breakpoint-medium-max)
+        width: 100%
+        left: initial
+        transform: initial
+    @media (max-width: $breakpoint-extra-small-max)
+        grid-template-columns: 1fr
     li
         position: relative
         padding-left: 65px
