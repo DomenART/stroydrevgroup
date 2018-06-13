@@ -64,7 +64,12 @@ class Page extends Component {
 
         return (
             <Layout>
-                <Head title={page.title} />
+                <Head
+                    title={page.title}
+                    seo_title={page.acf.seo_title}
+                    seo_keywords={page.acf.seo_keywords}
+                    seo_description={page.acf.seo_description}
+                />
                 <PageMain>
                     <PageHeader />
                 </PageMain>

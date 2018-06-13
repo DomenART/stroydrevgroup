@@ -3,6 +3,7 @@ require('dotenv').config()
 module.exports = {
     siteMetadata: {
         title: `Стройдрев`,
+        siteUrl: `https://stroydrevgroup.ru`,
     },
     plugins: [
         {

@@ -7,7 +7,6 @@ import styles from './Sitemap.module.sass'
 class Sitemap extends Component {
     render() {
         const { menu, articles, projects } = this.props
-        console.log(this.props)
 
         return (
             <div className={styles.sitemap}>
