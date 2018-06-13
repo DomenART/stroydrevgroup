@@ -14,15 +14,18 @@ class Page extends Component {
     render() {
         const { breadcrumbs } = this.props.pathContext
         const { page, tags } = this.props.data
+        const headParams = {
+            title: page.name
+        }
+        if (page.acf) {
+            headParams.seo_title = page.acf.seo_title
+            headParams.seo_keywords = page.acf.seo_keywords
+            headParams.seo_description = page.acf.seo_description
+        }
 
         return (
             <Layout>
-                <Head
-                    title={page.name}
-                    seo_title={page.acf.seo_title}
-                    seo_keywords={page.acf.seo_keywords}
-                    seo_description={page.acf.seo_description}
-                />
+                <Head {...headParams} />
                 <PageMain>
                     <PageHeader />
                 </PageMain>
